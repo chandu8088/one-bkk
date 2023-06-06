@@ -1,0 +1,295 @@
+<div data-sly-test="${wcmmode.edit}" class="cq-placeholder" data-emptytext="3D Building Details"></div>
+<sly data-sly-use.buildingdetails="com.fraserproperty.onebangkok.core.models.ThreeDBuildingDetailsModel"/>
+
+<div class="ob-container container--left">
+    <div class="content--page">
+        <h3 class="header--black-center header--mb-center special-mb">${buildingdetails.heading @ context = 'html'}</h3>
+        <p class="body-2--black-center">
+            ${buildingdetails.description @ context = 'html'}
+        </p>
+        <sly data-sly-test=${buildingdetails.threedpageurl}>
+        <div class="interactive-3d-wrapper">
+            <iframe src="${buildingdetails.threedpageurl}" frameborder="0"></iframe>
+        </div>
+        </sly>
+    </div>
+    <sly data-sly-list.sectiondetails = ${buildingdetails.towers}>
+    <div style="display: none">
+        <h4>Active Tower: <span id="active-tower"></span></h4>
+    </div>
+    
+        <!-- <div>identifire: ${sectiondetail.identifier}</div> -->
+        <div class="content-collapse-wrapper" data-iframe-content-trigger-id="${sectiondetails.identifier}" style="display: none">
+        <div class="content-collapse">
+            <div class="content-collapse-hint">${sectiondetails.additionalinformationmobilelabel}</div>
+            <div class="content-collapse-toggle-btn">
+                <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="none" fill-rule="evenodd">
+                        <circle fill="#FFF" cx="16" cy="16" r="16" />
+                        <path
+                            d="M19.254 18.4a.647.647 0 0 0 .92 0 .657.657 0 0 0 0-.926l-3.714-3.737a.647.647 0 0 0-.92 0l-3.713 3.737a.657.657 0 0 0 0 .925.647.647 0 0 0 .919 0l3.256-3.276 3.252 3.276z"
+                            fill="#000"
+                        />
+                    </g>
+                </svg>
+            </div>
+
+            <div class="content--page content-collapse__wrapper">
+                <p class="body-2--black-left">
+                    ${sectiondetails.summary @ context = 'html'}
+                </p>
+            
+                <sly data-sly-test=${sectiondetails.ctalabel}>
+                    
+                    <sly data-sly-test="${sectiondetails.buttontype == 'download'}">
+                        
+                        <sly data-sly-test="${sectiondetails.enquiryfromcheckbox}">
+                            
+                            <a id="download-Cookie" href="${sectiondetails.assetpath}" class="button button--solid--black" data-open-modal-btn="enquire-form${sectiondetails.enquiryformlink}"> ${sectiondetails.ctalabel @ context = 'html'}</a>
+                        </sly>
+                        <sly data-sly-test="${!sectiondetails.enquiryfromcheckbox}">
+                            
+                            <a href="${sectiondetails.assetpath}" class="button button--solid--black" download> ${sectiondetails.ctalabel @ context = 'html'}</a>
+                        </sly>
+                    </sly>
+                    <sly data-sly-test="${sectiondetails.buttontype == 'link'}">
+                        <a href="${sectiondetails.ctaurl @ extension = 'html'}" class="button button--solid--black" target="${sectiondetails.openinnewtab ?'_blank':''}"> ${sectiondetails.ctalabel @ context = 'html'}</a>
+                    </sly>    
+                </sly>
+            </div>
+            <div class="button-list">
+                <sly data-sly-test=${sectiondetails.assetItems}>
+                <div class="button-list__title">${sectiondetails.additionalinformationdesktoplabel}</div>
+                </sly>
+                <div class="button-list__wrapper">
+                    <sly data-sly-list.asset = ${sectiondetails.assetItems}>
+                        <sly data-sly-test="${asset.itemType == 'textimage'}">
+                        <button class="button button--text" data-open-modal-btn="shop-design-concept-${sectiondetailsList.index}-${assetList.index}">
+                            ${asset.textimageitemlabel}
+                        </button>
+                        </sly>
+                        <sly data-sly-test="${asset.itemType == 'floorplans'}">
+                        <button class="button button--text" data-open-modal-btn="work-floor-plan-${sectiondetailsList.index}-${assetList.index}">
+                            ${asset.floorplanitemlabel}
+                            <sly data-sly-test=${asset.floorplanitemlabel}>
+                            <svg width="26" height="16" viewBox="0 0 26 16" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M8.125 0C3.547 0 0 3.582 0 7.795 0 12.418 3.547 16 8.125 16c3.988 0 7.405-3.273 7.698-7.6h5.844v2L26 8l-4.333-2.4v2l-5.827.001v-.048C15.707 3.445 12.217 0 8.125 0zm-.203 15.2C3.984 15.2.792 11.976.792 8S3.984.8 7.922.8c3.805 0 6.913 3.01 7.119 6.8H8.273v.8h6.768c-.206 3.79-3.314 6.8-7.12 6.8z"
+                                    fill="#000"
+                                    fill-rule="evenodd"
+                                />
+                            </svg>
+                            </sly>
+                        </button>
+                        </sly>
+                        <sly data-sly-test="${asset.itemType == 'imagegallery'}">
+                        <button class="button button--text" data-open-modal-carousel-btn="carousel-id-${sectiondetailsList.index}-${assetList.index}">
+                            ${asset.imagegalleryitemlabel}
+                            <sly data-sly-test=${asset.imagegalleryitemlabel}>
+                            <svg width="26" height="16" viewBox="0 0 26 16" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M8.125 0C3.547 0 0 3.582 0 7.795 0 12.418 3.547 16 8.125 16c3.988 0 7.405-3.273 7.698-7.6h5.844v2L26 8l-4.333-2.4v2l-5.827.001v-.048C15.707 3.445 12.217 0 8.125 0zm-.203 15.2C3.984 15.2.792 11.976.792 8S3.984.8 7.922.8c3.805 0 6.913 3.01 7.119 6.8H8.273v.8h6.768c-.206 3.79-3.314 6.8-7.12 6.8z"
+                                    fill="#000"
+                                    fill-rule="evenodd"
+                                />
+                            </svg>
+                            </sly>
+                        </button>
+                        </sly>
+                    </sly>
+                </div>
+            </div>
+        </div>
+    </div>
+    </sly>
+</div>
+
+
+<sly data-sly-list.sectiondetails="${buildingdetails.towers}">
+    <sly data-sly-list.asset="${sectiondetails.assetItems}">
+    <!-- CAROUSEL -->
+    <!--Image Gallery Start-->
+    <sly data-sly-test="${asset.itemType == 'imagegallery'}">
+    <div class="carousel-wrapper carousel-rich carousel-rich--exp carousel-modal">
+        <div class="carousel" data-carousel="carousel-id-${sectiondetailsList.index}-${assetList.index}" data-pagination="pagination-type-1">
+            <sly data-sly-list.addimage="${asset.addimagegallery}">
+            <div>
+                <img src="${addimage.galleryimage}"  alt="${addimage.alttext}"/>
+                <div class="carousel__label">${addimage.caption}</div>
+            </div>
+            </sly>
+        </div>
+    </div>
+    <!-- ON CLICK CAROUSEL ITEM -->
+    <div class="carousel-gallery" data-carousel-id="carousel-id-${sectiondetailsList.index}-${assetList.index}">
+        <div class="carousel-gallery__wrapper-backdrop"></div>
+        <div class="carousel-gallery__wrapper">
+            <div data-carousel-close-btn class="carousel-gallery__close-btn"><img src="/etc.clientlibs/onebangkok/clientlibs/clientlib-base/resources/fonts/buttons-close-circle.svg"  /></div>
+            <div
+                class="carousel-content-wrapper"
+                data-pagination="pagination-type-1-carousel"
+                data-pagination-config="loop loop-mobile hide-control"
+            >
+                <div class="carousel-content-control-prev">
+                    <img src="/etc.clientlibs/onebangkok/clientlibs/clientlib-base/resources/fonts/arrow-right.svg" />
+                </div>
+                <div class="carousel-content"></div>
+                <div class="carousel-content-control-next">
+                    <img src="/etc.clientlibs/onebangkok/clientlibs/clientlib-base/resources/fonts/arrow-right.svg" />
+                </div>
+            </div>
+            <div class="pagination">
+                <svg class="pagination__back-btn" width="26" height="16" viewBox="0 0 26 16" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M8.125 0C3.547 0 0 3.582 0 7.795 0 12.418 3.547 16 8.125 16c3.988 0 7.405-3.273 7.698-7.6h5.844v2L26 8l-4.333-2.4v2l-5.827.001v-.048C15.707 3.445 12.217 0 8.125 0zm-.203 15.2C3.984 15.2.792 11.976.792 8S3.984.8 7.922.8c3.805 0 6.913 3.01 7.119 6.8H8.273v.8h6.768c-.206 3.79-3.314 6.8-7.12 6.8z"
+                        fill="#000"
+                        fill-rule="evenodd"
+                    />
+                </svg>
+                <div class="pagination--dots"></div>
+                <svg class="pagination__next-btn" width="26" height="16" viewBox="0 0 26 16" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M8.125 0C3.547 0 0 3.582 0 7.795 0 12.418 3.547 16 8.125 16c3.988 0 7.405-3.273 7.698-7.6h5.844v2L26 8l-4.333-2.4v2l-5.827.001v-.048C15.707 3.445 12.217 0 8.125 0zm-.203 15.2C3.984 15.2.792 11.976.792 8S3.984.8 7.922.8c3.805 0 6.913 3.01 7.119 6.8H8.273v.8h6.768c-.206 3.79-3.314 6.8-7.12 6.8z"
+                        fill="#000"
+                        fill-rule="evenodd"
+                    />
+                </svg>
+            </div>
+        </div>
+    </div>
+    </sly>
+    
+
+    <!--Text Image start-->
+    <sly data-sly-test="${asset.itemType == 'textimage'}">
+        <div class="modal">
+            <div class="modal-backdrop"></div>
+            <div class="modal-container modal--carousel-image-content" data-modal-id="shop-design-concept-${sectiondetailsList.index}-${assetList.index}">
+                <div class="modal__close-btn" data-modal-id="shop-design-concept-${sectiondetailsList.index}-${assetList.index}">
+                    <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                        <g fill="none" fill-rule="evenodd">
+                            <circle fill="#000" cx="16" cy="16" r="16" />
+                            <path d="m11.773 11.773 8.454 8.454m0-8.454-8.454 8.454" stroke="#FFF" stroke-width="1.938" />
+                        </g>
+                    </svg>
+                </div>
+                <div class="carousel-image-content">
+                    <div class="carousel-image-content__images" data-pagination="pagination-type-1" data-pagination-config="loop">
+                        <sly data-sly-list.addtextimage="${asset.addtextimages}">
+                            <div>
+                                <div class="carousel-image-content__images-label">${addtextimage.imagelabel}</div>
+                                <img class="modal__image--static" src="${addtextimage.image}" />
+                            </div>
+                        </sly>
+                    </div>
+                    <div class="pagination">
+                        <svg class="pagination__back-btn" width="26" height="16" viewBox="0 0 26 16" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                    d="M8.125 0C3.547 0 0 3.582 0 7.795 0 12.418 3.547 16 8.125 16c3.988 0 7.405-3.273 7.698-7.6h5.844v2L26 8l-4.333-2.4v2l-5.827.001v-.048C15.707 3.445 12.217 0 8.125 0zm-.203 15.2C3.984 15.2.792 11.976.792 8S3.984.8 7.922.8c3.805 0 6.913 3.01 7.119 6.8H8.273v.8h6.768c-.206 3.79-3.314 6.8-7.12 6.8z"
+                                    fill="#fff"
+                                    fill-rule="evenodd"
+                            />
+                        </svg>
+                        <div class="pagination--dots"></div>
+                        <svg class="pagination__next-btn" width="26" height="16" viewBox="0 0 26 16" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                    d="M8.125 0C3.547 0 0 3.582 0 7.795 0 12.418 3.547 16 8.125 16c3.988 0 7.405-3.273 7.698-7.6h5.844v2L26 8l-4.333-2.4v2l-5.827.001v-.048C15.707 3.445 12.217 0 8.125 0zm-.203 15.2C3.984 15.2.792 11.976.792 8S3.984.8 7.922.8c3.805 0 6.913 3.01 7.119 6.8H8.273v.8h6.768c-.206 3.79-3.314 6.8-7.12 6.8z"
+                                    fill="#fff"
+                                    fill-rule="evenodd"
+                            />
+                        </svg>
+                    </div>
+                </div>
+                <div class="modal__content modal__content--middle carousel-image-content-container">
+                    <sly data-sly-list.addtextimage="${asset.addtextimages}">
+                        <div class="${addtextimageList.first?'active':''}">
+                            <div class="callout-3--black-left-2">${addtextimage.textimagetitle}</div>
+                            <p class="body-2--black-left-2">
+                                ${addtextimage.content}
+                            </p>
+                        </div>
+                    </sly>
+                </div>
+            </div>
+        </div>
+    </sly>
+    <!--Text Image End-->
+
+    <!--Floor Plan start-->
+    <sly data-sly-test="${asset.itemType == 'floorplans'}">
+        <div class="modal">
+            <div class="modal-backdrop"></div>
+            <div class="modal-container modal--carousel-image-content" data-modal-id="work-floor-plan-${sectiondetailsList.index}-${assetList.index}">
+                <div class="modal__close-btn" data-modal-id="work-floor-plan-${sectiondetailsList.index}-${assetList.index}">
+                    <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                        <g fill="none" fill-rule="evenodd">
+                            <circle fill="#000" cx="16" cy="16" r="16" />
+                            <path d="m11.773 11.773 8.454 8.454m0-8.454-8.454 8.454" stroke="#FFF" stroke-width="1.938" />
+                        </g>
+                    </svg>
+                </div>
+
+                <div class="floor-plan-modal">
+                    <div class="floor-plan-modal__header">
+                        <div class="callout-3--black-left">${asset.floorplanstitle}</div>
+                        <p class="body-2--black-left">
+                            ${asset.floorplanscontent}
+                        </p>
+                    </div>
+                    <div class="floor-plan-modal__plate-wrapper">
+                        <div class="floor-plan-modal__plate">
+                            <sly data-sly-list.floordetails="${asset.addfloorplans}">
+                                <div class="tab-content ${floordetailsList.first?'tab-content--active':'tab-content--inactive'}" data-tab-group="tower-4-${sectiondetailsList.index}-${assetList.index}" data-tab-content="tower-4-${sectiondetailsList.index}-${assetList.index}-${floordetailsList.index}">
+
+                                    <div class="detailed-window">
+                                        <img class="detailed-content" src="${floordetails.floorplanimage}" />
+                                    </div>
+                                    <div class="floor-plan-modal__label-wrapper">
+                                        <div class="floor-plan-modal__label">${floordetails.floornumber}</div>
+                                        <div class="floor-plan-modal__zoom detailed-zoom-btn">
+                                            <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                                <g fill="none" fill-rule="evenodd">
+                                                    <circle fill="#000" cx="16" cy="16" r="16" />
+                                                    <path
+                                                            d="M13.724 7.274c3.481.037 6.313 2.9 6.313 6.381 0 1.441-.499 2.856-1.404 3.985l-.072.09.768.769.082-.037a1.876 1.876 0 0 1 2.13.382l2.628 2.625a1.914 1.914 0 0 1 0 2.702 1.894 1.894 0 0 1-1.35.556c-.511 0-.99-.197-1.349-.556l-2.628-2.629a1.89 1.89 0 0 1-.38-2.132l.037-.081-.769-.769-.09.073a6.392 6.392 0 0 1-3.985 1.406 6.39 6.39 0 0 1-6.382-6.384c0-3.507 2.85-6.37 6.354-6.382zm6.488 12.258a.67.67 0 0 0-.477.202c-.13.131-.203.3-.203.478 0 .177.072.347.203.478l2.67 2.67c.261.26.69.26.95 0 .131-.13.203-.3.203-.476a.672.672 0 0 0-.202-.477l-2.669-2.673a.67.67 0 0 0-.475-.202zM13.655 8.448c-1.394 0-2.702.54-3.684 1.523a5.213 5.213 0 0 0 3.684 8.893 5.213 5.213 0 0 0 5.207-5.209 5.213 5.213 0 0 0-5.207-5.207zm.001 2.476a.543.543 0 0 1 .545.55v1.64h1.649c.139 0 .27.052.371.147a.542.542 0 0 1-.365.938h-1.655v1.63a.556.556 0 0 1-.149.409.544.544 0 0 1-.393.163.536.536 0 0 1-.542-.546v-1.656h-1.646a.546.546 0 0 1-.38-.93.544.544 0 0 1 .389-.156h1.637v-1.638a.552.552 0 0 1 .152-.386.537.537 0 0 1 .387-.165z"
+                                                            fill="#FFF"
+                                                    />
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </sly>
+                        </div>
+                        <div class="floor-plan-modal__tower-selector">
+                            <sly data-sly-list.floordetails="${asset.addfloorplans}">
+                                <div
+                                        class="floor-plan-modal__floor-zone tab-content ${floordetailsList.first?'tab-content--active':'tab-content--inactive'}"
+                                        data-tab-group="tower-4-${sectiondetailsList.index}-${assetList.index}"
+                                        data-tab-content="tower-4-${sectiondetailsList.index}-${assetList.index}-${floordetailsList.index}">
+                                    <img src="${floordetails.secondaryimage}" />
+                                </div>
+                            </sly>
+                            <div class="selection-group selection-group--overlap-bottom selection-group--wrap">
+                                <sly data-sly-list.floordetails="${asset.addfloorplans}">
+                                    <div
+                                            class="detailed-clear-btn selection-group__item ${floordetailsList.first?'active':'inactive'}"
+                                            data-tab-group="tower-4-${sectiondetailsList.index}-${assetList.index}"
+                                            data-tab-target="tower-4-${sectiondetailsList.index}-${assetList.index}-${floordetailsList.index}"
+                                            data-tab-popup="yes">
+                                        ${floordetails.floorlabel}
+                                    </div>
+                                </sly>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </sly>
+    <!--Floor Plan End-->
+    
+
+
+    </sly>
+</sly>

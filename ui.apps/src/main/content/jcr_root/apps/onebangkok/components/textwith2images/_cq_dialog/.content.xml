@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Text with 2 images"
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    extraClientlibs="[onebangkok.authoring.dialog]">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+        <items jcr:primaryType="nt:unstructured">
+            <column
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/container">
+                <items jcr:primaryType="nt:unstructured">
+                    <largeimage
+                        jcr:primaryType="nt:unstructured"
+                        fieldDescription="Aspect ratio 1:1, Image will be auto-converted to a circle"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                        fieldLabel="Large Image"
+                        name="./largeimage"
+                        required="{Boolean}true"
+                        rootPath="/content/dam/onebangkok"/>
+                    <l_imagealttext
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                        fieldLabel="Large image alt text"
+                        name="./l_imagealttext"/>
+                    <smallimage
+                        jcr:primaryType="nt:unstructured"
+                        fieldDescription="Aspect ratio 1:1, Image will be auto-converted to a circle"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                        fieldLabel="Small Image"
+                        name="./smallimage"
+                        required="{Boolean}true"
+                        rootPath="/content/dam/onebangkok"/>
+                    <s_imagealttext
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                        fieldLabel="Small image alt text"
+                        name="./s_imagealttext"/>
+                    <heading
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                        fieldLabel="Heading"
+                        name="./heading"
+                        required="{Boolean}true"
+                        useFixedInlineToolbar="{Boolean}true">
+                        <rtePlugins
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceSuperType="/apps/onebangkok/components/authoring/richtext/rtePlugins"/>
+                        <uiSettings
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceSuperType="/apps/onebangkok/components/authoring/richtext/uiSettings"/>
+                    </heading>
+                    <description
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                        fieldLabel="Description"
+                        name="./description"
+                        required="{Boolean}true"
+                        useFixedInlineToolbar="{Boolean}true">
+                        <rtePlugins
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceSuperType="/apps/onebangkok/components/authoring/richtext/rtePlugins"/>
+                        <uiSettings
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceSuperType="/apps/onebangkok/components/authoring/richtext/uiSettings"/>
+                    </description>
+                    <subtextcallout
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                        fieldLabel="Subtext callout"
+                        name="./subtextcallout"/>
+                    <subtextcontent
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                        fieldLabel="Subtext content"
+                        name="./subtextcontent"
+                        useFixedInlineToolbar="{Boolean}true">
+                        <rtePlugins
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceSuperType="/apps/onebangkok/components/authoring/rtev2/rtePlugins"/>
+                        <uiSettings
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceSuperType="/apps/onebangkok/components/authoring/rtev2/uiSettings"/>
+                    </subtextcontent>
+                    <driverlabel
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                        fieldLabel="Divider Label"
+                        name="./driverlabel"
+                        useFixedInlineToolbar="{Boolean}true">
+                        <rtePlugins
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceSuperType="/apps/onebangkok/components/authoring/rtev2/rtePlugins"/>
+                        <uiSettings
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceSuperType="/apps/onebangkok/components/authoring/rtev2/uiSettings"/>
+                    </driverlabel>
+                    <buttontype
+                        granite:class="cq-dialog-dropdown-showhide"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                        fieldLabel="Button type"
+                        name="./buttontype">
+                        <items jcr:primaryType="nt:unstructured">
+                            <link
+                                jcr:primaryType="nt:unstructured"
+                                text="Link"
+                                value="link"/>
+                            <download
+                                jcr:primaryType="nt:unstructured"
+                                text="Download"
+                                value="download"/>
+                        </items>
+                        <granite:data
+                            jcr:primaryType="nt:unstructured"
+                            cq-dialog-dropdown-showhide-target=".showhidetargets"/>
+                    </buttontype>
+                    <ctalabel
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                        fieldLabel="CTA Label"
+                        name="./ctalabel"
+                        useFixedInlineToolbar="{Boolean}true">
+                        <rtePlugins
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceSuperType="/apps/onebangkok/components/authoring/rtev2/rtePlugins"/>
+                        <uiSettings
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceSuperType="/apps/onebangkok/components/authoring/rtev2/uiSettings"/>
+                    </ctalabel>
+                    <linktype
+                        granite:class="showhidetargets"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <ctaURL
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                fieldLabel="CTA URL"
+                                name="./ctaurl"
+                                rootPath="/content/onebangkok"/>
+                            <openinnewtab
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                name="./openinnewtab"
+                                text="Open in new tab"
+                                value="_blank"/>
+                        </items>
+                        <granite:data
+                            jcr:primaryType="nt:unstructured"
+                            cq-dialog-dropdown-showhide-target=".showhidetargets"
+                            showhidetargetvalue="link"/>
+                    </linktype>
+                    <downloadtype
+                        granite:class="showhidetargets"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <assetpath
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                fieldDescription="Select a PDF, Image or Word document from DAM"
+                                fieldLabel="Asset path"
+                                name="./assetpath"
+                                rootPath="/content/dam/onebangkok"/>
+                            <enableform
+                                granite:class="cq-dialog-checkbox-showhide"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                fieldLabel="Enable Form"
+                                name="./enableForm"
+                                text="Enable Form"
+                                value="true">
+                                <granite:data
+                                    jcr:primaryType="nt:unstructured"
+                                    cq-dialog-checkbox-showhide-target=".togglefield"/>
+                            </enableform>
+                            <formcontainer
+                                granite:class="togglefield"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <formid
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                        fieldLabel="Form id"
+                                        name="./formid"
+                                        validation="onebkk-formid-validation"/>
+                                </items>
+                            </formcontainer>
+                        </items>
+                        <granite:data
+                            jcr:primaryType="nt:unstructured"
+                            cq-dialog-dropdown-showhide-target=".showhidetargets"
+                            showhidetargetvalue="download"/>
+                    </downloadtype>
+                </items>
+            </column>
+        </items>
+    </content>
+</jcr:root>

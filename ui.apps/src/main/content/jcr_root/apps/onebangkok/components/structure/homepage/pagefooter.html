@@ -1,0 +1,15 @@
+<sly data-sly-test.resourceType="${pageProperties.sling:resourceType}"/>
+<sly data-sly-test.mode="${resourceType == 'onebangkok/components/structure/homepage' ? 'edit' : 'disabled'}"/>
+<sly data-sly-test.rootPath="${inheritedPageProperties.siteRootPath}"/>
+<sly data-sly-set.footer="${rootPath}/jcr:content/root/footer"/>
+<sly data-sly-set.footerenquiry="${rootPath}/jcr:content/root/footerenquiry"/>
+<sly data-sly-set.navigationenquiry="${rootPath}/jcr:content/root/navigationenquiry"/>
+<navigation-enquiry>
+<sly data-sly-resource="${ @path= navigationenquiry, resourceType='/apps/onebangkok/components/enquiry', wcmmode=mode}"></sly>
+</navigation-enquiry>
+<footer-enquiry>
+<sly data-sly-resource="${ @path= footerenquiry, resourceType='/apps/onebangkok/components/enquiry', wcmmode=mode}"></sly>
+</footer-enquiry>
+<footer>
+   <sly data-sly-resource="${ @path= footer, resourceType='/apps/onebangkok/components/footer', wcmmode=mode}"></sly>
+</footer>

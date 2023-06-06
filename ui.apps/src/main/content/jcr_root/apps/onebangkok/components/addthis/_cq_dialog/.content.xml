@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Button"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+        <items jcr:primaryType="nt:unstructured">
+            <column
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/container">
+                <items jcr:primaryType="nt:unstructured">
+                    <buttonlayout
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                        fieldLabel="Button layout"
+                        name="./buttonlayout">
+                        <items jcr:primaryType="nt:unstructured">
+                            <black
+                                jcr:primaryType="nt:unstructured"
+                                text="Black"
+                                value="button--solid--black"/>
+                            <white
+                                jcr:primaryType="nt:unstructured"
+                                text="White"
+                                value="button--solid--white"/>
+                        </items>
+                    </buttonlayout>
+                    <buttontype
+                        granite:class="cq-dialog-dropdown-showhide"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                        fieldLabel="Button type"
+                        name="./buttontype">
+                        <items jcr:primaryType="nt:unstructured">
+                            <link
+                                jcr:primaryType="nt:unstructured"
+                                text="Link"
+                                value="link"/>
+                            <download
+                                jcr:primaryType="nt:unstructured"
+                                text="Download"
+                                value="download"/>
+                        </items>
+                        <granite:data
+                            jcr:primaryType="nt:unstructured"
+                            cq-dialog-dropdown-showhide-target=".showhidetargets"/>
+                    </buttontype>
+                    <ctalabel
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                        fieldLabel="CTA Label"
+                        name="./ctalabel"/>
+                    <linktype
+                        granite:class="showhidetargets"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <ctaURL
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                fieldLabel="CTA URL"
+                                name="./ctaurl"
+                                rootPath="/content/onebangkok"/>
+                            <openinnewtab
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                name="./openinnewtab"
+                                text="Open in new tab"
+                                value="_blank"/>
+                        </items>
+                        <granite:data
+                            jcr:primaryType="nt:unstructured"
+                            cq-dialog-dropdown-showhide-target=".showhidetargets"
+                            showhidetargetvalue="link"/>
+                    </linktype>
+                    <downloadtype
+                        granite:class="showhidetargets"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <assetpath
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                fieldLabel="Asset path"
+                                name="./assetpath"
+                                rootPath="/content/dam/onebangkok"/>
+                        </items>
+                        <granite:data
+                            jcr:primaryType="nt:unstructured"
+                            cq-dialog-dropdown-showhide-target=".showhidetargets"
+                            showhidetargetvalue="download"/>
+                    </downloadtype>
+                    <ctadesktopalignment
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                        fieldLabel="CTA desktop alignment"
+                        name="./ctadesktopalignment">
+                        <items jcr:primaryType="nt:unstructured">
+                            <left
+                                jcr:primaryType="nt:unstructured"
+                                text="Left"
+                                value="button--left"/>
+                            <right
+                                jcr:primaryType="nt:unstructured"
+                                text="Right"
+                                value="button--right"/>
+                            <center
+                                jcr:primaryType="nt:unstructured"
+                                text="Center"
+                                value="button--center"/>
+                        </items>
+                    </ctadesktopalignment>
+                    <ctamobilealignment
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                        fieldLabel="CTA mobile alignment"
+                        name="./ctamobilealignment">
+                        <items jcr:primaryType="nt:unstructured">
+                            <left
+                                jcr:primaryType="nt:unstructured"
+                                text="Left"
+                                value="button--mb--left"/>
+                            <right
+                                jcr:primaryType="nt:unstructured"
+                                text="Right"
+                                value="button--mb--right"/>
+                            <center
+                                jcr:primaryType="nt:unstructured"
+                                text="Center"
+                                value="button--mb--center"/>
+                        </items>
+                    </ctamobilealignment>
+                </items>
+            </column>
+        </items>
+    </content>
+</jcr:root>

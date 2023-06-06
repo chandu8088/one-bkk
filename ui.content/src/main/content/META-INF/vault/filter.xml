@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/conf/onebangkok" mode="replace"/>
+    <filter root="/conf/global/settings/dam/adminui-extension/metadataschema/onebangkok_schema" mode="replace"/>
+    <filter root="/content/dam/onebangkok" mode="update"/>
+    <filter root="/content/onebangkok" mode="merge"/>
+    <filter root="/content/dam/onebangkok/asset.jpg" mode="merge"/>
+    <filter root="/content/experience-fragments/onebangkok" mode="merge"/>
+    <filter root="/etc/map.publish.dev" mode="merge"/>
+    <filter root="/etc/map.publish.dev/https/frasers-dev-onebangkok.azureedge.net" mode="merge"/>
+    <filter root="/etc/map.publish.dev/https/dev.onebangkok.com" mode="merge"/>
+    <filter root="/etc/map.publish.stage" mode="merge"/>
+    <filter root="/etc/map.publish.stage/https/frasers-stg-onebangkok.azureedge.net" mode="merge"/>
+    <filter root="/etc/map.publish.dev/https/uat.onebangkok.com" mode="merge"/>
+    <filter root="/etc/map.publish.prod" mode="merge"/>
+    <filter root="/etc/map.publish.prod/https/frasers-prod-onebangkok.azureedge.net" mode="merge"/>
+    <filter root="/etc/map.publish.dev/https/www.onebangkok.com" mode="merge"/>
+</workspaceFilter>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:template="/conf/onebangkok/settings/wcm/templates/event-detail-template"
+        jcr:primaryType="cq:PageContent"
+        sling:resourceType="onebangkok/components/structure/eventdetailpage">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="onebangkok/components/container"
+            layout="responsiveGrid">
+            <eventdetails
+                jcr:created="{Date}2022-01-04T14:25:17.937+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2022-01-04T14:25:25.593+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="onebangkok/components/eventdetails"/>
+            <container
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="onebangkok/components/container"
+                layout="responsiveGrid"/>    
+            <latestevents
+                jcr:created="{Date}2022-01-04T14:33:24.810+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2022-01-04T14:34:28.506+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="onebangkok/components/latestevents"/>
+        </root>
+    </jcr:content>
+</jcr:root>

@@ -1,0 +1,80 @@
+<div data-sly-test="${wcmmode.edit}" class="cq-placeholder" data-emptytext="History Component"></div>
+<sly data-sly-use.history="com.fraserproperty.onebangkok.core.models.HistoryModel"/>
+<div class="${!wcmmode.edit  ? 'site-history' : ''} container container--left" data-content-group>
+    <div class="content content--left">
+       <div data-sly-test="${history.historyListItems}" class="site-history__image">
+            <div>
+                <sly data-sly-list.historylist="${history.historyListItems}">
+                    <img
+                        data-scroll-animate="5"
+                        data-show-on-pagination
+                        data-content-id="history-${historylist.startYear}"
+                        class="${historylistList.index == 0 ? 'data-content-group__content data-content--active' : 'data-content-group__content data-content--inactive'}"
+                        src="${historylist.image}"/>
+                 </sly>
+            </div>
+        </div>
+        <div class="site-history__description">
+            <h2 data-scroll-animate-position="top" class="header--black-left">${history.heading @context = 'html'}</h2>
+            <div
+                class="site-history__content-wrapper"
+                data-pagination="pagination-type-1"
+                data-pagination-config="mobile-only hide-control"
+            >
+                <sly data-sly-list.historylist="${history.historyListItems}">
+                <div class="${historylistList.index == 0 ? 'data-content--active' : ''}" data-content-id="history-${historylist.startYear}">
+                    <h3 class="header--black-left site-history__year" data-scroll-animate-position="top">${historylist.startYear}</h3>
+                    <p class="body-2--black-left site-history__title" data-scroll-animate-position="middle">
+                        ${historylist.title}
+                    </p>
+                    <p class="body-2--black-left" data-scroll-animate-position="bottom">
+                        ${historylist.description @ context = 'html'}
+                    </p>
+                </div>
+            </sly>
+            </div>
+            <div class="pagination">
+                <svg class="pagination__back-btn" width="26" height="16" viewBox="0 0 26 16" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M8.125 0C3.547 0 0 3.582 0 7.795 0 12.418 3.547 16 8.125 16c3.988 0 7.405-3.273 7.698-7.6h5.844v2L26 8l-4.333-2.4v2l-5.827.001v-.048C15.707 3.445 12.217 0 8.125 0zm-.203 15.2C3.984 15.2.792 11.976.792 8S3.984.8 7.922.8c3.805 0 6.913 3.01 7.119 6.8H8.273v.8h6.768c-.206 3.79-3.314 6.8-7.12 6.8z"
+                        fill="#000"
+                        fill-rule="evenodd"
+                    />
+                </svg>
+                <div class="pagination--dots"></div>
+                <svg class="pagination__next-btn" width="26" height="16" viewBox="0 0 26 16" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M8.125 0C3.547 0 0 3.582 0 7.795 0 12.418 3.547 16 8.125 16c3.988 0 7.405-3.273 7.698-7.6h5.844v2L26 8l-4.333-2.4v2l-5.827.001v-.048C15.707 3.445 12.217 0 8.125 0zm-.203 15.2C3.984 15.2.792 11.976.792 8S3.984.8 7.922.8c3.805 0 6.913 3.01 7.119 6.8H8.273v.8h6.768c-.206 3.79-3.314 6.8-7.12 6.8z"
+                        fill="#000"
+                        fill-rule="evenodd"
+                    />
+                </svg>
+            </div>
+        </div>
+    </div>
+    <div data-sly-test="${history.historyListItems}" class="site-history__control">
+        <div data-content-control="prev" class="site-history__control-prev">
+            <svg width="26" height="16" viewBox="0 0 26 16" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M8.125 0C3.547 0 0 3.582 0 7.795 0 12.418 3.547 16 8.125 16c3.988 0 7.405-3.273 7.698-7.6h5.844v2L26 8l-4.333-2.4v2l-5.827.001v-.048C15.707 3.445 12.217 0 8.125 0zm-.203 15.2C3.984 15.2.792 11.976.792 8S3.984.8 7.922.8c3.805 0 6.913 3.01 7.119 6.8H8.273v.8h6.768c-.206 3.79-3.314 6.8-7.12 6.8z"
+                    fill="#000"
+                    fill-rule="evenodd"
+                />
+            </svg>
+        </div>
+        <div class="site-history__control-item-group">
+            <sly data-sly-list.historylist="${history.historyListItems}">
+            <div class="site-history-control__item ${historylistList.index <6 ? 'shown' : ''} ${historylistList.index == 0 ? 'data-content-button--active' : ''}" data-content-target="history-${historylist.startYear}">${historylist.startYear}</div>
+        </sly>
+        </div>
+        <div data-content-control="next" class="site-history__control-next">
+            <svg width="26" height="16" viewBox="0 0 26 16" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M8.125 0C3.547 0 0 3.582 0 7.795 0 12.418 3.547 16 8.125 16c3.988 0 7.405-3.273 7.698-7.6h5.844v2L26 8l-4.333-2.4v2l-5.827.001v-.048C15.707 3.445 12.217 0 8.125 0zm-.203 15.2C3.984 15.2.792 11.976.792 8S3.984.8 7.922.8c3.805 0 6.913 3.01 7.119 6.8H8.273v.8h6.768c-.206 3.79-3.314 6.8-7.12 6.8z"
+                    fill="#000"
+                    fill-rule="evenodd"
+                />
+            </svg>
+        </div>
+    </div>
+</div>

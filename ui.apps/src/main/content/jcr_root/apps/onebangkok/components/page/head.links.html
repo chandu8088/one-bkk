@@ -1,0 +1,21 @@
+
+<link data-sly-use.page="com.adobe.cq.wcm.core.components.models.Page"
+      data-sly-use.obpage="com.fraserproperty.onebangkok.core.models.OBPage"
+      data-sly-test="${obpage.canonicalOBLink}"
+      rel="canonical" href="${obpage.canonicalOBLink}">
+<link data-sly-test="${obpage.alternateOBLanguageLinks}"
+      data-sly-repeat="${obpage.alternateOBLanguageLinks.entrySet}"
+      rel="alternate" hreflang="${item.key}" href="${item.value}">
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="One Bangkok"/>
+<meta property="og:locale" content="${page.language}"/>
+<meta data-sly-test.description="${page.description || properties['jcr:description']}" property="og:description" content="${description}"/>
+<meta property="og:title" content="${properties['pageTitle']||page.title}"/>
+<meta property="og:url" content="${obpage.canonicalOBLink}"/>
+<meta data-sly-test.thumbnail="${obpage.thumbnail}" property="og:image" content="${thumbnail}"/>
+
+<meta name="twitter:card" content="Summary"/>
+<meta name="twitter:site" content="One Bangkok"/>
+<meta name="twitter:title" content="${properties['pageTitle']||page.title}">
+<meta data-sly-test.description="${page.description || properties['jcr:description']}" name="twitter:description" content="${description}"/>
+<meta data-sly-test.thumbnail="${obpage.thumbnail}" name="twitter:image" content="${thumbnail}"/>

@@ -1,0 +1,267 @@
+
+
+<div data-sly-test="${wcmmode.edit}" class="cq-placeholder" data-emptytext="Text Image"></div>
+<sly data-sly-use.textImage="com.fraserproperty.onebangkok.core.models.TextImageModel"/>
+<sly data-sly-test="${textImage.layout == 'constrainedwidth'}">
+    <div class="ob-container container--left">
+        <sly data-sly-test.class="${textImage.desktopImageAlignment == 'right' ? 'reverse' :''}"/>
+        <sly data-sly-test.mobileclass="${textImage.mobileImageAlignment == 'top' ? 'content--left-default' :'content--left-reverse'}"/>
+        <div class="content content--left ${class} ${mobileclass}">
+            <div data-aos="zoom-in" data-aos-offset="0" class="content__media">
+                <div data-scroll-animate="5">
+                    <div class="oval-image-container">
+                        <img class="oval-image-contaner__backdrop" src="${textImage.image}"
+                             alt="${textImage.imgAltText}" data-aos="fade" data-aos-offset="0"/>
+                    </div>
+                </div>
+            </div>
+            <div class="content__wrapper">
+            <sly data-sly-test="${!properties.thinHeading}">
+                <h2 class="header--black-left">${textImage.headingRTE @context='html'}</h2>
+                </sly>
+ <sly data-sly-test="${properties.thinHeading}">
+<h3 class="two-col-content__header">${textImage.headingRTE @context='html'}</h3>
+</sly>
+                <p class="body-2--black-left">
+                    ${textImage.descriptionRTE @context='html'}
+                </p>
+
+                <sly data-sly-test="${textImage.ctaLabel}">
+                    <sly data-sly-test="${properties.buttontype=='download'}">
+                        <sly data-sly-test="${properties.enableForm}">
+                                <a id="download-Cookie" class="button button--icon button--solid--black" href="${textImage.assetpath}"
+                                   data-open-modal-btn="enquire-form${textImage.formid}">
+                        </sly>
+                        <sly data-sly-test="${!properties.enableForm}">
+                            <a class="button button--icon button--solid--black" href="${textImage.assetpath}" download>
+                        </sly>
+                    </sly>
+                    <sly data-sly-test="${properties.buttontype=='link'}">
+                        <a class="button button--icon button--solid--black" href="${textImage.ctaUrl @extension='html'}"
+                           target="${textImage.openinnewtab ?'_blank':''}">
+                    </sly>
+                    ${textImage.ctaLabel}
+                    <sly data-sly-test="${properties.buttontype=='link'}">
+                    <svg width="26" height="16" viewBox="0 0 26 16" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                                d="M8.125 0C3.547 0 0 3.582 0 7.795 0 12.418 3.547 16 8.125 16c3.988 0 7.405-3.273 7.698-7.6h5.844v2L26 8l-4.333-2.4v2l-5.827.001v-.048C15.707 3.445 12.217 0 8.125 0zm-.203 15.2C3.984 15.2.792 11.976.792 8S3.984.8 7.922.8c3.805 0 6.913 3.01 7.119 6.8H8.273v.8h6.768c-.206 3.79-3.314 6.8-7.12 6.8z"
+                                fill="#fff"
+                                fill-rule="evenodd"
+                        />
+                    </svg>
+                    </sly>
+                    </a>
+                </sly>
+            </div>
+        </div>
+    </div>
+</sly>
+
+<sly data-sly-test="${textImage.layout == 'fullwidth'}"> 
+   <div data-sly-set.noterrorpage="${currentPage.contentResource.resourceType!='onebangkok/components/structure/errorpage'}" data-sly-unwrap="${noterrorpage}" class="${wcmmode.disabled || wcmmode.preview ? 'container--one-page' : ''}"> 
+    <div class="ob-container container--left container--left-large ${noterrorpage ? 'container--divider-top' : ''}">
+        <div class="content content--overflow content--left content--divider-top ">
+            <sly data-sly-test.class="${textImage.desktopImageAlignment == 'right' ? '' :'reverse'}"/>
+            <div class="content__wrapper ${class}">
+                <h2 class="header--black-left header--mb-center" data-aos="fade" data-scroll-animate-position="top">
+                    ${textImage.headingRTE @context='html'}
+                </h2>
+                <div data-scroll-animate="5" class="content__media content__media-mb-fit">
+                    <img data-sly-attribute.data-animate-masking="${properties.enableAnimation ? 'circle-center' : ''}" class="image--contain" src="${textImage.image}" alt="${textImage.imgAltText}"/>
+                </div>
+                <p class="body-2--black-left body--mb-center">
+                    ${textImage.descriptionRTE @context='html'}
+                </p>
+                <sly data-sly-test="${textImage.ctaLabel}">
+                    <sly data-sly-test="${properties.buttontype=='download'}">
+                        <sly data-sly-test="${properties.enableForm}">
+
+                                <a id="download-Cookie" class="button button--icon button--solid--black button--mb-center"
+                                   href="${textImage.assetpath}" data-open-modal-btn="enquire-form${textImage.formid}">
+
+                        </sly>
+                        <sly data-sly-test="${!properties.enableForm}">
+                            <a class="button button--icon button--solid--black button--mb-center"
+                               href="${textImage.assetpath}" download>
+                        </sly>
+                    </sly>
+                    <sly data-sly-test="${properties.buttontype=='link'}">
+                        <a class="button button--icon button--solid--black button--mb-center"
+                           href="${textImage.ctaUrl @extension='html'}" target="${textImage.openinnewtab ?'_blank':''}">
+                    </sly>
+
+                    ${textImage.ctaLabel}
+                    <sly data-sly-test="${properties.buttontype=='link'}">
+                    <svg width="26" height="16" viewBox="0 0 26 16" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.125 0C3.547 0 0 3.582 0 7.795 0 12.418 3.547 16 8.125 16c3.988 0 7.405-3.273 7.698-7.6h5.844v2L26 8l-4.333-2.4v2l-5.827.001v-.048C15.707 3.445 12.217 0 8.125 0zm-.203 15.2C3.984 15.2.792 11.976.792 8S3.984.8 7.922.8c3.805 0 6.913 3.01 7.119 6.8H8.273v.8h6.768c-.206 3.79-3.314 6.8-7.12 6.8z"
+                              fill="#fff" fill-rule="evenodd"/>
+                    </svg>
+                    </sly>
+                    </a>
+                </sly>
+
+            </div>
+        </div>
+    </div>
+    </div>
+    <div data-sly-test="${currentPage.contentResource.resourceType == 'onebangkok/components/structure/errorpage'}" class="page-not-found__decor">
+        <div class="page-not-found__background-circle-wrapper">
+            <div class="page-not-found__background-circle"></div>
+        </div>
+    </div>
+</sly>
+
+<sly data-sly-test="${textImage.layout == 'textimageinfographics'}">
+    <sly data-sly-test="${textImage.desktopImageAlignment == 'right'}">
+        <div class="ob-container container--left">
+            <div class="content content--left">
+                <div class="content__wrapper">
+                    <h2 class="header--black-left header--mb-center header--overflow">${textImage.headingRTE
+                        @context='html'}</h2>
+                    <p class="body-2--black-left body--mb-center">
+                        ${textImage.descriptionRTE @context='html'}
+                    </p>
+                    <sly data-sly-test="${textImage.ctaLabel}">
+                        <sly data-sly-test="${properties.buttontype=='download'}">
+                            <sly data-sly-test="${properties.enableForm}">
+                                    <a id="download-Cookie" class="button button--icon button--solid--black button--mb-center"
+                                       href="${textImage.assetpath}"
+                                       data-open-modal-btn="enquire-form${textImage.formid}">
+                                        ${textImage.ctaLabel}</a>
+                            </sly>
+                            <sly data-sly-test="${!properties.enableForm}">
+                                <a class="button button--icon button--solid--black button--mb-center"
+                                   href="${textImage.assetpath}" download>
+                                    ${textImage.ctaLabel}</a>
+                            </sly>
+                        </sly>
+                        <sly data-sly-test="${properties.buttontype=='link'}">
+                            <a href="${textImage.ctaUrl @extension='html'}"
+                               class="button button--icon button--solid--black button--mb-center"
+                               target="${textImage.openinnewtab ?'_blank':''}"> ${textImage.ctaLabel}
+							   <svg width="26" height="16" viewBox="0 0 26 16" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.125 0C3.547 0 0 3.582 0 7.795 0 12.418 3.547 16 8.125 16c3.988 0 7.405-3.273 7.698-7.6h5.844v2L26 8l-4.333-2.4v2l-5.827.001v-.048C15.707 3.445 12.217 0 8.125 0zm-.203 15.2C3.984 15.2.792 11.976.792 8S3.984.8 7.922.8c3.805 0 6.913 3.01 7.119 6.8H8.273v.8h6.768c-.206 3.79-3.314 6.8-7.12 6.8z"
+                              fill="#fff" fill-rule="evenodd"/>
+                    </svg></a>
+							   
+                        </sly>
+                    </sly>
+                </div>
+                <div class="content__media overflow--right">
+                    <div data-button-group="group-id" class="circle-button-wrapper">
+                        <div class="circle-button-wrapper__content">
+                            <div class="circle-button-wrapper__content-backdrop" data-aos="zoom-in"
+                                 data-aos-offset="0">
+<svg width="1475" height="1475" viewBox="0 0 1475 1475" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="737.5" cy="733.5" r="618.5" fill="#414141" />
+                              </svg></div>
+
+                            <img class="circle-button-wrapper__content-image active" src="${textImage.image}"
+                                 alt="${textImage.imgAltText}"/>
+                            <sly data-sly-list.infographicItem="${textImage.infographicItems}">
+                                <div class="circle-button-wrapper__content-details"
+                                     data-content-id="${infographicItem.iconLabelId}">
+                                    <p class="body-2--white-center circle-button-wrapper__content-details-title">
+                                        ${infographicItem.iconLabel}
+                                    </p>
+                                    <p class="body-2--white-center">
+                                        ${infographicItem.iconDescription @context='html'}
+                                    </p>
+                                    <div class="circle-button-wrapper__content-close">
+                                        <img src="/etc.clientlibs/onebangkok/clientlibs/clientlib-base/resources/fonts/buttons-close-circle-white.svg"/>
+                                    </div>
+                                </div>
+                            </sly>
+                        </div>
+                        <sly data-sly-list.infographicItem="${textImage.infographicItems}">
+                            <button data-button-position="${infographicItem.iconPosition}"
+                                    data-content-id="${infographicItem.iconLabelId}">
+                                <div data-aos="zoom-in" data-aos-offset="0" data-aos-delay="200"
+                                     class="circle-button-icon">
+                                    <img class="toggled" src="${infographicItem.icon}"/>
+                                </div>
+                                <div class="circle-button-icon-description"> ${infographicItem.iconLabel}</div>
+                            </button>
+                        </sly>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </sly>
+    <sly data-sly-test="${textImage.desktopImageAlignment == 'left'}">
+        <div class="ob-container container--left">
+            <div class="content-with-cirlce-button-wrapper">
+                <div data-button-group="group-id" class="circle-button-wrapper">
+                    <div class="circle-button-wrapper__content circle-button-wrapper__content--center">
+                        <div class="circle-button-wrapper__content-backdrop" data-aos="zoom-in"
+                             data-aos-offset="0">
+                             <svg width="1475" height="1475" viewBox="0 0 1475 1475" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="737.5" cy="733.5" r="618.5" fill="#414141" />
+                              </svg>
+                            </div>
+                        <img
+                                class="circle-button-wrapper__content-image circle-button-wrapper__content-image active"
+                                src="${textImage.image}" alt="${textImage.imgAltText}"
+                        />
+
+                        <!-- STYLE MUST BE REMOVE -->
+                        <sly data-sly-list.infographicItem="${textImage.infographicItems}">
+                            <div class="circle-button-wrapper__content-details"
+                                 data-content-id="${infographicItem.iconLabelId}">
+                                <p class="body-2--white-center circle-button-wrapper__content-details-title">
+                                    ${infographicItem.iconLabel}</p>
+                                <p class="body-2--white-center">
+                                    ${infographicItem.iconDescription @context='html'}
+                                </p>
+                                <div class="circle-button-wrapper__content-close">
+                                    <img src="/etc.clientlibs/onebangkok/clientlibs/clientlib-base/resources/fonts/buttons-close-circle-white.svg"/>
+                                </div>
+                            </div>
+                        </sly>
+                    </div>
+                    <sly data-sly-list.infographicItem="${textImage.infographicItems}">
+                        <button data-button-position="${infographicItem.iconPosition}"
+                                data-content-id="${infographicItem.iconLabelId}">
+                            <div data-aos="zoom-in" data-aos-offset="0" data-aos-delay="200" class="circle-button-icon">
+                             <img class="toggled" src="${infographicItem.icon}"/>
+                            </div>
+                            <div class="circle-button-icon-description">${infographicItem.iconLabel}</div>
+                        </button>
+                    </sly>
+                </div>
+                <div class="content-with-cirlce-button-wrapper__content">
+                    <h2 class="header--black-left header--mb-center">${textImage.headingRTE @context='html'}</h2>
+                    <p class="body-2--black-left body--mb-center">
+                        ${textImage.descriptionRTE @context='html'}
+                    </p>
+                    <sly data-sly-test="${textImage.ctaLabel}">
+                        <sly data-sly-test="${properties.buttontype=='download'}">
+                            <sly data-sly-test="${properties.enableForm}">
+                                    <a id="download-Cookie" class="button button--icon button--solid--black button--mb-center"
+                                       href="${textImage.assetpath}"
+                                       data-open-modal-btn="enquire-form${textImage.formid}">
+                                        ${textImage.ctaLabel}</a>
+                            </sly>
+
+                            <sly data-sly-test="${!properties.enableForm}">
+                                <a class="button button--icon button--solid--black button--mb-center"
+                                   href="${textImage.assetpath}" download>
+                                    ${textImage.ctaLabel}</a>
+                            </sly>
+                        </sly>
+                        <sly data-sly-test="${properties.buttontype=='link'}">
+                            <a href="${textImage.ctaUrl @extension='html'}"
+                               class="button button--icon button--solid--black button--mb-center"
+                               target="${textImage.openinnewtab ?'_blank':''}"> ${textImage.ctaLabel}
+							   <svg width="26" height="16" viewBox="0 0 26 16" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.125 0C3.547 0 0 3.582 0 7.795 0 12.418 3.547 16 8.125 16c3.988 0 7.405-3.273 7.698-7.6h5.844v2L26 8l-4.333-2.4v2l-5.827.001v-.048C15.707 3.445 12.217 0 8.125 0zm-.203 15.2C3.984 15.2.792 11.976.792 8S3.984.8 7.922.8c3.805 0 6.913 3.01 7.119 6.8H8.273v.8h6.768c-.206 3.79-3.314 6.8-7.12 6.8z"
+                              fill="#fff" fill-rule="evenodd"/>
+                    </svg></a>
+							   
+                        </sly>
+                    </sly>
+                </div>
+            </div>
+        </div>
+    </sly>
+</sly>

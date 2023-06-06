@@ -1,0 +1,67 @@
+
+<div data-sly-test="${wcmmode.edit}" class="cq-placeholder" data-emptytext="Text Image with Selectors Component"></div>
+<sly data-sly-use.child="com.fraserproperty.onebangkok.core.models.SelectorsModel"/>
+
+<sly data-sly-test="${properties.layout == 'stacked'}">
+
+
+<div data-sly-attribute.data-dark-nav="${properties.isBackgroundDark ? 'true':'false'}" class="ob-container container--large">
+            <div class="content content--right content--middle">
+                <div class="content__media image--square aos-init aos-animate" data-aos="zoom-in" data-aos-offset="0">
+                    <div data-scroll-animate="5" class="animate-scroll-init" >
+                     <sly data-sly-list="${child.selectorsList}">
+                        <img
+                        data-tab-group="${child.contentIdentifier}"
+                    	data-tab-content="${item.tabTarget}"
+                    	src="${item.imagePath}"
+                    	alt="${item.imageAltText}"
+                        class="circle-image-map tab-content--over ${item.defaultName ? 'tab-content--active' : 'tab-content--inactive'}"
+                        >
+</sly>
+                    </div>
+                </div>
+
+                   <div class="content__wrapper content--middle">
+                       <h2 data-scroll-animate-position="top" class="header--black-left animate-scroll-init" style="transform: translateY(0.864969rem);">${child.heading @context='html'}</h2>
+                    <p data-scroll-animate-position="middle" class="body-2--black-left animate-scroll-init" style="transform: translateY(0.846706rem);">
+                        ${child.description @context='html'}
+                    </p>
+                         <div data-scroll-animate-position="bottom" class="selection-group animate-scroll-init">
+
+<sly data-sly-list="${child.selectorsList}">
+<div class="selection-group__item ${item.defaultName ? 'active' : inactive}" data-tab-group="${child.contentIdentifier}" data-tab-target="${item.tabTarget}" >${item.selectorLabel}</div>
+                     </sly>
+                     </div>
+                     </div>
+                     </div>
+                     </div>
+</sly>
+<sly data-sly-test="${properties.layout == 'linear'}">
+<div data-sly-attribute.data-dark-nav="${properties.isBackgroundDark ? 'true':'false'}" class="ob-container container--left">
+    <div class="content content--left">
+        <div class="content__wrapper content__wrapper--large content--middle">
+            <h2 data-scroll-animate-position="top" class="header--black-left header--mb-center">${child.heading @context='html'}</h2>
+            <p data-scroll-animate-position="middle" class="body-2--black-left body--mb-center">
+                ${child.description @context='html' }
+            </p>
+            <div data-scroll-animate-position="bottom" class="selection-group selection-group--overlap-bottom selection-group--wrap">
+                <sly data-sly-list="${child.selectorsList}">
+                    <div class="selection-group__item ${item.defaultName ? 'active' : inactive}" data-tab-group="${child.contentIdentifier}" data-tab-target="${item.tabTarget}">${item.selectorLabel}</div>
+                </sly>
+            </div>
+        </div>
+
+        <div class="image--circle-small content__media--large animate-scroll-init" data-scroll-animate="5">
+            <sly data-sly-list="${child.selectorsList}">
+                <img
+                    class="image--circle-small content--middle circle-image-design-concept tab-content tab-content--over ${item.defaultName ? 'tab-content--active' : 'tab-content--inactive'}"
+                    data-tab-group="${child.contentIdentifier}"
+                    data-tab-content="${item.tabTarget}"
+                    src="${item.imagePath}"
+                    alt="${item.imageAltText}"
+                />
+            </sly>
+        </div>
+    </div>
+</div>
+</sly>

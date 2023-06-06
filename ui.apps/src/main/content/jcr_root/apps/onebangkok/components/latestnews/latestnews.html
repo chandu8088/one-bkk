@@ -1,0 +1,184 @@
+<div data-sly-test="${wcmmode.edit}" class="cq-placeholder" data-emptytext="Latest News"></div>
+<sly data-sly-use.latestNewsModel="com.fraserproperty.onebangkok.core.models.LatestNewsModel">
+    <!-- 3 cards -->
+    <sly data-sly-test="${properties.buttonlayout == 'static3news'}">
+        <div class="ob-container container--left">
+            <div class="header-with-button">
+                <h2 data-sly-test="${properties.heading}" class="header--black-left" data-aos="fade-up" data-aos-offset="0">${latestNewsModel.heading @ context = 'html'}</h2>
+                <a data-sly-test="${properties.mainctalabel}" target="${properties.openinnewtab ?'_blank':''}" class="button button--text" data-aos="fade-up" data-aos-offset="0" href="${properties.mainctaurl @ extension = 'html'}">
+                    ${latestNewsModel.mainctalabel @ context = 'html' }
+                    <svg width="26" height="16" viewBox="0 0 26 16" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M8.125 0C3.547 0 0 3.582 0 7.795 0 12.418 3.547 16 8.125 16c3.988 0 7.405-3.273 7.698-7.6h5.844v2L26 8l-4.333-2.4v2l-5.827.001v-.048C15.707 3.445 12.217 0 8.125 0zm-.203 15.2C3.984 15.2.792 11.976.792 8S3.984.8 7.922.8c3.805 0 6.913 3.01 7.119 6.8H8.273v.8h6.768c-.206 3.79-3.314 6.8-7.12 6.8z"
+                            fill="#000"
+                            fill-rule="evenodd"
+                        />
+                    </svg>
+                </a>
+            </div>
+            <div
+                class="article-thumbnail"
+                data-pagination="pagination-type-1"
+                data-pagination-config="mobile-only loop loop-mobile hide-control ${properties.enableautoscroll}"
+                data-aos="fade-up"
+                data-aos-offset="0" data-sly-list.latestModel=${latestNewsModel.latestNews}
+            >
+                <div data-sly-test="${latestModelList.index <3}" class="article-thumbnail-item">
+                    <a class="article-thumbnail-item__image" alt="${latestModel.thumbnailalttext}">
+                        <img src="${latestModel.thumbnailImage}"/>
+                    </a>
+                    <div class="article-thumbnail-item__date">${ 'MMM dd, yyyy' @ format=latestModel.date, timezone='GMT+7'}</div>
+                    <div class="callout-3--black-left">${latestModel.newsHeading}</div>
+                    <p class="body-2--black-left article-thumbnail-item__content">
+                        ${latestModel.summary @ context = 'html'}
+                    </p>
+                    <a class="button button--text" href="${latestModel.ctaUrl @ extension = 'html'}">
+                        ${properties.cardctalabel}
+                        <svg width="26" height="16" viewBox="0 0 26 16" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M8.125 0C3.547 0 0 3.582 0 7.795 0 12.418 3.547 16 8.125 16c3.988 0 7.405-3.273 7.698-7.6h5.844v2L26 8l-4.333-2.4v2l-5.827.001v-.048C15.707 3.445 12.217 0 8.125 0zm-.203 15.2C3.984 15.2.792 11.976.792 8S3.984.8 7.922.8c3.805 0 6.913 3.01 7.119 6.8H8.273v.8h6.768c-.206 3.79-3.314 6.8-7.12 6.8z"
+                                fill="#000"
+                                fill-rule="evenodd"
+                            />
+                        </svg>
+                    </a>
+                </div>
+                
+            </div>
+
+            <div class="pagination">
+                <svg class="pagination__back-btn" width="26" height="16" viewBox="0 0 26 16" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M8.125 0C3.547 0 0 3.582 0 7.795 0 12.418 3.547 16 8.125 16c3.988 0 7.405-3.273 7.698-7.6h5.844v2L26 8l-4.333-2.4v2l-5.827.001v-.048C15.707 3.445 12.217 0 8.125 0zm-.203 15.2C3.984 15.2.792 11.976.792 8S3.984.8 7.922.8c3.805 0 6.913 3.01 7.119 6.8H8.273v.8h6.768c-.206 3.79-3.314 6.8-7.12 6.8z"
+                        fill="#000"
+                        fill-rule="evenodd"
+                    />
+                </svg>
+                <div class="pagination--dots"></div>
+                <svg class="pagination__next-btn" width="26" height="16" viewBox="0 0 26 16" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M8.125 0C3.547 0 0 3.582 0 7.795 0 12.418 3.547 16 8.125 16c3.988 0 7.405-3.273 7.698-7.6h5.844v2L26 8l-4.333-2.4v2l-5.827.001v-.048C15.707 3.445 12.217 0 8.125 0zm-.203 15.2C3.984 15.2.792 11.976.792 8S3.984.8 7.922.8c3.805 0 6.913 3.01 7.119 6.8H8.273v.8h6.768c-.206 3.79-3.314 6.8-7.12 6.8z"
+                        fill="#000"
+                        fill-rule="evenodd"
+                    />
+                </svg>
+            </div>
+        </div>
+    </sly>
+
+    <!-- 9 cards -->
+
+    <sly  data-sly-test="${properties.buttonlayout == 'carousel9news'}" >
+        <div class="ob-container container--left container--article">
+            <div class="header-with-button">
+                <h2 data-sly-test="${properties.heading}" class="header--black-left" data-aos="fade-up" data-aos-offset="0">${latestNewsModel.heading @ context = 'html'}</h2>
+            </div>
+            <div class="article-thumbnail article-thumbnail-group-wrapper" data-pagination="pagination-type-1" data-pagination-config="${properties.enableautoscroll}" >
+                <!-- FIRST PAGE -->
+                    <div class="article-thumbnail-group pagination-group">
+                        <sly data-sly-list.latestModel=${latestNewsModel.latestNews}>
+                            <sly data-sly-test="${latestModelList.index <3}">
+                                <div class="article-thumbnail-item">
+                                    <a class="article-thumbnail-item__image" alt="${latestModel.thumbnailalttext}">
+                                        <img src="${latestModel.thumbnailImage}" />
+                                    </a>
+                                    <div class="article-thumbnail-item__date">${ 'MMM dd, yyyy' @ format=latestModel.date, timezone='GMT+7'}</div>
+                                    <div class="callout-3--black-left">${latestModel.newsHeading}</div>
+                                    <div class="body-2--black-left article-thumbnail-item__content">
+                                        ${latestModel.summary @ context = 'html'}
+                                    </div>
+                                    <a class="button button--text" href="${latestModel.ctaUrl @ extension = 'html'}">
+                                        ${properties.cardctalabel}
+                                        <svg width="26" height="16" viewBox="0 0 26 16" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M8.125 0C3.547 0 0 3.582 0 7.795 0 12.418 3.547 16 8.125 16c3.988 0 7.405-3.273 7.698-7.6h5.844v2L26 8l-4.333-2.4v2l-5.827.001v-.048C15.707 3.445 12.217 0 8.125 0zm-.203 15.2C3.984 15.2.792 11.976.792 8S3.984.8 7.922.8c3.805 0 6.913 3.01 7.119 6.8H8.273v.8h6.768c-.206 3.79-3.314 6.8-7.12 6.8z"
+                                                fill="#000"
+                                                fill-rule="evenodd"
+                                            />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </sly>
+                        </sly>
+                                
+                    </div>
+                    <!-- SECOND PAGE -->
+                    <div data-sly-test= "${latestNewsModel.latestNews.size > 3}" class="article-thumbnail-group pagination-group">
+                        <sly data-sly-list.latestModel=${latestNewsModel.latestNews}>
+                            <sly data-sly-test="${latestModelList.index > 2 && latestModelList.index <6}">
+                                <div class="article-thumbnail-item">
+                                    <a class="article-thumbnail-item__image" alt="${latestModel.thumbnailalttext}">
+                                        <img src="${latestModel.thumbnailImage}" />
+                                    </a>
+                                    <div class="article-thumbnail-item__date">${ 'MMM dd, yyyy' @ format=latestModel.date, timezone='GMT+7'}</div>
+                                    <div class="callout-3--black-left">${latestModel.newsHeading}</div>
+                                    <div class="body-2--black-left article-thumbnail-item__content">
+                                        ${latestModel.summary @ context = 'html'}
+                                    </div>
+                                    <a class="button button--text" href="${latestModel.ctaUrl @ extension = 'html'}">
+                                        ${properties.cardctalabel}
+                                        <svg width="26" height="16" viewBox="0 0 26 16" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M8.125 0C3.547 0 0 3.582 0 7.795 0 12.418 3.547 16 8.125 16c3.988 0 7.405-3.273 7.698-7.6h5.844v2L26 8l-4.333-2.4v2l-5.827.001v-.048C15.707 3.445 12.217 0 8.125 0zm-.203 15.2C3.984 15.2.792 11.976.792 8S3.984.8 7.922.8c3.805 0 6.913 3.01 7.119 6.8H8.273v.8h6.768c-.206 3.79-3.314 6.8-7.12 6.8z"
+                                                fill="#000"
+                                                fill-rule="evenodd"
+                                            />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </sly>
+                        </sly>
+                    
+                    </div>
+                    <!-- THIRD PAGE -->
+                    
+                    <div data-sly-test= "${latestNewsModel.latestNews.size > 6}" class="article-thumbnail-group pagination-group">
+                        <sly data-sly-list.latestModel=${latestNewsModel.latestNews}>
+                            <sly data-sly-test="${latestModelList.index > 5 && latestModelList.index <9}">
+                                <div class="article-thumbnail-item">
+                                    <a class="article-thumbnail-item__image" alt="${latestModel.thumbnailalttext}">
+                                        <img src="${latestModel.thumbnailImage}" />
+                                    </a>
+                                    <div class="article-thumbnail-item__date">${ 'MMM dd, yyyy' @ format=latestModel.date, timezone='GMT+7'}</div>
+                                    <div class="callout-3--black-left">${latestModel.newsHeading}</div>
+                                    <div class="body-2--black-left article-thumbnail-item__content">
+                                        ${latestModel.summary @ context = 'html'}
+                                    </div>
+                                    <a class="button button--text" href="${latestModel.ctaUrl @ extension = 'html'}">
+                                        ${properties.cardctalabel}
+                                        <svg width="26" height="16" viewBox="0 0 26 16" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M8.125 0C3.547 0 0 3.582 0 7.795 0 12.418 3.547 16 8.125 16c3.988 0 7.405-3.273 7.698-7.6h5.844v2L26 8l-4.333-2.4v2l-5.827.001v-.048C15.707 3.445 12.217 0 8.125 0zm-.203 15.2C3.984 15.2.792 11.976.792 8S3.984.8 7.922.8c3.805 0 6.913 3.01 7.119 6.8H8.273v.8h6.768c-.206 3.79-3.314 6.8-7.12 6.8z"
+                                                fill="#000"
+                                                fill-rule="evenodd"
+                                            />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </sly>
+                        </sly>
+                    
+                    </div>
+                    <!-- END THIRD PAGE -->
+            </div>
+            <!-- Provide element with button icon for going forward and backward -->
+            <div class="pagination">
+                <svg class="pagination__back-btn" width="26" height="16" viewBox="0 0 26 16" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M8.125 0C3.547 0 0 3.582 0 7.795 0 12.418 3.547 16 8.125 16c3.988 0 7.405-3.273 7.698-7.6h5.844v2L26 8l-4.333-2.4v2l-5.827.001v-.048C15.707 3.445 12.217 0 8.125 0zm-.203 15.2C3.984 15.2.792 11.976.792 8S3.984.8 7.922.8c3.805 0 6.913 3.01 7.119 6.8H8.273v.8h6.768c-.206 3.79-3.314 6.8-7.12 6.8z"
+                        fill="#000"
+                        fill-rule="evenodd"
+                    />
+                </svg>
+                <div class="pagination--dots"></div>
+                <svg class="pagination__next-btn" width="26" height="16" viewBox="0 0 26 16" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M8.125 0C3.547 0 0 3.582 0 7.795 0 12.418 3.547 16 8.125 16c3.988 0 7.405-3.273 7.698-7.6h5.844v2L26 8l-4.333-2.4v2l-5.827.001v-.048C15.707 3.445 12.217 0 8.125 0zm-.203 15.2C3.984 15.2.792 11.976.792 8S3.984.8 7.922.8c3.805 0 6.913 3.01 7.119 6.8H8.273v.8h6.768c-.206 3.79-3.314 6.8-7.12 6.8z"
+                        fill="#000"
+                        fill-rule="evenodd"
+                    />
+                </svg>
+            </div>
+        </div>
+    </sly>
+</sly>

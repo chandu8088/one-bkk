@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Enquiry"
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    extraClientlibs="[onebangkok.authoring.dialog]">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <general
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="GENERAL"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <formid
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Form id"
+                                                name="./formid"
+                                                required="{Boolean}true"
+                                                validation="onebkk-formid-validation"/>
+                                            <multifield
+                                                jcr:primaryType="nt:unstructured"
+                                                jcr:title="Add items"
+                                                sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                required="{Boolean}true">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <well
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/well"
+                                                        fieldLabel="Add Common Emails">
+                                                        <items jcr:primaryType="nt:unstructured">
+                                                            <setItemDetails
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                                <items jcr:primaryType="nt:unstructured">
+                                                                    <item_details
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                                        composite="{Boolean}true"
+                                                                        fieldDescription="Click 'Add' to add Common Emails"
+                                                                        fieldLabel="Add Common Email">
+                                                                        <field
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                                            name="./recipientemails">
+                                                                            <items jcr:primaryType="nt:unstructured">
+                                                                                <well
+                                                                                    jcr:primaryType="nt:unstructured"
+                                                                                    sling:resourceType="granite/ui/components/coral/foundation/well">
+                                                                                    <items jcr:primaryType="nt:unstructured">
+                                                                                        <recipientemails
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                                            fieldLabel="Common Recipient email"
+                                                                                            name="./emails"/>
+                                                                                    </items>
+                                                                                </well>
+                                                                            </items>
+                                                                        </field>
+                                                                    </item_details>
+                                                                </items>
+                                                            </setItemDetails>
+                                                        </items>
+                                                    </well>
+                                                </items>
+                                            </multifield>
+                                            <emailsubject
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Email Subject"
+                                                name="./emailsubject"
+                                                required="{Boolean}true"/>
+                                            <successmessage
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                                fieldLabel="Success Message Heading"
+                                                name="./successmessage"
+                                                required="{Boolean}true"
+                                                useFixedInlineToolbar="{Boolean}true">
+                                                <rtePlugins
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceSuperType="/apps/onebangkok/components/authoring/richtext/rtePlugins"/>
+                                                <uiSettings
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceSuperType="/apps/onebangkok/components/authoring/richtext/uiSettings"/>
+                                            </successmessage>
+                                            <successmessagedesc
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                                fieldLabel="Success Message Description"
+                                                name="./successmessagedesc"
+                                                required="{Boolean}true"
+                                                useFixedInlineToolbar="{Boolean}true">
+                                                <rtePlugins
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceSuperType="/apps/onebangkok/components/authoring/richtext/rtePlugins"/>
+                                                <uiSettings
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceSuperType="/apps/onebangkok/components/authoring/richtext/uiSettings"/>
+                                            </successmessagedesc>
+                                            <failuremessage
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                                fieldLabel="Failure Message Heading"
+                                                name="./failuremessage"
+                                                required="{Boolean}true"
+                                                useFixedInlineToolbar="{Boolean}true">
+                                                <rtePlugins
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceSuperType="/apps/onebangkok/components/authoring/richtext/rtePlugins"/>
+                                                <uiSettings
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceSuperType="/apps/onebangkok/components/authoring/richtext/uiSettings"/>
+                                            </failuremessage>
+                                            <failuremessagedesc
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                                fieldLabel="Failure Message Description"
+                                                name="./failuremessagedesc"
+                                                required="{Boolean}true"
+                                                useFixedInlineToolbar="{Boolean}true">
+                                                <rtePlugins
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceSuperType="/apps/onebangkok/components/authoring/richtext/rtePlugins"/>
+                                                <uiSettings
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceSuperType="/apps/onebangkok/components/authoring/richtext/uiSettings"/>
+                                            </failuremessagedesc>
+                                            <desktopimage
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                fieldDescription="Aspect ratio 193 : 466"
+                                                fieldLabel="Desktop Image"
+                                                name="./desktopimage"
+                                                required="{Boolean}true"
+                                                rootPath="/content/dam/onebangkok"/>
+                                            <mobileimage
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                fieldDescription="Aspect ratio 382 : 215"
+                                                fieldLabel="Mobile Image"
+                                                name="./mobileimage"
+                                                required="{Boolean}true"
+                                                rootPath="/content/dam/onebangkok"/>
+                                            <heading
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                                fieldLabel="Form Heading"
+                                                name="./heading"
+                                                required="{Boolean}true"
+                                                useFixedInlineToolbar="{Boolean}true">
+                                                <rtePlugins
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceSuperType="/apps/onebangkok/components/authoring/richtext/rtePlugins"/>
+                                                <uiSettings
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceSuperType="/apps/onebangkok/components/authoring/richtext/uiSettings"/>
+                                            </heading>
+                                            <description
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                                fieldLabel="Form Description"
+                                                name="./description"
+                                                useFixedInlineToolbar="{Boolean}true">
+                                                <rtePlugins
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceSuperType="/apps/onebangkok/components/authoring/richtext/rtePlugins"/>
+                                                <uiSettings
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceSuperType="/apps/onebangkok/components/authoring/richtext/uiSettings"/>
+                                            </description>
+                                            <termsandconditionscheckboxcontent
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                                fieldLabel="Terms and Conditions checkbox Content"
+                                                name="./termsandcondition"
+                                                required="{Boolean}true"
+                                                useFixedInlineToolbar="{Boolean}true">
+                                                <rtePlugins
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceSuperType="/apps/onebangkok/components/authoring/richtext/rtePlugins"/>
+                                                <uiSettings
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceSuperType="/apps/onebangkok/components/authoring/richtext/uiSettings"/>
+                                            </termsandconditionscheckboxcontent>
+                                            <productinformationcheckboxcontent
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                                fieldLabel="Product information checkbox Content"
+                                                name="./productinformationcheckboxcontent"
+                                                required="{Boolean}true"
+                                                useFixedInlineToolbar="{Boolean}true">
+                                                <rtePlugins
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceSuperType="/apps/onebangkok/components/authoring/richtext/rtePlugins"/>
+                                                <uiSettings
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceSuperType="/apps/onebangkok/components/authoring/richtext/uiSettings"/>
+                                            </productinformationcheckboxcontent>
+                                            <submit
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Submit"
+                                                name="./submit"
+                                                required="{Boolean}true"/>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </general>
+                    <fieldlabels
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="FIELD LABELS"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <firstname
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="First Name"
+                                                name="./fname"
+                                                required="{Boolean}true"/>
+                                            <lastname
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Last Name"
+                                                name="./lname"
+                                                required="{Boolean}true"/>
+                                            <email
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Email"
+                                                name="./email"
+                                                required="{Boolean}true"/>
+                                            <mobile
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Mobile"
+                                                name="./mobile"
+                                                required="{Boolean}true"/>
+                                            <companyname
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Company name"
+                                                name="./companyname"
+                                                required="{Boolean}true"/>
+                                            <deptfielddefaultvalue
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Department field default value"
+                                                name="./departmentdefaultvalue"
+                                                required="{Boolean}true"/>
+                                            <multifield
+                                                jcr:primaryType="nt:unstructured"
+                                                jcr:title="Add Departments"
+                                                sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                required="{Boolean}true">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <well
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/well"
+                                                        fieldLabel="Add Departments">
+                                                        <items jcr:primaryType="nt:unstructured">
+                                                            <setDepartmentDetails
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                                <items jcr:primaryType="nt:unstructured">
+                                                                    <department_details
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                                        composite="{Boolean}true"
+                                                                        fieldDescription="Click 'Add' to add Departments"
+                                                                        fieldLabel="Add Departments"
+                                                                        validation="multifield-item-number">
+                                                                        <field
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                                            name="./departments">
+                                                                            <items jcr:primaryType="nt:unstructured">
+                                                                                <well
+                                                                                    jcr:primaryType="nt:unstructured"
+                                                                                    sling:resourceType="granite/ui/components/coral/foundation/well">
+                                                                                    <items jcr:primaryType="nt:unstructured">
+                                                                                        <deptfieldvalues
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                                                            fieldLabel="Department field values"
+                                                                                            name="./department"
+                                                                                            required="{Boolean}true"
+                                                                                            rootPath="/content/cq:tags/onebangkok"/>
+                                                                                        <departmentEmail
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                                            fieldLabel="Email id"
+                                                                                            name="./departmentEmail"
+                                                                                            required="{Boolean}true"/>
+                                                                                    </items>
+                                                                                </well>
+                                                                            </items>
+                                                                        </field>
+                                                                        <granite:data
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            min-items="1"/>
+                                                                    </department_details>
+                                                                </items>
+                                                                <granite:data jcr:primaryType="nt:unstructured"/>
+                                                            </setDepartmentDetails>
+                                                        </items>
+                                                    </well>
+                                                </items>
+                                            </multifield>
+                                            <Others
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Email id for others"
+                                                name="./others"
+                                                required="{Boolean}true"/>
+                                            <comments
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Comments"
+                                                name="./comments"
+                                                required="{Boolean}true"/>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </fieldlabels>
+                    <errormessages
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="ERROR MESSAGES"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <fname-mandatory-msg
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Firstname mandatory message"
+                                                name="./fnamemsg"
+                                                required="{Boolean}true"/>
+                                            <lname-mandatory-msg
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Lastname mandatory message"
+                                                name="./lnamemsg"
+                                                required="{Boolean}true"/>
+                                            <email-mandatory-msg
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Email field mandatory message"
+                                                name="./emailmsg"
+                                                required="{Boolean}true"/>
+                                            <email-format-message
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Email field format message"
+                                                name="./emailformatmsg"
+                                                required="{Boolean}true"/>
+                                            <mobile-mandatory-message
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Mobile field mandatory message"
+                                                name="./mobilemsg"
+                                                required="{Boolean}true"/>
+                                            <mobile-invalid-message
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Mobile field Invalid message"
+                                                name="./mobinvlaidmsg"
+                                                required="{Boolean}true"/>
+                                            <department-mandatory-message
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Department field mandatory message"
+                                                name="./deptmsg"
+                                                required="{Boolean}true"/>
+                                            <comments-mandatory-message
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Comments field mandatory message"
+                                                name="./commentsmsg"
+                                                required="{Boolean}true"/>
+                                            <terms-condition-message
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Terms and Condition mandatory message"
+                                                name="./tandcsmsg"
+                                                required="{Boolean}true"/>
+                                            <captcha-mandatory-message
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Google captcha mandatory message"
+                                                name="./captchamsg"
+                                                required="{Boolean}true"/>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </errormessages>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

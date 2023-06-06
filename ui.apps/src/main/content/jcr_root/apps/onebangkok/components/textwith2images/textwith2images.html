@@ -1,0 +1,82 @@
+<div data-sly-test="${wcmmode.edit}" class="cq-placeholder" data-emptytext="Text with 2 images"></div>
+
+<div data-sly-use.editor="${'com.fraserproperty.onebangkok.core.models.TextWithTwoImageModel'}"></div>
+
+<div class="ob-container container--left">
+
+    <div class="content content--left">
+        <div class="content__wrapper">
+            <h2 data-scroll-animate-position="top" class="header--black-left">${editor.heading @context='html'}</h2>
+            <p data-scroll-animate-position="middle" class="body-2--black-left">
+                ${editor.description @context='html'}
+            </p>
+            <sly data-sly-test="${editor.ctalabel}">
+                <sly data-sly-test="${properties.buttontype=='download'}">
+                    <sly data-sly-test="${properties.enableForm}">
+                            <a id="download-Cookie" data-scroll-animate-position="bottom" class="button button--icon button--solid--black"
+                               href="${editor.assetpath}" data-open-modal-btn="enquire-form${editor.formid}">
+                    </sly>
+                    <sly data-sly-test="${!properties.enableForm}">
+                        <a data-scroll-animate-position="bottom" class="button button--icon button--solid--black"
+                           href="${editor.assetpath}" download>
+                    </sly>
+                </sly>
+                <sly data-sly-test="${properties.buttontype=='link'}">
+                    <a data-scroll-animate-position="bottom" class="button button--icon button--solid--black"
+                       href="${editor.ctaurl @ extension = 'html'}" target="${editor.openinnewtab ?'_blank':''}">
+                </sly>
+                ${editor.ctalabel @context='html'}
+                <sly data-sly-test="${properties.buttontype=='link'}">
+                <svg width="26" height="16" viewBox="0 0 26 16" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                            d="M8.125 0C3.547 0 0 3.582 0 7.795 0 12.418 3.547 16 8.125 16c3.988 0 7.405-3.273 7.698-7.6h5.844v2L26 8l-4.333-2.4v2l-5.827.001v-.048C15.707 3.445 12.217 0 8.125 0zm-.203 15.2C3.984 15.2.792 11.976.792 8S3.984.8 7.922.8c3.805 0 6.913 3.01 7.119 6.8H8.273v.8h6.768c-.206 3.79-3.314 6.8-7.12 6.8z"
+                            fill="#fff"
+                            fill-rule="evenodd"
+                    />
+                </svg>
+                </sly>
+                </a>
+            </sly>
+        </div>
+
+        <div class="content__media overflow--right">
+            <div data-scroll-animate="5" class="two-image-media">
+                <sly data-sly-test="${editor.largeimage && editor.smallimage}">
+                    <div class="two-image-media__group">
+                        <div class="two-image-media__main" data-aos="zoom-in" data-aos-offset="0">
+                            <img src="${editor.largeimage}" alt=${editor.l_imagealttext}/>
+                        </div>
+                        <div class="two-image-media__secondary-wrapper">
+
+                            <div
+                                    class="two-image-media__secondary"
+                                    data-tab-content="200"
+                                    data-aos="zoom-in"
+                                    data-aos-delay="200"
+                                    data-aos-offset="0"
+                            >
+                                <img src="${editor.smallimage}" alt=${editor.s_imagealttext}/>
+                            </div>
+                        </div>
+                    </div>
+                </sly>
+                <div class="two-image-media__caption">
+                    <sly data-sly-test="${editor.driverlabel || editor.subtextcallout || editor.subtextcontent}">
+                        <div>
+                            <div class="two-image-media__wrapper">
+                                <div class="callout-1--black-center two-image-media__caption-number">
+                                    ${editor.subtextcallout }
+                                </div>
+                                <p class="body-1--black-left">${editor.subtextcontent @context='html'}</p>
+                            </div>
+                            <div class="divider divider--02-h">
+                                <div class="divider__bar divider__bar--short"></div>
+                                <div class="divider__text">${editor.driverlabel @context='html' }</div>
+                            </div>
+                        </div>
+                    </sly>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

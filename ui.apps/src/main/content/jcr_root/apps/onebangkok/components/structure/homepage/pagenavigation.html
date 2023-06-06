@@ -1,0 +1,9 @@
+<sly data-sly-test.resourceType="${pageProperties.sling:resourceType}"/>
+<sly data-sly-test.mode="${resourceType == 'onebangkok/components/structure/homepage' ? 'edit' : 'disabled'}"/>
+<sly data-sly-test.rootPath="${inheritedPageProperties.siteRootPath}"/>
+
+<sly data-sly-set.navigation="${rootPath}/jcr:content/root/navigation"/>
+
+<navigation>
+ <sly data-sly-resource="${ @path= navigation, resourceType='/apps/onebangkok/components/navigation', wcmmode=mode}"></sly>
+</navigation>

@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Asset Carousel"
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    extraClientlibs="[onebangkok.authoring.dialog]">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <general
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="PROPERTIES"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <well
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/well">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <enableAutoCarousel
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                fieldDescription="To determine if the carousel auto-moves"
+                                                name="./enableAutoCarousel"
+                                                text="Enable auto carousel"
+                                                value="true"/>
+                                            <backgroudcolor
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                name="./isBackgroundDark"
+                                                text="Please select if backgroud is dark"
+                                                value="true"/>
+                                            <multifield
+                                                jcr:primaryType="nt:unstructured"
+                                                jcr:title="Add Items"
+                                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <well
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/well"
+                                                        fieldLabel="Add">
+                                                        <items jcr:primaryType="nt:unstructured">
+                                                            <setItemDetails
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                                <granite:data jcr:primaryType="nt:unstructured"/>
+                                                                <items jcr:primaryType="nt:unstructured">
+                                                                    <item_details
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                                        composite="{Boolean}true"
+                                                                        fieldDescription="Click 'Add' to add Images"
+                                                                        fieldLabel="Add"
+                                                                        validation="multifield-item-number">
+                                                                        <field
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                                            name="./assetItems">
+                                                                            <items jcr:primaryType="nt:unstructured">
+                                                                                <well
+                                                                                    jcr:primaryType="nt:unstructured"
+                                                                                    sling:resourceType="granite/ui/components/coral/foundation/well">
+                                                                                    <items jcr:primaryType="nt:unstructured">
+                                                                                        <itemtype
+                                                                                            granite:class="cq-dialog-dropdown-showhide-multival"
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                                                            fieldDescription="Please Select Item Type"
+                                                                                            fieldLabel="Item Type"
+                                                                                            name="./itemType">
+                                                                                            <items jcr:primaryType="nt:unstructured">
+                                                                                                <image
+                                                                                                    jcr:primaryType="nt:unstructured"
+                                                                                                    text="Image"
+                                                                                                    value="image"/>
+                                                                                                <videoType
+                                                                                                    jcr:primaryType="nt:unstructured"
+                                                                                                    text="Video Type"
+                                                                                                    value="video"/>
+                                                                                            </items>
+                                                                                            <granite:data
+                                                                                                jcr:primaryType="nt:unstructured"
+                                                                                                cq-dialog-dropdown-showhide-target=".item-type-hide-show"/>
+                                                                                        </itemtype>
+                                                                                        <imageContainer
+                                                                                            granite:class="hide item-type-hide-show"
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                                                            <items jcr:primaryType="nt:unstructured">
+                                                                                                <image
+                                                                                                    jcr:primaryType="nt:unstructured"
+                                                                                                    fieldDescription="Aspect ratio  578 : 325"
+                                                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                                                                    fieldLabel="Image"
+                                                                                                    name="./image"
+                                                                                                    rootPath="/content/dam/onebangkok"/>
+                                                                                                <imageAltText
+                                                                                                    jcr:primaryType="nt:unstructured"
+                                                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                                                    fieldLabel="Image Alt Text"
+                                                                                                    name="./imageAltText"/>
+                                                                                            </items>
+                                                                                            <granite:data
+                                                                                                jcr:primaryType="nt:unstructured"
+                                                                                                showhidetargetvalue="image"/>
+                                                                                        </imageContainer>
+                                                                                        <videoContainer
+                                                                                            granite:class="hide item-type-hide-show"
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                                                            <items jcr:primaryType="nt:unstructured">
+                                                                                                <videotype
+                                                                                                    granite:class="cq-dialog-dropdown-showhide-multival"
+                                                                                                    jcr:primaryType="nt:unstructured"
+                                                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                                                                    fieldDescription="Please Select Video Type"
+                                                                                                    fieldLabel="Video Type"
+                                                                                                    name="./videoType">
+                                                                                                    <items jcr:primaryType="nt:unstructured">
+                                                                                                        <damVideo
+                                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                                            text="Dam Video"
+                                                                                                            value="damVideo"/>
+                                                                                                        <youtubeVideo
+                                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                                            text="Youtube Video"
+                                                                                                            value="youtubeVideo"/>
+                                                                                                    </items>
+                                                                                                    <granite:data
+                                                                                                        jcr:primaryType="nt:unstructured"
+                                                                                                        cq-dialog-dropdown-showhide-target=".video-type-hide-show"/>
+                                                                                                </videotype>
+                                                                                                <damContainer
+                                                                                                    granite:class="hide video-type-hide-show"
+                                                                                                    jcr:primaryType="nt:unstructured"
+                                                                                                    sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                                                                    <items jcr:primaryType="nt:unstructured">
+                                                                                                        <damVideo
+                                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                                            fieldDescription="Aspect ratio  578 : 325"
+                                                                                                            sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                                                                            fieldLabel="Dam Video"
+                                                                                                            name="./damVideo"
+                                                                                                            rootPath="/content/dam/onebangkok"/>
+                                                                                                        <damposterImage
+                                                                                                            granite:class="acs-commons-field-required-allow-hidden"
+                                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                                            fieldDescription="Aspect ratio  578 : 325"
+                                                                                                            sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                                                                            fieldLabel="Poster Image*"
+                                                                                                            name="./damPosterImage"
+                                                                                                            rootPath="/content/dam/onebangkok"/>
+                                                                                                    </items>
+                                                                                                    <granite:data
+                                                                                                        jcr:primaryType="nt:unstructured"
+                                                                                                        showhidetargetvalue="damVideo"/>
+                                                                                                </damContainer>
+                                                                                                <youtubeContainer
+                                                                                                    granite:class="hide video-type-hide-show"
+                                                                                                    jcr:primaryType="nt:unstructured"
+                                                                                                    sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                                                                    <items jcr:primaryType="nt:unstructured">
+                                                                                                        <youtubeVideoId
+                                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                                                            fieldLabel="Youtube Video ID"
+                                                                                                            name="./youtubeVideoId"/>
+                                                                                                        <posterImage
+                                                                                                            granite:class="acs-commons-field-required-allow-hidden"
+                                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                                            fieldDescription="Aspect ratio  578 : 325"
+                                                                                                            sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                                                                            fieldLabel="Poster Image*"
+                                                                                                            name="./posterImage"
+                                                                                                            rootPath="/content/dam/onebangkok"/>
+                                                                                                    </items>
+                                                                                                    <granite:data
+                                                                                                        jcr:primaryType="nt:unstructured"
+                                                                                                        showhidetargetvalue="youtubeVideo"/>
+                                                                                                </youtubeContainer>
+                                                                                            </items>
+                                                                                            <granite:data
+                                                                                                jcr:primaryType="nt:unstructured"
+                                                                                                showhidetargetvalue="video"/>
+                                                                                        </videoContainer>
+                                                                                    </items>
+                                                                                </well>
+                                                                            </items>
+                                                                        </field>
+                                                                        <granite:data
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            min-items="3"/>
+                                                                    </item_details>
+                                                                </items>
+                                                            </setItemDetails>
+                                                        </items>
+                                                    </well>
+                                                </items>
+                                            </multifield>
+                                        </items>
+                                    </well>
+                                </items>
+                            </columns>
+                        </items>
+                    </general>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

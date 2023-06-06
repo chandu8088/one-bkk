@@ -1,0 +1,21 @@
+<div data-sly-test="${wcmmode.edit}" class="cq-placeholder" data-emptytext="News Detail"></div>
+
+<div>
+    <div class="ob-container container--left container--article">
+        <div class="content content--divider-top article__wrapper">
+            <div class="nav--black-left">${ 'MMMM dd, yyyy' @ format=properties.date}</div>
+            <h2 class="header--black-left special-mb small-margin">${properties.newsHeading}</h2>
+            <div class="callout-1--black-left-mb">
+                ${properties.summary @ context = 'html'}
+            </div>
+            <!-- AddThis component -->
+            <sly data-sly-resource="${'addthis-widget' @ resourceType='onebangkok/components/addthis-sharebuttons'}"/>
+            <img class="article__image" src="${properties.newsImage}"/>
+<sly data-sly-test=${properties.newsDescription}>
+<div class="body-2--black-left">
+                                ${properties.newsDescription @ context = 'html'}
+                            </div>
+                            </sly>
+        </div>
+    </div>
+</div>

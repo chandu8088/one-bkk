@@ -1,0 +1,37 @@
+<div data-sly-test="${wcmmode.edit}" class="cq-placeholder" data-emptytext="Panoramic 3D Map"></div>
+<sly data-sly-use.panoramicmap="com.fraserproperty.onebangkok.core.models.Panoramic3DMapModel"/>
+<div data-dark-nav class="full-screen-banner container container--full-screen">
+                <div class="full-screen-banner__content--iframe">
+                    <div class="full-screen-banner__close-btn"><img src="/etc.clientlibs/onebangkok/clientlibs/clientlib-base/resources/images/icons/buttons-close-transparent.svg" /></div>
+                    <iframe src="${panoramicmap.pageUrl}" frameborder="0"></iframe>
+                </div>
+<div class="jarallax full-screen-banner__thumb">
+                <img class="jarallax-img" src="${panoramicmap.backgroundImage}" alt="${panoramicmap.altText}"/>
+</div>
+                <div class="ob-container">
+                    <div class="full-screen-banner__content full-screen-banner__content--center">
+                        <h3 data-aos="fade-up" data-aos-offset="0" class="header--white-center">${panoramicmap.heading @ context='html'}</h3>
+                        <p data-aos="fade-up" data-aos-offset="0" data-aos-delay="200" class="body-2--white-center">
+                            ${panoramicmap.description @ context='html'}
+                        </p>
+                        <sly data-sly-test="${panoramicmap.ctaLabel}">
+                        <button
+                            data-aos="fade-up"
+                            data-aos-offset="0"
+                            data-aos-delay="400"
+                            class="full-screen-banner__toggle-btn button--icon button--solid--white button--center"
+                            type="button"
+                        >
+                            ${panoramicmap.ctaLabel @ context='html'}
+                            <svg width="26" height="16" viewBox="0 0 26 16" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M8.125 0C3.547 0 0 3.582 0 7.795 0 12.418 3.547 16 8.125 16c3.988 0 7.405-3.273 7.698-7.6h5.844v2L26 8l-4.333-2.4v2l-5.827.001v-.048C15.707 3.445 12.217 0 8.125 0zm-.203 15.2C3.984 15.2.792 11.976.792 8S3.984.8 7.922.8c3.805 0 6.913 3.01 7.119 6.8H8.273v.8h6.768c-.206 3.79-3.314 6.8-7.12 6.8z"
+                                    fill="#000"
+                                    fill-rule="evenodd"
+                                />
+                            </svg>
+                        </button>
+                        </sly>
+                    </div>
+                </div>
+            </div>

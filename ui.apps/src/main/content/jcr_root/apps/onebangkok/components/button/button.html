@@ -1,0 +1,42 @@
+<div data-sly-test="${wcmmode.edit}" class="cq-placeholder" data-emptytext="Button Component"></div>
+<sly data-sly-use.author="${'com.fraserproperty.onebangkok.core.models.ButtonController'}"/>
+<sly data-sly-test="${author.ctalabel}">
+    <sly data-sly-test="${author.buttontype == 'download'}">
+        <sly data-sly-test="${properties.enableForm}">
+        		<div class="container--center-rte">
+                <a id="download-Cookie" href="${author.assetpath}"
+                   class="button button--icon ${author.buttonlayout} ${author.ctadesktopalignment} ${author.ctamobilealignment}"
+                   data-open-modal-btn="enquire-form${author.formid}">
+        </sly>
+        <sly data-sly-test="${!properties.enableForm}">
+			<div class="container--center-rte">
+            <a href="${author.assetpath}"
+               class="button button--icon ${author.buttonlayout} ${author.ctadesktopalignment} ${author.ctamobilealignment}" download>
+        </sly>
+    </sly>
+
+    <sly data-sly-test="${author.buttontype == 'link'}">
+    	<div class="container--center-rte">
+        <a class="button button--icon ${author.buttonlayout} ${author.ctadesktopalignment} ${author.ctamobilealignment}"
+           href="${author.ctaurl @ extension = 'html'}" target="${author.openinnewtab ?'_blank':''}">
+    </sly>
+    ${author.ctalabel @ context = 'html'}
+    <sly data-sly-test="${author.buttontype == 'link' && }">
+        <svg width="26" height="16" viewBox="0 0 26 16" xmlns="http://www.w3.org/2000/svg">
+<sly data-sly-test="${author.buttonlayout=='button--solid--black' || author.buttonlayout=='button--outline--white'}">
+           <path
+                    d="M8.125 0C3.547 0 0 3.582 0 7.795 0 12.418 3.547 16 8.125 16c3.988 0 7.405-3.273 7.698-7.6h5.844v2L26 8l-4.333-2.4v2l-5.827.001v-.048C15.707 3.445 12.217 0 8.125 0zm-.203 15.2C3.984 15.2.792 11.976.792 8S3.984.8 7.922.8c3.805 0 6.913 3.01 7.119 6.8H8.273v.8h6.768c-.206 3.79-3.314 6.8-7.12 6.8z"
+                    fill="#fff"
+                    fill-rule="evenodd"
+            /></sly>
+            <sly data-sly-test="${author.buttonlayout=='button--solid--white' || author.buttonlayout=='button--outline--black'}">
+           <path
+                    d="M8.125 0C3.547 0 0 3.582 0 7.795 0 12.418 3.547 16 8.125 16c3.988 0 7.405-3.273 7.698-7.6h5.844v2L26 8l-4.333-2.4v2l-5.827.001v-.048C15.707 3.445 12.217 0 8.125 0zm-.203 15.2C3.984 15.2.792 11.976.792 8S3.984.8 7.922.8c3.805 0 6.913 3.01 7.119 6.8H8.273v.8h6.768c-.206 3.79-3.314 6.8-7.12 6.8z"
+                    fill="#000"
+                    fill-rule="evenodd"
+            /></sly>
+        </svg>
+    </sly>
+    </a>
+    </div>
+</sly>

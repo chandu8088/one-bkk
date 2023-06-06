@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Icon and Text"
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    extraClientlibs="[onebangkok.authoring.dialog]">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+        <items jcr:primaryType="nt:unstructured">
+            <column
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/container">
+                <items jcr:primaryType="nt:unstructured">
+                    <alignment
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                        fieldLabel="Content Alignment"
+                        name="./alignment">
+                        <items jcr:primaryType="nt:unstructured">
+                            <left
+                                jcr:primaryType="nt:unstructured"
+                                text="Left"
+                                value="left"/>
+                            <center
+                                jcr:primaryType="nt:unstructured"
+                                text="Center"
+                                value="center"/>
+                        </items>
+                    </alignment>
+                    <Heading
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                        fieldLabel="Heading"
+                        name="./heading"
+                        useFixedInlineToolbar="{Boolean}true">
+                        <rtePlugins
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceSuperType="/apps/onebangkok/components/authoring/richtext/rtePlugins"/>
+                        <uiSettings
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceSuperType="/apps/onebangkok/components/authoring/richtext/uiSettings"/>
+                    </Heading>
+                    <description
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                        fieldLabel="Description"
+                        name="./description"
+                        useFixedInlineToolbar="{Boolean}true">
+                        <rtePlugins
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceSuperType="/apps/onebangkok/components/authoring/richtext/rtePlugins"/>
+                        <uiSettings
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceSuperType="/apps/onebangkok/components/authoring/richtext/uiSettings"/>
+                    </description>
+                    <hideSeparator
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="/libs/granite/ui/components/coral/foundation/form/checkbox"
+                        name="./hideSeparator"
+                        text="Hide Separator"
+                        uncheckedValue="false"
+                        value="{Boolean}true"/>
+                    <vlabel
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                        fieldLabel="Vertical Separator Label"
+                        name="./vlabel"/>
+                    <multifield
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Add items"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        required="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <well
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/well"
+                                fieldLabel="Add items">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <setItemDetails
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <granite:data jcr:primaryType="nt:unstructured"/>
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <item_details
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                composite="{Boolean}true"
+                                                fieldDescription="Click 'Add' to add Items"
+                                                fieldLabel="Add items"
+                                                validation="multifield-item-number">
+                                                <field
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                    name="./accessibilityList">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <well
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/well">
+                                                            <items jcr:primaryType="nt:unstructured">
+                                                                <imagepath
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    fieldDescription="Aspect ratio 1:1, preferrably use transparent or white background"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                                    fieldLabel="Item Image"
+                                                                    name="./imagePath"
+                                                                    rootPath="/content/dam/onebangkok"/>
+                                                                <imagealttext
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                    fieldLabel="Image Alt Text"
+                                                                    name="./imageAltText"/>
+                                                                <itemheading
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                                                    fieldLabel="Item Heading"
+                                                                    name="./itemHeading"
+                                                                    useFixedInlineToolbar="{Boolean}true">
+                                                                    <rtePlugins
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        sling:resourceSuperType="/apps/onebangkok/components/authoring/rtev2/rtePlugins"/>
+                                                                    <uiSettings
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        sling:resourceSuperType="/apps/onebangkok/components/authoring/rtev2/uiSettings"/>
+                                                                </itemheading>
+                                                                <itemdescription
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                                                    fieldLabel="Item Description"
+                                                                    name="./itemDescription"
+                                                                    useFixedInlineToolbar="{Boolean}true">
+                                                                    <rtePlugins
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        sling:resourceSuperType="/apps/onebangkok/components/authoring/rtev2/rtePlugins"/>
+                                                                    <uiSettings
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        sling:resourceSuperType="/apps/onebangkok/components/authoring/rtev2/uiSettings"/>
+                                                                </itemdescription>
+                                                            </items>
+                                                        </well>
+                                                    </items>
+                                                </field>
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    min-items="2"/>
+                                            </item_details>
+                                        </items>
+                                    </setItemDetails>
+                                </items>
+                            </well>
+                        </items>
+                    </multifield>
+                </items>
+            </column>
+        </items>
+    </content>
+</jcr:root>

@@ -1,0 +1,87 @@
+<div data-sly-test="${wcmmode.edit}" class="cq-placeholder" data-emptytext="Global Footer Component"></div>
+<sly data-sly-use.footer="com.fraserproperty.onebangkok.core.models.FooterModel"/>
+<!-- CONTACT -->
+<sly data-sly-test="${footer.hideContact == ''}">
+<div class="ob-container container--left">
+<div class="signup-newsletter">
+    <h2 data-sly-test="${properties.heading}"  class="header--black-left" data-aos="fade-up" data-aos-offset="0">${footer.heading @context='html'}</h2>
+    <div data-sly-test="${properties.mainImg}" class="signup-newsletter__decoration">
+        <img data-scroll-animate="5" alt="${properties.mainLogoAltText}" data-animate-masking="circle-center" src="${properties.mainImg}" />
+    </div>
+    <div class="signup-newsletter__content">
+        <div>
+            <div data-aos="fade-up" data-aos-offset="0">
+                <div data-sly-test="${properties.description}" class="signup-newsletter__caption caption caption--black--left">${footer.description @context='html'}</div>
+                <div data-sly-test="${footer.brandImgs}" class="development-by">
+                    <sly data-sly-list.brandImg="${footer.brandImgs}">
+                        <a href="${brandImg.link @ extension = 'html'}" target="${brandImg.openInNewTab ?'_blank':''}">
+                            <img src="${brandImg.image}" alt="${brandImg.altText}"/>
+                        </a>
+                    </sly>
+                </div>
+            </div>
+            <div data-aos="fade-up" data-aos-offset="0">
+                <div data-sly-test="${properties.addresslabel}" class="signup-newsletter__caption caption caption--black--left">${footer.addresslabel @ context = 'html'}</div>
+                <p data-sly-test="${properties.addressdetails}" class="body-2--black-left">
+                    ${footer.addressdetails @ context = 'html'}
+                </p>
+            </div>
+            <div data-aos="fade-up" data-aos-offset="0" data-aos-offset="0">
+                <div data-sly-test="${properties.contactlabel}" class="signup-newsletter__caption caption caption--black--left">${footer.contactlabel @ context = 'html'}</div>
+                <a data-sly-test="${properties.contactnumber}" class="link--inline-black" href="tel:+66 (0) 2 081 3700">${footer.contactnumber @ context = 'html'}</a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</sly>
+<!-- GET UPDATES -->
+<sly data-sly-test="${footer.hideNewsletter == ''}">
+<div class="signup-newsletter-form">
+    <h3 data-sly-test="${properties.newsletterHeading}" class="header--black-center" data-aos="fade-up" data-aos-offset="0">${footer.newsletterHeading @ context = 'html'}</h3>
+    <p data-sly-test="${properties.newsletterDescription}" class="body-2--black-center" data-aos="fade-up" data-aos-offset="0">${footer.newsletterDescription @ context = 'html'}</p>
+    <div class="signup-newsletter-form__input" data-aos="fade-up" data-aos-offset="0">
+        <div data-sly-test="${properties.placeholder}" class="input">
+            <input id="enquire-form${footer.formid}-shortcut-email" name="email" type="text" placeholder="${footer.placeholder @ context = 'html'}" class="input--icon" />
+            <svg
+                width="26"
+                height="16"
+                viewBox="0 0 26 16"
+                xmlns="http://www.w3.org/2000/svg"
+                data-open-modal-btn="enquire-form${footer.formid}"
+                data-open-modal-auto-fill="email"
+            >
+                <path
+                    d="M8.125 0C3.547 0 0 3.582 0 7.795 0 12.418 3.547 16 8.125 16c3.988 0 7.405-3.273 7.698-7.6h5.844v2L26 8l-4.333-2.4v2l-5.827.001v-.048C15.707 3.445 12.217 0 8.125 0zm-.203 15.2C3.984 15.2.792 11.976.792 8S3.984.8 7.922.8c3.805 0 6.913 3.01 7.119 6.8H8.273v.8h6.768c-.206 3.79-3.314 6.8-7.12 6.8z"
+                    fill="#000"
+                    fill-rule="evenodd"
+                />
+            </svg>
+        </div>
+    </div>
+</div>
+</sly>
+<!-- FOOTER -->
+<footer class="footer page-footer">
+    <sly data-sly-test="${footer.hideNewsletter == '' && footer.hideContact == ''}">
+    <div class="page-footer__bkgrd-circle">
+        <div></div>
+    </div>
+    </sly>
+    <div class="footer__link-wrapper">
+        <sly data-sly-list.footerLink="${footer.footerLinks}">
+            <a href="${footerLink.link @ extension = 'html'}" target="${footerLink.openInNewTab ?'_blank':''}" class="footer__link">${footerLink.text}</a>
+        </sly>
+        <div data-sly-test="${properties.copyright}" class="footer__link">${properties.copyright}</div>
+    </div>
+    <div class="footer__link-wrapper">
+        <sly data-sly-list.socialShare="${footer.socialShare}">
+            <a class="footer__link--social" href="${socialShare.link @ extension = 'html'}" target="${socialShare.openInNewTab ?'_blank':''}"><img src="${socialShare.image}" /></a>
+        </sly>
+    </div>
+</footer>
+<div class="snackbar">
+    <p class="snackbar__title body-1--white-left text--bold">${footer.contactHeading}</p>
+    <div class="snackbar__content">${footer.contactRTE @ context = 'html'}</div>
+    <img class="snackbar__close" src="/etc.clientlibs/onebangkok/clientlibs/clientlib-base/resources/images/buttons-close-circle-white.svg" />
+</div>

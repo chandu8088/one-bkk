@@ -1,0 +1,222 @@
+<div data-sly-test="${wcmmode.edit}" class="cq-placeholder" data-emptytext="Latest Events"></div>
+
+<sly data-sly-use.latestEventsModel="com.fraserproperty.onebangkok.core.models.LatestEventsModel">
+    <!-- 3 cards -->
+    <sly data-sly-test="${properties.layout == 'static3events'}">
+        <div class="ob-container container--left">
+            <h2 data-sly-test="${properties.heading}" class="header--black-${properties.alignment} header--mb-margin ${properties.alignment == 'left' ? 'content content--left' : ''}">${latestEventsModel.heading @ context = 'html'}</h2>
+            <sly data-sly-list.latestModel=${latestEventsModel.latestEvents}>
+                <sly data-sly-test="${latestModelList.index <1}">
+                    <div class="event-full-width-item">
+                        
+                                <div class="event-full-width-item__image event-full-width-item__image--large">
+                                    <img data-animate-masking="circle-center" src="${latestModel.thumbnailImage}"/>
+                                </div>
+                                <div data-aos="fade-up" data-aos-offset="0">
+                                    <div class="event-thumbnail-item__date">${latestModel.eventCategory}
+                                        <sly data-sly-test="${latestModel.eventCategory && latestModel.startdate}"><span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span></sly>
+                                        <sly data-sly-test="${latestModel.isYearSame == 'true'}">${ 'dd MMM' @ format=latestModel.startdate, timezone='GMT+7'}</sly>
+                                        <sly data-sly-test="${latestModel.isYearSame == 'false'}">${ 'dd MMM yyyy' @ format=latestModel.startdate, timezone='GMT+7'}</sly>
+                                        <sly data-sly-test="${latestModel.eventtype == 'multiday' && latestModel.enddate}"> — ${ 'dd MMM yyyy' @ format= latestModel.enddate, timezone='GMT+7'}</sly>
+                                    </div>
+                                    <div class="callout-3--black-left-2">${latestModel.eventHeading}</div>
+                                    <p class="body-2--black-left article-thumbnail-item__content">
+                                        ${latestModel.summary @ context = 'html'}
+                                    </p>
+                                    <a class="button button--icon button--solid--black" href="${latestModel.ctaUrl @ extension = 'html'}">
+                                        ${properties.cardctalabel}
+                                        <svg width="26" height="16" viewBox="0 0 26 16" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M8.125 0C3.547 0 0 3.582 0 7.795 0 12.418 3.547 16 8.125 16c3.988 0 7.405-3.273 7.698-7.6h5.844v2L26 8l-4.333-2.4v2l-5.827.001v-.048C15.707 3.445 12.217 0 8.125 0zm-.203 15.2C3.984 15.2.792 11.976.792 8S3.984.8 7.922.8c3.805 0 6.913 3.01 7.119 6.8H8.273v.8h6.768c-.206 3.79-3.314 6.8-7.12 6.8z"
+                                                fill="#fff"
+                                                fill-rule="evenodd"
+                                            />
+                                        </svg>
+                                    </a>
+                                </div>
+                            
+                        
+                    </div>
+                </sly>
+            </sly>
+            <div class="full-width-event-list-wrapper">
+            <sly data-sly-list.latestModel=${latestEventsModel.latestEvents} data-sly-test= "${latestEventsModel.latestEvents.size > 2}">
+                <sly data-sly-test="${latestModelList.index > 0 && latestModelList.index <3}">
+                    
+                    
+                        <div class="event-full-width-item">
+                        
+                            <div class="event-full-width-item__image">
+                                <img data-animate-masking="circle-center" src="${latestModel.thumbnailImage}"/>
+                            </div>
+                            <div data-aos="fade-up" data-aos-offset="0">
+                                <div class="event-thumbnail-item__date">${latestModel.eventCategory}
+                                    <sly data-sly-test="${latestModel.eventCategory && latestModel.startdate}"><span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span></sly>
+                                    <sly data-sly-test="${latestModel.isYearSame == 'true'}">${'dd MMM' @ format=latestModel.startdate, timezone='GMT+7'}</sly>
+                                    <sly data-sly-test="${latestModel.isYearSame == 'false'}">${ 'dd MMM yyyy' @ format=latestModel.startdate, timezone='GMT+7'}</sly>
+                                    <sly data-sly-test="${latestModel.eventtype == 'multiday' && latestModel.enddate}"> — ${ 'dd MMM yyyy' @ format= latestModel.enddate, timezone='GMT+7'}</sly>
+                                </div>
+                                <div class="callout-3--black-left-2">${latestModel.eventHeading}</div>
+                                <p class="body-2--black-left article-thumbnail-item__content">
+                                    ${latestModel.summary @ context = 'html'}
+                                </p>
+                                <a class="button button--icon button--solid--black" href="${latestModel.ctaUrl @ extension = 'html'}">
+                                    ${properties.cardctalabel}
+                                    <svg width="26" height="16" viewBox="0 0 26 16" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M8.125 0C3.547 0 0 3.582 0 7.795 0 12.418 3.547 16 8.125 16c3.988 0 7.405-3.273 7.698-7.6h5.844v2L26 8l-4.333-2.4v2l-5.827.001v-.048C15.707 3.445 12.217 0 8.125 0zm-.203 15.2C3.984 15.2.792 11.976.792 8S3.984.8 7.922.8c3.805 0 6.913 3.01 7.119 6.8H8.273v.8h6.768c-.206 3.79-3.314 6.8-7.12 6.8z"
+                                            fill="#fff"
+                                            fill-rule="evenodd"
+                                        />
+                                    </svg>
+                                </a>
+                            </div>
+                        
+                    
+                        </div>
+                    
+                </sly>
+            </sly>  
+        </div>
+        </div>
+    </sly>
+
+    <!-- 9 cards -->
+
+    <sly  data-sly-test="${properties.layout == 'carousel9events'}" >
+        <div class="ob-container container--left container--article">
+            <div class="header-with-button">
+                <h2 data-sly-test="${properties.heading}" class="header--black-${properties.alignment}" data-aos="fade-up" data-aos-offset="0">${latestEventsModel.heading @ context = 'html'}</h2>
+            </div>
+            <div class="article-thumbnail article-thumbnail-group-wrapper" data-pagination="pagination-type-1" data-pagination-config="${properties.enableautoscroll}" >
+                <!-- FIRST PAGE -->
+                    <div class="article-thumbnail-group pagination-group">
+                        <sly data-sly-list.latestModel=${latestEventsModel.latestEvents}>
+                            <sly data-sly-test="${latestModelList.index <3}">
+                                <div class="article-thumbnail-item">
+                                    <a class="article-thumbnail-item__image" alt="${latestModel.thumbnailalttext}">
+                                        <img src="${latestModel.thumbnailImage}" />
+                                    </a>
+                                    <div class="article-thumbnail-item__date">
+                                        <sly data-sly-test="${latestModel.isYearSame == 'true'}">${ 'MMM dd' @ format=latestModel.startdate, timezone='GMT+7'}</sly>
+                                        <sly data-sly-test="${latestModel.isYearSame == 'false'}">${ 'MMM dd, yyyy' @ format=latestModel.startdate, timezone='GMT+7'}</sly>
+                                        <sly data-sly-test="${latestModel.eventtype == 'multiday' && latestModel.enddate}"> — ${ 'MMM dd, yyyy' @ format= latestModel.enddate, timezone='GMT+7'}</sly>
+                                    </div>
+                                    <div class="article-thumbnail-item__time">${ 'hh.mm aa' @ format=latestModel.startTime, timezone='GMT+7'}
+                                        <sly data-sly-test="${latestModel.endTime}"> — ${ 'hh.mm aa' @ format= latestModel.endTime, timezone='GMT+7'}</sly>
+                                    </div>
+                                    <div class="callout-3--black-left">${latestModel.eventHeading}</div>
+                                    <div class="body-2--black-left article-thumbnail-item__content">
+                                        ${latestModel.eventDescription @ context = 'html'}
+                                    </div>
+                                    <a class="button button--text" href="${latestModel.ctaUrl @ extension = 'html'}">
+                                        ${properties.cardctalabel}
+                                        <svg width="26" height="16" viewBox="0 0 26 16" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M8.125 0C3.547 0 0 3.582 0 7.795 0 12.418 3.547 16 8.125 16c3.988 0 7.405-3.273 7.698-7.6h5.844v2L26 8l-4.333-2.4v2l-5.827.001v-.048C15.707 3.445 12.217 0 8.125 0zm-.203 15.2C3.984 15.2.792 11.976.792 8S3.984.8 7.922.8c3.805 0 6.913 3.01 7.119 6.8H8.273v.8h6.768c-.206 3.79-3.314 6.8-7.12 6.8z"
+                                                fill="#000"
+                                                fill-rule="evenodd"
+                                            />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </sly>
+                        </sly>
+                                
+                    </div>
+                    <!-- SECOND PAGE -->
+                    <div data-sly-test= "${latestEventsModel.latestEvents.size > 3}" class="article-thumbnail-group pagination-group">
+                        <sly data-sly-list.latestModel=${latestEventsModel.latestEvents}>
+                            <sly data-sly-test="${latestModelList.index > 2 && latestModelList.index <6}">
+                                <div class="article-thumbnail-item">
+                                    <a class="article-thumbnail-item__image" alt="${latestModel.thumbnailalttext}">
+                                        <img src="${latestModel.thumbnailImage}" />
+                                    </a>
+                                    <div class="article-thumbnail-item__date">
+                                        <sly data-sly-test="${latestModel.isYearSame == 'true'}">${ 'MMM dd' @ format=latestModel.startdate, timezone='GMT+7'}</sly>
+                                        <sly data-sly-test="${latestModel.isYearSame == 'false'}">${ 'MMM dd, yyyy' @ format=latestModel.startdate, timezone='GMT+7'}</sly>
+                                        <sly data-sly-test="${latestModel.eventtype == 'multiday' && latestModel.enddate}"> — ${ 'MMM dd, yyyy' @ format= latestModel.enddate, timezone='GMT+7'}</sly>
+                                    </div>
+                                    <div class="article-thumbnail-item__time">${ 'hh.mm aa' @ format=latestModel.startTime, timezone='GMT+7'}
+                                        <sly data-sly-test="${latestModel.endTime}"> — ${ 'hh.mm aa' @ format= latestModel.endTime, timezone='GMT+7'}</sly>
+                                    </div>
+                                    <div class="callout-3--black-left">${latestModel.eventHeading}</div>
+                                    <div class="body-2--black-left article-thumbnail-item__content">
+                                        ${latestModel.eventDescription @ context = 'html'}
+                                    </div>
+                                    <a class="button button--text" href="${latestModel.ctaUrl @ extension = 'html'}">
+                                        ${properties.cardctalabel}
+                                        <svg width="26" height="16" viewBox="0 0 26 16" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M8.125 0C3.547 0 0 3.582 0 7.795 0 12.418 3.547 16 8.125 16c3.988 0 7.405-3.273 7.698-7.6h5.844v2L26 8l-4.333-2.4v2l-5.827.001v-.048C15.707 3.445 12.217 0 8.125 0zm-.203 15.2C3.984 15.2.792 11.976.792 8S3.984.8 7.922.8c3.805 0 6.913 3.01 7.119 6.8H8.273v.8h6.768c-.206 3.79-3.314 6.8-7.12 6.8z"
+                                                fill="#000"
+                                                fill-rule="evenodd"
+                                            />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </sly>
+                        </sly>
+                    
+                    </div>
+                    <!-- THIRD PAGE -->
+                    
+                    <div data-sly-test= "${latestEventsModel.latestEvents.size > 6}" class="article-thumbnail-group pagination-group">
+                        <sly data-sly-list.latestModel=${latestEventsModel.latestEvents}>
+                            <sly data-sly-test="${latestModelList.index > 5 && latestModelList.index <9}">
+                                <div class="article-thumbnail-item">
+                                    <a class="article-thumbnail-item__image" alt="${latestModel.thumbnailalttext}">
+                                        <img src="${latestModel.thumbnailImage}" />
+                                    </a>
+                                    <div class="article-thumbnail-item__date">
+                                        <sly data-sly-test="${latestModel.isYearSame == 'true'}">${ 'MMM dd' @ format=latestModel.startdate, timezone='GMT+7'}</sly>
+                                        <sly data-sly-test="${latestModel.isYearSame == 'false'}">${ 'MMM dd, yyyy' @ format=latestModel.startdate, timezone='GMT+7'}</sly>
+                                        <sly data-sly-test="${latestModel.eventtype == 'multiday' && latestModel.enddate}"> — ${ 'MMM dd, yyyy' @ format= latestModel.enddate, timezone='GMT+7'}</sly>
+                                    </div>
+                                    <div class="article-thumbnail-item__time">${ 'hh.mm aa' @ format=latestModel.startTime, timezone='GMT+7'}
+                                        <sly data-sly-test="${latestModel.endTime}"> — ${ 'hh.mm aa' @ format= latestModel.endTime, timezone='GMT+7'}</sly>
+                                    </div>
+                                    <div class="callout-3--black-left">${latestModel.eventHeading}</div>
+                                    <div class="body-2--black-left article-thumbnail-item__content">
+                                        ${latestModel.eventDescription @ context = 'html'}
+                                    </div>
+                                    <a class="button button--text" href="${latestModel.ctaUrl @ extension = 'html'}">
+                                        ${properties.cardctalabel}
+                                        <svg width="26" height="16" viewBox="0 0 26 16" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M8.125 0C3.547 0 0 3.582 0 7.795 0 12.418 3.547 16 8.125 16c3.988 0 7.405-3.273 7.698-7.6h5.844v2L26 8l-4.333-2.4v2l-5.827.001v-.048C15.707 3.445 12.217 0 8.125 0zm-.203 15.2C3.984 15.2.792 11.976.792 8S3.984.8 7.922.8c3.805 0 6.913 3.01 7.119 6.8H8.273v.8h6.768c-.206 3.79-3.314 6.8-7.12 6.8z"
+                                                fill="#000"
+                                                fill-rule="evenodd"
+                                            />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </sly>
+                        </sly>
+                    
+                    </div>
+                    <!-- END THIRD PAGE -->
+            </div>
+            <!-- Provide element with button icon for going forward and backward -->
+            <sly data-sly-test= "${latestEventsModel.latestEvents.size > 3}">
+                <div class="pagination">
+                    <svg class="pagination__back-btn" width="26" height="16" viewBox="0 0 26 16" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M8.125 0C3.547 0 0 3.582 0 7.795 0 12.418 3.547 16 8.125 16c3.988 0 7.405-3.273 7.698-7.6h5.844v2L26 8l-4.333-2.4v2l-5.827.001v-.048C15.707 3.445 12.217 0 8.125 0zm-.203 15.2C3.984 15.2.792 11.976.792 8S3.984.8 7.922.8c3.805 0 6.913 3.01 7.119 6.8H8.273v.8h6.768c-.206 3.79-3.314 6.8-7.12 6.8z"
+                            fill="#000"
+                            fill-rule="evenodd"
+                        />
+                    </svg>
+                    <div class="pagination--dots"></div>
+                    <svg class="pagination__next-btn" width="26" height="16" viewBox="0 0 26 16" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M8.125 0C3.547 0 0 3.582 0 7.795 0 12.418 3.547 16 8.125 16c3.988 0 7.405-3.273 7.698-7.6h5.844v2L26 8l-4.333-2.4v2l-5.827.001v-.048C15.707 3.445 12.217 0 8.125 0zm-.203 15.2C3.984 15.2.792 11.976.792 8S3.984.8 7.922.8c3.805 0 6.913 3.01 7.119 6.8H8.273v.8h6.768c-.206 3.79-3.314 6.8-7.12 6.8z"
+                            fill="#000"
+                            fill-rule="evenodd"
+                        />
+                    </svg>
+                </div>
+            </sly>
+        </div>
+    </sly>
+</sly>

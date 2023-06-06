@@ -1,0 +1,182 @@
+<div data-sly-test="${wcmmode.edit}" class="cq-placeholder" data-emptytext="Full Width Banner Component"></div>
+<sly data-sly-use.banner="com.fraserproperty.onebangkok.core.models.FullWidthBannerModel"/>
+<sly data-sly-use.model="com.fraserproperty.onebangkok.core.models.LinkModel"/>
+<sly data-sly-test="${banner.bannerLayout=='large'}">
+    <sly data-sly-test="${banner.bannerType}">
+        <!-- FULL SCREEN BANNER -->
+        <div data-sly-attribute.data-dark-nav="${properties.isBackgroundDark ? 'true':'false'}">
+            <div class="full-screen-banner container container--full-screen container--sticky">
+
+                <sly data-sly-test="${banner.bannerType == 'image'}">
+                    <sly data-sly-test="${!banner.mobileBannerImage}">
+                        <img src="${banner.desktopBannerImage}" alt="${banner.imgAltText}">
+                    </sly>
+                    <sly data-sly-test="${banner.mobileBannerImage}">
+                        <img src="${banner.desktopBannerImage}" alt="${banner.imgAltText}"
+                             class="full-screen-banner__desktop-background"/>
+                        <img src="${banner.mobileBannerImage}" alt="${banner.imgAltText}"
+                             class="full-screen-banner__mobile-background"/>
+                    </sly>
+                </sly>
+                <sly data-sly-test="${banner.bannerType == 'video'}">
+                    <sly data-sly-test="${!banner.mobileBannerVideo}">
+                        <video autoplay loop muted>
+                            <source src="${banner.desktopBannerVideo}"/>
+                        </video>
+                    </sly>
+                    <sly data-sly-test="${banner.mobileBannerVideo}">
+                        <video autoplay loop muted class="full-screen-banner__desktop-background">
+                            <source src="${banner.desktopBannerVideo}"/>
+                        </video>
+                        <video autoplay loop muted class="full-screen-banner__mobile-background">
+                            <source src="${banner.mobileBannerVideo}"/>
+                        </video>
+                    </sly>
+
+                </sly>
+                <div class="ob-container container--left" data-aos="fade-up">
+                    <div class="full-screen-banner__content--half-width-center">
+                        <h3 class="header--white-left special-mb ${banner.mobileContentAlignment=='center' ? 'header--mb-center' : 'header--mb-left'}">
+                            ${banner.headingRTE @context='html'}
+                        </h3>
+                        <p class="body-2--white-left ${banner.mobileContentAlignment=='center' ? 'body--mb-center' : 'body--mb-left'}">
+                            ${banner.descriptionRTE @context='html'}
+                        </p>
+                        <div class="full-screen-banner__button-wrapper ${banner.mobileContentAlignment=='center' ? 'full-screen-banner__button-wrapper--mb-center' : ''}">
+                            <sly data-sly-test="${banner.ctaLabel}">
+                                <a class="button button--icon ${properties.buttoncta}" type="button" 
+                                   href="${banner.ctaUrl @extension='html'}"
+                                   target="${banner.openinnewtab ?'_blank':''}">
+                                    ${banner.ctaLabel}
+                                   <svg width="26" height="16" viewBox="0 0 26 16" xmlns="http://www.w3.org/2000/svg">
+  <sly data-sly-test="${properties.buttoncta=='button--solid--black' || properties.buttoncta=='button--outline--white'}">
+<path
+                                            d="M8.125 0C3.547 0 0 3.582 0 7.795 0 12.418 3.547 16 8.125 16c3.988 0 7.405-3.273 7.698-7.6h5.844v2L26 8l-4.333-2.4v2l-5.827.001v-.048C15.707 3.445 12.217 0 8.125 0zm-.203 15.2C3.984 15.2.792 11.976.792 8S3.984.8 7.922.8c3.805 0 6.913 3.01 7.119 6.8H8.273v.8h6.768c-.206 3.79-3.314 6.8-7.12 6.8z"
+                                            fill="#fff"
+                                            fill-rule="evenodd"
+                                    /></sly>
+<sly data-sly-test="${properties.buttoncta=='button--solid--white' || properties.buttoncta=='button--outline--black'}">
+<path
+                                            d="M8.125 0C3.547 0 0 3.582 0 7.795 0 12.418 3.547 16 8.125 16c3.988 0 7.405-3.273 7.698-7.6h5.844v2L26 8l-4.333-2.4v2l-5.827.001v-.048C15.707 3.445 12.217 0 8.125 0zm-.203 15.2C3.984 15.2.792 11.976.792 8S3.984.8 7.922.8c3.805 0 6.913 3.01 7.119 6.8H8.273v.8h6.768c-.206 3.79-3.314 6.8-7.12 6.8z"
+                                            fill="#000"
+                                            fill-rule="evenodd"
+                                    /></sly>
+
+                                </svg>
+                                </a>
+                            </sly>
+                            <sly data-sly-test="${banner.enableForm}">
+                                    <sly data-sly-test="${banner.downloadLabel}">
+                                        <a id="download-Cookie" class="button button--icon ${properties.buttondownload}"
+                                           type="button" 
+                                           data-open-modal-btn="enquire-form${banner.formid}"
+                                           href="${banner.downloadUrl}">
+                                            ${banner.downloadLabel}
+                                        </a>
+                                    </sly>
+                            </sly>
+                            <sly data-sly-test="${!banner.enableForm}">
+                                <sly data-sly-test="${banner.downloadLabel}">
+                                    <a class="button button--icon ${properties.buttondownload}" type="button"
+                                        href="${banner.downloadUrl}" download>
+                                        ${banner.downloadLabel}
+                                    </a>
+                                </sly>
+                            </sly>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </sly>
+</sly>
+<sly data-sly-test="${banner.bannerLayout=='small'}">
+    <div data-sly-attribute.data-dark-nav="${properties.isBackgroundDark ? 'true':'false'}">
+        <div class="full-screen-banner full-screen-banner-fit-content-wraper container">
+            <sly data-sly-test="${banner.bannerType == 'image'}">
+            <div class="jarallax">
+                <sly data-sly-test="${!banner.mobileBannerImage}">
+                    <img src="${banner.desktopBannerImage}" alt="${banner.imgAltText}" class="jarallax-img">
+                </sly>
+                <sly data-sly-test="${banner.mobileBannerImage}">
+                    <img src="${banner.desktopBannerImage}" alt="${banner.imgAltText}"
+                         class="full-screen-banner__desktop-background jarallax-img"/>
+                    <img src="${banner.mobileBannerImage}" alt="${banner.imgAltText}"
+                         class="full-screen-banner__mobile-background jarallax-img"/>
+                </sly>
+                </div>
+            </sly>
+            <sly data-sly-test="${banner.bannerType == 'video'}">
+                <sly data-sly-test="${!banner.mobileBannerVideo}">
+                    <video autoplay loop muted>
+                        <source src="${banner.desktopBannerVideo}"/>
+                    </video>
+                </sly>
+                <sly data-sly-test="${banner.mobileBannerVideo}">
+                    <video autoplay loop muted class="full-screen-banner__desktop-background">
+                        <source src="${banner.desktopBannerVideo}"/>
+                    </video>
+                    <video autoplay loop muted class="full-screen-banner__mobile-background">
+                        <source src="${banner.mobileBannerVideo}"/>
+                    </video>
+                </sly>
+
+            </sly>
+
+
+            <div class="ob-container container--left">
+                <div class="full-screen-banner--fit-content">
+                    <h3 class="header--white-left  ${banner.mobileContentAlignment=='center' ? 'header--mb-center' : 'header--mb-left'} special-mb"
+                        data-aos="fade-up">
+                        ${banner.headingRTE @context='html'}
+                    </h3>
+                    <p class="body-2--white-left ${banner.mobileContentAlignment=='center' ? 'body--mb-center' : 'body--mb-left'}"
+                       data-aos="fade-up">
+                        ${banner.descriptionRTE @context='html'}
+                    </p>
+                    <div class="full-screen-banner__button-wrapper ${banner.mobileContentAlignment=='center' ? '' : 'full-screen-banner__button-wrapper--mb-left'}">
+                        <sly data-sly-test="${banner.ctaLabel}">
+                            <a class="button button--icon ${properties.buttoncta}" type="button" data-aos="fade-up"
+                               href="${banner.ctaUrl @ extension = 'html' }"
+                               target="${banner.openinnewtab ?'_blank':''}">
+                                ${banner.ctaLabel}
+                                <svg width="26" height="16" viewBox="0 0 26 16" xmlns="http://www.w3.org/2000/svg">
+  <sly data-sly-test="${properties.buttoncta=='button--solid--black' || properties.buttoncta=='button--outline--white'}">
+<path
+                                            d="M8.125 0C3.547 0 0 3.582 0 7.795 0 12.418 3.547 16 8.125 16c3.988 0 7.405-3.273 7.698-7.6h5.844v2L26 8l-4.333-2.4v2l-5.827.001v-.048C15.707 3.445 12.217 0 8.125 0zm-.203 15.2C3.984 15.2.792 11.976.792 8S3.984.8 7.922.8c3.805 0 6.913 3.01 7.119 6.8H8.273v.8h6.768c-.206 3.79-3.314 6.8-7.12 6.8z"
+                                            fill="#fff"
+                                            fill-rule="evenodd"
+                                    /></sly>
+<sly data-sly-test="${properties.buttoncta=='button--solid--white' || properties.buttoncta=='button--outline--black'}">
+<path
+                                            d="M8.125 0C3.547 0 0 3.582 0 7.795 0 12.418 3.547 16 8.125 16c3.988 0 7.405-3.273 7.698-7.6h5.844v2L26 8l-4.333-2.4v2l-5.827.001v-.048C15.707 3.445 12.217 0 8.125 0zm-.203 15.2C3.984 15.2.792 11.976.792 8S3.984.8 7.922.8c3.805 0 6.913 3.01 7.119 6.8H8.273v.8h6.768c-.206 3.79-3.314 6.8-7.12 6.8z"
+                                            fill="#000"
+                                            fill-rule="evenodd"
+                                    /></sly>
+
+                                </svg>
+                            </a>
+                        </sly>
+                        <sly data-sly-test="${banner.enableForm}">
+                        <sly data-sly-test="${banner.downloadLabel}">
+                            <a id="download-Cookie" class="button button--icon ${properties.buttondownload}" type="button" data-aos="fade-up"
+                            data-open-modal-btn="enquire-form${banner.formid}"
+                                href="${banner.downloadUrl}">
+                                ${banner.downloadLabel}
+                            </a>
+                        </sly>
+                        </sly>
+						<sly data-sly-test="${!banner.enableForm}">
+                        <sly data-sly-test="${banner.downloadLabel}">
+                            <a class="button button--icon ${properties.buttondownload}" type="button" data-aos="fade-up"
+                                href="${banner.downloadUrl}" download>
+                                ${banner.downloadLabel}
+                            </a>
+                        </sly>
+                        </sly>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</sly>

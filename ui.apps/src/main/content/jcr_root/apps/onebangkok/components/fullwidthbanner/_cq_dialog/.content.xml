@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Full Width Banner"
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    extraClientlibs="[onebangkok.authoring.dialog]">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <general
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="PROPERTIES"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <mainlogo
+                                                granite:class="foundation-layout-util-vmargin"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <heading
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/heading"
+                                                        level="3"/>
+                                                    <well
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/well">
+                                                        <items jcr:primaryType="nt:unstructured">
+                                                            <bannertype
+                                                                granite:class="cq-dialog-dropdown-showhide-multival"
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                                fieldDescription="Please Select Banner Type"
+                                                                fieldLabel="Banner Type"
+                                                                name="./bannerType">
+                                                                <items jcr:primaryType="nt:unstructured">
+                                                                    <image
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        text="Image"
+                                                                        value="image"/>
+                                                                    <video
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        text="Video&#xa;"
+                                                                        value="video"/>
+                                                                </items>
+                                                                <granite:data
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    cq-dialog-dropdown-showhide-target=".item-type-hide-show"/>
+                                                            </bannertype>
+                                                            <backgroudcolor
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                                name="./isBackgroundDark"
+                                                                text="Please select if backgroud is dark"
+                                                                value="true"/>
+                                                            <bannerlayout
+                                                                granite:class="cmp-options--editor-type-v1"
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                                fieldDescription="Set the type of the form field."
+                                                                fieldLabel="Banner Layout"
+                                                                name="./bannerLayout">
+                                                                <items jcr:primaryType="nt:unstructured">
+                                                                    <large
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        text="Large"
+                                                                        value="large"/>
+                                                                    <small
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        text="Small"
+                                                                        value="small"/>
+                                                                </items>
+                                                            </bannerlayout>
+                                                            <imageContainer
+                                                                granite:class="hide item-type-hide-show"
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                                <items jcr:primaryType="nt:unstructured">
+                                                                    <desktopbannerimage
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        fieldDescription="Aspect ratio 1440 ∶ 1024 (width : height)"
+                                                                        sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                                        fieldLabel="Desktop Banner Image"
+                                                                        name="./desktopBannerImage"
+                                                                        rootPath="/content/dam/onebangkok"/>
+                                                                    <mobilebannerimage
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        fieldDescription="Aspect ratio 414 ∶ 896 (width : height)"
+                                                                        sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                                        fieldLabel="Mobile Banner Image"
+                                                                        name="./mobileBannerImage"
+                                                                        rootPath="/content/dam/onebangkok"/>
+                                                                    <imagealttext
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                        fieldLabel="Image Alt Text"
+                                                                        name="./imgAltText"/>
+                                                                </items>
+                                                                <granite:data
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    showhidetargetvalue="image"/>
+                                                            </imageContainer>
+                                                            <videoContainer
+                                                                granite:class="hide item-type-hide-show"
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                                <items jcr:primaryType="nt:unstructured">
+                                                                    <desktopbannervideo
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        fieldDescription="Aspect ratio 1440 ∶ 1024 (width : height)"
+                                                                        sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                                        fieldLabel="Desktop Banner Video"
+                                                                        name="./desktopBannerVideo"
+                                                                        rootPath="/content/dam/onebangkok"/>
+                                                                    <mobilebannervideo
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        fieldDescription="Aspect ratio 414 ∶ 896 (width : height)"
+                                                                        sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                                        fieldLabel="Mobile Banner Video"
+                                                                        name="./mobileBannerVideo"
+                                                                        rootPath="/content/dam/onebangkok"/>
+                                                                </items>
+                                                                <granite:data
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    showhidetargetvalue="video"/>
+                                                            </videoContainer>
+                                                            <mobilecontentalignment
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                                fieldDescription="Please Select Mobile Content Alignment"
+                                                                fieldLabel="Mobile Content Alignment"
+                                                                name="./mobileContentAlignment">
+                                                                <items jcr:primaryType="nt:unstructured">
+                                                                    <left
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        text="Left"
+                                                                        value="left"/>
+                                                                    <center
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        text="Center&#xa;"
+                                                                        value="center"/>
+                                                                </items>
+                                                            </mobilecontentalignment>
+                                                            <heading
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                                                fieldLabel="Heading"
+                                                                name="./headingRTE"
+                                                                useFixedInlineToolbar="{Boolean}true">
+                                                                <rtePlugins
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceSuperType="/apps/onebangkok/components/authoring/richtext/rtePlugins"/>
+                                                                <uiSettings
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceSuperType="/apps/onebangkok/components/authoring/richtext/uiSettings"/>
+                                                            </heading>
+                                                            <description
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                                                fieldLabel="Description"
+                                                                name="./descriptionRTE"
+                                                                useFixedInlineToolbar="{Boolean}true">
+                                                                <rtePlugins
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceSuperType="/apps/onebangkok/components/authoring/richtext/rtePlugins"/>
+                                                                <uiSettings
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceSuperType="/apps/onebangkok/components/authoring/richtext/uiSettings"/>
+                                                            </description>
+                                                            <buttoncta
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                                fieldLabel="Button layout for CTA"
+                                                                name="./buttoncta">
+                                                                <items jcr:primaryType="nt:unstructured">
+                                                                    <blackSolid
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        text="Black Solid"
+                                                                        value="button--solid--black"/>
+                                                                    <blackOutline
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        text="Black Outline"
+                                                                        value="button--outline--black"/>
+                                                                    <whiteSolid
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        text="White Solid"
+                                                                        value="button--solid--white"/>
+                                                                    <whiteOutline
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        text="White Outline"
+                                                                        value="button--outline--white"/>
+                                                                </items>
+                                                            </buttoncta>
+                                                            <ctalabel
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                                                                fieldLabel="CTA Label"
+                                                                name="./ctaLabel"/>
+                                                            <ctaURL
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                                fieldLabel="CTA URL"
+                                                                name="./ctaUrl"
+                                                                rootPath="/content/onebangkok"/>
+                                                            <openinnewtab
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                                name="./openinnewtab"
+                                                                text="Open in new tab"
+                                                                value="_blank"/>
+                                                            <enableform
+                                                                granite:class="cq-dialog-checkbox-showhide"
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                                fieldLabel="Enable Form"
+                                                                name="./enableForm"
+                                                                text="Enable Form"
+                                                                value="true">
+                                                                <granite:data
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    cq-dialog-checkbox-showhide-target=".togglefield"/>
+                                                            </enableform>
+                                                            <formcontainer
+                                                                granite:class="togglefield"
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                                <items jcr:primaryType="nt:unstructured">
+                                                                    <formid
+                                                                        granite:class="togglefield"
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                        fieldLabel="Form id"
+                                                                        name="./formid"
+                                                                        required="{Boolean}true"
+                                                                        validation="onebkk-formid-validation">
+                                                                        <granite:data
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            ticketlabel="ticketlabel"/>
+                                                                    </formid>
+                                                                </items>
+                                                            </formcontainer>
+                                                            <buttondownload
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                                fieldLabel="Button layout for Download"
+                                                                name="./buttondownload">
+                                                                <items jcr:primaryType="nt:unstructured">
+                                                                    <blackSolid
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        text="Black Solid"
+                                                                        value="button--solid--black"/>
+                                                                    <blackOutline
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        text="Black Outline"
+                                                                        value="button--outline--black"/>
+                                                                    <whiteSolid
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        text="White Solid"
+                                                                        value="button--solid--white"/>
+                                                                    <whiteOutline
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        text="White Outline"
+                                                                        value="button--outline--white"/>
+                                                                </items>
+                                                            </buttondownload>
+                                                            <downloadlabel
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                                                                fieldLabel="Download Button Label"
+                                                                name="./downloadLabel"/>
+                                                            <downloadUrl
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                                fieldDescription="Select a PDF, Image or Word document from DAM"
+                                                                fieldLabel="Download Url"
+                                                                name="./downloadUrl"
+                                                                rootPath="/content/dam/onebangkok"/>
+                                                        </items>
+                                                    </well>
+                                                </items>
+                                            </mainlogo>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </general>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

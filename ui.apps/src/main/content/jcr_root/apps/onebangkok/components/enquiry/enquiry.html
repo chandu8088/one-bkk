@@ -1,0 +1,158 @@
+<!-- START POP UP ENQUIRE-->
+<div data-sly-test="${wcmmode.edit}" class="cq-placeholder" data-emptytext="Enquiry/NewsLetter Component"></div>
+<sly data-sly-use.enquiryNewsletterModel="com.fraserproperty.onebangkok.core.models.EnquiryNewsletterModel"/>
+<input type="hidden" id="emailsubject" value="${properties.emailsubject}"/>
+<input type="hidden" id="siteKey" value="${enquiryNewsletterModel.siteKey}"/>
+<input type="hidden" id="formid" value="${enquiryNewsletterModel.formid}"/>
+<input type="hidden" id="language" value="${enquiryNewsletterModel.lang}"/>
+<input type="hidden" id="resourcePath" value="${enquiryNewsletterModel.resourcePath}"/>
+<div class="modal">
+    <div class="modal-backdrop"></div>
+    <div class="modal-container modal--image-content" data-modal-id="enquire-form${enquiryNewsletterModel.formid}">
+        <div class="modal__close-btn" data-modal-id="enquire-form${enquiryNewsletterModel.formid}">
+            <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                <g fill="none" fill-rule="evenodd">
+                    <circle fill="#000" cx="16" cy="16" r="16" />
+                    <path d="m11.773 11.773 8.454 8.454m0-8.454-8.454 8.454" stroke="#FFF" stroke-width="1.938" />
+                </g>
+            </svg>
+        </div>
+        <div class="modal--static-image">
+            <img class="modal__image--static desktop" src="${properties.desktopimage}" />
+            <img class="modal__image--static mobile" src="${properties.mobileimage}" />
+            <div class="modal__content">
+                <h4 class="header--black-left special-mb">${enquiryNewsletterModel.heading @context = 'html'}</h4>
+                <p class="body-2--black-left">
+                    ${enquiryNewsletterModel.description @context = 'html'}
+                </p>
+                <form name="enquire-form${enquiryNewsletterModel.formid}">
+                    <div class="input input--two-col">
+                        <div>
+                            <input type="text" name="firstName" placeholder="${properties.fname}" />
+                            <span class="input-error-msg hidden" data-error-type="empty">${properties.fnamemsg}</span>
+                        </div>
+                        <div>
+                            <input type="text" name="lastName" placeholder="${properties.lname}" />
+                            <span class="input-error-msg hidden" data-error-type="empty">${properties.lnamemsg}</span>
+                        </div>
+                    </div>
+                    <div class="input input--two-col">
+                        <div>
+                            <input type="text" name="email" placeholder="${properties.email}" />
+                            <span class="input-error-msg hidden" data-error-type="empty">${properties.emailmsg}</span>
+                            <span class="input-error-msg hidden" data-error-type="invalid">${properties.emailformatmsg}</span>
+                        </div>
+                        <div>
+                            <input type="tel" name="mobile" placeholder="${properties.mobile}" />
+                            <span class="input-error-msg hidden" data-error-type="empty">${properties.mobilemsg}</span>
+                            <span class="input-error-msg hidden" data-error-type="invalid">${properties.mobinvlaidmsg}</span>
+                        </div>
+                    </div>
+                    <div class="input input--two-col">
+                        <div>
+                            <input type="text" name="companyName" placeholder="${properties.companyname}" />
+                            <span class="input-error-msg hidden" data-error-type="empty"></span>
+                        </div>
+                        <div>
+                            <div class="custom-dropdown">
+                                <div class="custom-dropdown__active-item">
+                                    <span class="custom-dropdown__placeholder">${properties.departmentdefaultvalue}</span>
+                                    <span class="custom-dropdown__active-option-value"></span
+                                    ><svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                            d="M55.864 49.595a4.745 4.745 0 0 0 6.74 0 4.818 4.818 0 0 0 0-6.783L35.37 15.405a4.745 4.745 0 0 0-6.74 0L1.396 42.812a4.818 4.818 0 0 0 0 6.783 4.745 4.745 0 0 0 6.74 0l23.877-24.029 23.851 24.03z"
+                                            fill="#000"
+                                            fill-rule="evenodd"
+                                    />
+                                </svg>
+                                </div>
+                                <div class="custom-dropdown__options" data-select-name="department">
+                                    <div class="custom-dropdown__item custom-dropdown__label">${properties.departmentdefaultvalue}</div>
+                                    <sly data-sly-list.key="${enquiryNewsletterModel.tags}">
+                                        <div class="custom-dropdown__item" data-option-value="${enquiryNewsletterModel.tags[key]}" data-option-name="${key}">
+                                            ${key}<img src="/etc.clientlibs/onebangkok/clientlibs/clientlib-base/resources/images/icons/icons-checked.svg" />
+                                        </div>
+                                    </sly>
+                                </div>
+                            </div>
+                            <span class="input-error-msg hidden" data-error-type="empty">${properties.deptmsg}</span>
+                        </div>
+                    </div>
+                    <div class="input">
+                        <textarea name="message" placeholder="${properties.comments}"></textarea>
+                        <span class="input-error-msg hidden" data-error-type="empty">${properties.commentsmsg}</span>
+                    </div>
+                    <div class="input checkbox-input">
+                        <div class="checkbox">
+                            <input type="checkbox" name="acceptAgreement" />
+                            <label for="scales">
+                                ${enquiryNewsletterModel.termsandcondition @context = 'html'}
+                                <span class="input-error-msg hidden" data-error-type="empty">
+                                    ${properties.tandcsmsg}
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="checkbox">
+                        <input type="checkbox" name="acceptMarketing" />
+                        <label for="scales">${enquiryNewsletterModel.productinformationcheckboxcontent @context = 'html'}</label>
+                    </div>
+                    <div id="captcha-container"></div>
+                    <span class="input-error-msg" data-error-type="empty" id= "captcha-error-container" style="display: none;">${properties.captchamsg}</span>
+                    <button id="enquire-form${enquiryNewsletterModel.formid}-submit-btn" class="button button--solid--black button--mb-center" data-action='submit'> ${properties.submit}</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit&hl=${enquiryNewsletterModel.getLanguage}"
+        async defer>
+</script>
+<!-- END POP UP ENQUIRE-->
+<!-- START POP UP ENQUIRE SUCCESS -->
+<div class="modal modal--middle">
+    <div class="modal-backdrop"></div>
+    <div class="modal-container modal--image-content" data-modal-id="enquire-form${enquiryNewsletterModel.formid}-success">
+        <div class="modal__close-btn" data-modal-id="enquire-form${enquiryNewsletterModel.formid}-success">
+            <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                <g fill="none" fill-rule="evenodd">
+                    <circle fill="#000" cx="16" cy="16" r="16" />
+                    <path d="m11.773 11.773 8.454 8.454m0-8.454-8.454 8.454" stroke="#FFF" stroke-width="1.938" />
+                </g>
+            </svg>
+        </div>
+        <div class="modal--static-image">
+            <img class="modal__image--static desktop" src="${properties.desktopimage}" />
+            <img class="modal__image--static mobile" src="${properties.mobileimage}" />
+            <div class="modal__content modal__content--middle">
+                <h4 class="header--black-left special-mb">${properties.successmessage @context = 'html'}</h4>
+                <p class="body-2--black-left">${properties.successmessagedesc @context = 'html'}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- START POP UP ENQUIRE SUCCESS -->
+<!-- START POP UP ENQUIRE SUCCESS -->
+<div class="modal modal--middle">
+    <div class="modal-backdrop"></div>
+    <div class="modal-container modal--image-content" data-modal-id="enquire-form${enquiryNewsletterModel.formid}-failure">
+        <div class="modal__close-btn" data-modal-id="enquire-form${enquiryNewsletterModel.formid}-failure">
+            <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                <g fill="none" fill-rule="evenodd">
+                    <circle fill="#000" cx="16" cy="16" r="16" />
+                    <path d="m11.773 11.773 8.454 8.454m0-8.454-8.454 8.454" stroke="#FFF" stroke-width="1.938" />
+                </g>
+            </svg>
+        </div>
+        <div class="modal--static-image">
+            <img class="modal__image--static desktop" src="${properties.desktopimage}" />
+            <img class="modal__image--static mobile" src="${properties.mobileimage}" />
+            <div class="modal__content modal__content--middle">
+                <h4 class="header--black-left special-mb">${properties.failuremessage @context = 'html'}</h4>
+                <p class="body-2--black-left">${properties.failuremessagedesc @context = 'html'}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- START POP UP ENQUIRE SUCCESS -->

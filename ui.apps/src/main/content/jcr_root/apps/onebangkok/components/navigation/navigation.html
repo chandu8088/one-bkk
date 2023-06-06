@@ -1,0 +1,123 @@
+<div data-sly-test="${wcmmode.edit}" class="cq-placeholder" data-emptytext="Navigation Component"></div>
+<sly data-sly-use.navigationMenu="com.fraserproperty.onebangkok.core.models.NavigationMenu"/>
+<div class="page-nav-backdrop" id="page-nav-backdrop"></div>
+<nav class="nav page-nav active" id="page-nav" data-aos="fade" data-aos-offset="0">
+
+
+    <a href="${navigationMenu.logoLink @extension='html'}" class="page-nav-one-bangkok-logo">
+        <img class="light" src="${properties.darklogo}" alt="${navigationMenu.logoAltText}" />
+        <img class="dark" src="${properties.lightlogo}" alt="${navigationMenu.logoAltText}"/>
+    </a>
+
+    <div>
+        <div class="hamburger page-nav-hamburger" id="page-nav-toggle">
+            <svg class="hamburger__bar" width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                <path
+                        d="M4 7c-2 0-4 1.79-4 3.556C0 13.209 2 15 4 15h56c2 0 4-1.79 4-4.444C64 8.79 62 7 60 7H4zm0 21c-2 0-4 1.79-4 4.444C0 34.21 2 36 4 36h56c2 0 4-1.79 4-3.556C64 29.791 62 28 60 28H4zm0 21c-2 0-4 1.79-4 3.556C0 55.209 2 57 4 57h56c2 0 4-1.79 4-4.444C64 50.79 62 49 60 49H4z"
+                        fill="#ffffff"
+                        fill-rule="evenodd"
+                />
+            </svg>
+            <svg class="hamburger__close" width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                <path
+                        d="M61.698 2.302a4.667 4.667 0 0 0-6.6 0L32 25.4 8.901 2.302a4.667 4.667 0 0 0-6.6 6.6L25.402 32 2.3 55.099a4.667 4.667 0 0 0 6.6 6.6L32 38.599l23.099 23.1a4.667 4.667 0 0 0 6.6-6.6L38.598 32 61.7 8.901a4.667 4.667 0 0 0 0-6.6z"
+                        fill="#ffffff"
+                        fill-rule="evenodd"
+                />
+            </svg>
+        </div>
+    </div>
+
+    <div>
+        <div class="nav-action">
+            <div class="nav-action__language-selector desktop">
+                <div class="custom-select">
+                    <div class="custom-select__active-option nav-action__language-selector-button">
+                        <sly data-sly-list.lang="${navigationMenu.languageNav}">
+                            <sly data-sly-test="${lang['pageActive']}">
+                                <span class="custom-select__active-option-value"> ${lang['nodeTitle']}  </span>
+                            </sly>
+                        </sly>
+                        <svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                    d="M55.864 49.595a4.745 4.745 0 0 0 6.74 0 4.818 4.818 0 0 0 0-6.783L35.37 15.405a4.745 4.745 0 0 0-6.74 0L1.396 42.812a4.818 4.818 0 0 0 0 6.783 4.745 4.745 0 0 0 6.74 0l23.877-24.029 23.851 24.03z"
+                                    fill="#000"
+                                    fill-rule="evenodd"
+                            />
+                        </svg>
+                    </div>
+                    <div class="custom-select__options">
+                        <sly data-sly-list.lang="${navigationMenu.languageNav}">
+                            <a href="${lang['langPath'] @extension='html'}" data-option-value="${lang['nodeTitle']}" class="custom-select__item ${lang['pageActive'] ? 'active' : ''}">${lang['nodeTitle']}</a>
+                        </sly>
+                    </div>
+                </div>
+            </div>
+            <a class="nav-action__enquire link--inline--black"  data-open-modal-btn="enquire-form${navigationMenu.enquiryFormId}">${navigationMenu.enquiryLabel}</a>
+        </div>
+        <div class="nav-contact desktop">
+            <a class="nav-contact__link">${navigationMenu.contactHeading}</a>
+            <p class="nav-contact__description body-1--black-left">
+                ${navigationMenu.contactRTE @context='html'}
+            </p>
+        </div>
+    </div>
+
+
+    <div class="page-nav-background" id="page-nav-background"></div>
+    <div class="page-nav-content" id="page-nav-content">
+        <sly data-sly-list="${navigationMenu.navigationPath.keySet.iterator}">
+            <sly data-sly-test="${item == navigationMenu.homePageTitle}">
+                <sly data-sly-list.mainList = "${navigationMenu.navigationPath[item]}">
+                    <a href="${mainList.getPath @ extension='html'}" class="page-nav-content__link ${currentPage.getTitle == mainList.getTitle?'active':''} "> ${mainList.getNavigationTitle ? mainList.getNavigationTitle : mainList.getTitle}</a>
+                    <sly data-sly-list.subPage="${navigationMenu.navigationPath.keySet.iterator}">
+                        <sly data-sly-test="${subPage == mainList.getTitle}">
+                            <sly data-sly-test="${navigationMenu.navigationPath[subPage]}">
+                                <div class="page-nav-content__sublinks">
+                                    <sly data-sly-list.subList = "${navigationMenu.navigationPath[subPage]}">
+                                        <a href="${subList.getPath  @ extension='html'}" class="${currentPage.getTitle == subList.getTitle?'active':''}">${subList.getNavigationTitle ? subList.getNavigationTitle : subList.getTitle}</a>
+                                    </sly>
+                                </div>
+                            </sly>
+                        </sly>
+                    </sly>
+                </sly>
+            </sly>
+        </sly>
+
+        <div class="mobile-nav">
+            <div class="nav-action">
+                <div class="nav-action__language-selector mobile">
+                    <div class="custom-select">
+                        <div class="custom-select__active-option nav-action__language-selector-button">
+                            <sly data-sly-list.lang="${navigationMenu.languageNav}">
+                                <sly data-sly-test="${lang['pageActive']}">
+                                    <span class="custom-select__active-option-value"> ${lang['nodeTitle']} </span>
+                                </sly>
+                            </sly>
+                            <svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                        d="M55.864 49.595a4.745 4.745 0 0 0 6.74 0 4.818 4.818 0 0 0 0-6.783L35.37 15.405a4.745 4.745 0 0 0-6.74 0L1.396 42.812a4.818 4.818 0 0 0 0 6.783 4.745 4.745 0 0 0 6.74 0l23.877-24.029 23.851 24.03z"
+                                        fill="#000"
+                                        fill-rule="evenodd"
+                                />
+                            </svg>
+                        </div>
+                        <div class="custom-select__options">
+                            <sly data-sly-list.lang="${navigationMenu.languageNav}">
+                                <a href="${lang['langPath'] @extension='html'}" data-option-value="${lang['nodeTitle']}" class="custom-select__item ${lang['pageActive'] ? 'active' : ''}">${lang['nodeTitle']}</a>
+                            </sly>
+                        </div>
+                    </div>
+                </div>
+                <a class="nav-action__enquire link--inline--black" data-open-modal-btn="enquire-form${navigationMenu.enquiryFormId}">${navigationMenu.enquiryLabel}</a>
+            </div>
+            <div class="nav-contact mobile">
+                <a class="nav-contact__link">${navigationMenu.contactHeading}</a>
+                <p class="nav-contact__description body-1--black-left">
+                    ${navigationMenu.contactRTE @context='html'}
+                </p>
+            </div>
+        </div>
+    </div>
+</nav>

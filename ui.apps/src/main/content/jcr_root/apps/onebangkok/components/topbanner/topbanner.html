@@ -1,0 +1,57 @@
+<div data-sly-test="${wcmmode.edit}" class="cq-placeholder" data-emptytext="Top Banner"></div>
+<sly data-sly-use.topbanner="com.fraserproperty.onebangkok.core.models.TopBannerModel"/>
+<sly data-sly-test="${topbanner.subheading || topbanner.heading || topbanner.ctaLabel}">
+    <div class="ob-container">
+        <div class="${wcmmode.disabled || wcmmode.preview ? 'top-banner' : ''}">
+            <sly data-sly-test="${topbanner.subheading}">
+                <h4 class="header--black-center" data-aos="fade-up" data-aos-offset="0">${topbanner.subheading @
+                    context='html'}</h4>
+            </sly>
+            <sly data-sly-test="${topbanner.heading}">
+                <h1 class="header--black-center" data-aos="fade-up" data-aos-delay="200" data-aos-offset="0">
+                    ${topbanner.heading @ context='html'}
+                </h1>
+            </sly>
+            <sly data-sly-test="${topbanner.ctaLabel}">
+                <a
+                        class="button button--icon button--solid--black button--center"
+                        data-aos="fade-up"
+                        data-aos-delay="400"
+                        data-aos-offset="0"
+                        href="${topbanner.ctaUrl @ extension = 'html'}"
+                        target="${topbanner.newTab}"
+                >
+                    ${topbanner.ctaLabel @ context = 'html'}
+                    <svg width="26" height="16" viewBox="0 0 26 16" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                                d="M8.125 0C3.547 0 0 3.582 0 7.795 0 12.418 3.547 16 8.125 16c3.988 0 7.405-3.273 7.698-7.6h5.844v2L26 8l-4.333-2.4v2l-5.827.001v-.048C15.707 3.445 12.217 0 8.125 0zm-.203 15.2C3.984 15.2.792 11.976.792 8S3.984.8 7.922.8c3.805 0 6.913 3.01 7.119 6.8H8.273v.8h6.768c-.206 3.79-3.314 6.8-7.12 6.8z"
+                                fill="#fff"
+                                fill-rule="evenodd"
+                        />
+                    </svg>
+                </a>
+            </sly>
+        </div>
+    </div>
+</sly>
+<sly data-sly-test="${topbanner.imagePath || topbanner.fullscreenImagePath}">
+    <div class="${wcmmode.disabled || wcmmode.preview ? 'top-banner__image-container' : ''}">
+        <div class="${wcmmode.disabled || wcmmode.preview ? 'top-banner__image' : ''}" data-aos="fade">
+            <sly data-sly-test="${topbanner.imagePath}">
+                <img src="${topbanner.imagePath}" alt="${topbanner.altText}"/>
+            </sly>
+            <sly data-sly-test="${topbanner.fullscreenImagePath}">
+                <div class="${wcmmode.disabled || wcmmode.preview ? 'top-banner__bg' : ''}"
+                     id="top-banner-animate-on-scroll">
+                    <sly data-sly-test="${wcmmode.disabled || wcmmode.preview}">
+                        <img src="${topbanner.fullscreenImagePath}" id="top-banner-animate-on-scroll-mask"
+                             alt="${topbanner.altText}"/>
+                    </sly>
+                </div>
+            </sly>
+        </div>
+    </div>
+</sly>
+
+
+

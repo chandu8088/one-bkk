@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured">
+    <edit
+        jcr:primaryType="nt:unstructured"
+        defaultPasteMode="plaintext"
+        features=""/>
+    <findreplace
+        jcr:primaryType="nt:unstructured"
+        features=""/>
+    <justify
+        jcr:primaryType="nt:unstructured"
+        features=""/>
+    <format
+        jcr:primaryType="nt:unstructured"
+        features=""/>
+    <image
+        jcr:primaryType="nt:unstructured"
+        features=""/>
+    <keys
+        jcr:primaryType="nt:unstructured"
+        features=""/>
+    <links
+        jcr:primaryType="nt:unstructured"
+        features=""/>
+    <lists
+        jcr:primaryType="nt:unstructured"
+        features=""/>
+    <misctools
+        jcr:primaryType="nt:unstructured"
+        features="">
+        <specialCharsConfig jcr:primaryType="nt:unstructured">
+            <chars jcr:primaryType="nt:unstructured">
+                <Copyright
+                    jcr:primaryType="nt:unstructured"
+                    entity="&amp;copy;"/>
+                <Registration
+                    jcr:primaryType="nt:unstructured"
+                    entity="&amp;reg;"/>
+                <Trademark
+                    jcr:primaryType="nt:unstructured"
+                    entity="&amp;trade;"/>
+                <deg
+                    jcr:primaryType="nt:unstructured"
+                    entity="&amp;deg;"/>
+                <left-quote
+                    jcr:primaryType="nt:unstructured"
+                    entity="&amp;ldquo;"/>
+                <right-quote
+                    jcr:primaryType="nt:unstructured"
+                    entity="&amp;rdquo;"/>
+            </chars>
+        </specialCharsConfig>
+    </misctools>
+    <paraformat
+        jcr:primaryType="nt:unstructured"
+        features="">
+        <formats jcr:primaryType="cq:WidgetCollection">
+            <p
+                jcr:primaryType="nt:unstructured"
+                description="Paragraph Text"
+                tag="p"/>
+            <h1
+                jcr:primaryType="nt:unstructured"
+                description="Heading 1"
+                tag="h1"/>
+            <h2
+                jcr:primaryType="nt:unstructured"
+                description="Heading 2"
+                tag="h2"/>
+            <h3
+                jcr:primaryType="nt:unstructured"
+                description="Heading 3"
+                tag="h3"/>
+            <h4
+                jcr:primaryType="nt:unstructured"
+                description="Heading 4"
+                tag="h4"/>
+            <h5
+                jcr:primaryType="nt:unstructured"
+                description="Heading 5"
+                tag="h5"/>
+            <h6
+                jcr:primaryType="nt:unstructured"
+                description="Heading 6"
+                tag="h6"/>
+        </formats>
+    </paraformat>
+    <spellcheck
+        jcr:primaryType="nt:unstructured"
+        features=""/>
+    <styles
+        jcr:primaryType="nt:unstructured"
+        features="">
+        <styles jcr:primaryType="cq:WidgetCollection">
+            <white_color
+                jcr:primaryType="nt:unstructured"
+                cssName="text-color--white"
+                text="White Color"/>
+            <black_color
+                jcr:primaryType="nt:unstructured"
+                cssName="text-color--black"
+                text="Black Color"/>
+        </styles>
+    </styles>
+    <subsuperscript
+        jcr:primaryType="nt:unstructured"
+        features=""/>
+    <undo
+        jcr:primaryType="nt:unstructured"
+        features=""/>
+    <table
+        jcr:primaryType="nt:unstructured"
+        features="">
+        <tableStyles jcr:primaryType="cq:WidgetCollection">
+            <none
+                jcr:primaryType="nt:unstructured"
+                cssName=""
+                text="None"/>
+        </tableStyles>
+        <cellStyles jcr:primaryType="cq:WidgetCollection">
+            <none
+                jcr:primaryType="nt:unstructured"
+                cssName=""
+                text="None"/>
+        </cellStyles>
+        <hiddenHeaderConfig
+            jcr:primaryType="nt:unstructured"
+            hiddenHeaderClassName="cq-wcm-foundation-aria-visuallyhidden"
+            hiddenHeaderEditingCSS="coral-RichText-hiddenHeader--editing"/>
+    </table>
+</jcr:root>

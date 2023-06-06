@@ -1,0 +1,49 @@
+/* --- Chinese font --- */
+@font-face {
+    font-family: MTTMilano;
+    src: url(./components/assets/fonts/MTTMilano.otf);
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+}
+@font-face {
+    font-family: MTTMilano;
+    src: url(./components/assets/fonts/MTTMilanoBold.otf);
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+}
+@font-face {
+    font-family: MTTMilano;
+    src: url(./components/assets/fonts/MTTMilanoBlack.otf);
+    font-weight: 900;
+    font-style: normal;
+    font-stretch: normal;
+}
+
+@font-face {
+    font-family: yahei;
+    src: url(./components//assets/fonts/chinese.msyh.ttf);
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+}
+
+html {
+    height: 100%;
+    /* overflow: auto; */
+    /* --scroll-behavior: smooth; */
+    /* scroll-behavior: smooth; */
+}
+
+body {
+    /* Temporary */
+    font-family: yahei;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    /* overflow: auto; */
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}

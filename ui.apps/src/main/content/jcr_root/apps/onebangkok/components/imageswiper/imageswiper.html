@@ -1,0 +1,20 @@
+<div data-sly-test="${wcmmode.edit}" class="cq-placeholder" data-emptytext="Image Swiper Component"></div>
+
+<div data-sly-use.editor_imageswiper="${'com.fraserproperty.onebangkok.core.models.ImageSwiper'}"></div>
+<div class="${wcmmode.disabled || wcmmode.preview ? 'container--parallax':''}">
+    <div class="ob-container container--left">
+        <div class="content content--left">
+            <div class="image-scroll" style="opacity: 1;">
+                <sly data-sly-test ="${wcmmode.disabled || wcmmode.preview}">
+                    <img
+                            data-animate-masking-parallax="square-left"
+                            class="image-scroll__front"
+                            src="${editor_imageswiper.revealimage}"
+                    />
+                </sly>
+                <img class="image-scroll__behind" src="${editor_imageswiper.defaultimage}" />
+
+            </div>
+        </div>
+    </div>
+</div>

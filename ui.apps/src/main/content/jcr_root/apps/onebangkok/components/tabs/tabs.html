@@ -1,0 +1,24 @@
+
+
+<div data-sly-test="${wcmmode.edit}" class="cq-placeholder" data-emptytext="Tabs Component"></div>
+<sly data-sly-use.tab="com.fraserproperty.onebangkok.core.models.TabsModel"/>
+<!-- TABS -->
+<div class="ob-container container--left">
+            <div class="tab ${properties.stickyTabs ? 'tab--sticky' : '' }">
+                <div class="tab__wrapper">
+         <sly data-sly-list.tabs="${tab.tabs}">
+            <div class="${tabsList.first?'tab__item active':'tab__item inactive'}" data-tab-group="${tab.contentIdentifier}" data-tab-target="${tabs.tabTarget}">${tabs.text}</div>
+         </sly>
+      </div>
+   </div>
+</div>
+<!-- CONTENT LEFT WITH BUTTON -->
+<div class="ob-container container--left">
+   <sly data-sly-list.tabs="${tab.tabs}">
+      <div class="${tabsList.first? 'tab-content tab-content--active':'tab-content tab-content--inactive'}" data-tab-group="${tab.contentIdentifier}" data-tab-content="${tabs.tabTarget}">
+               <sly data-sly-resource="${tabsList.index @ resourceType='onebangkok/components/container',decorationTagName='div'}"
+                  data-sly-test="${(wcmmode.edit || wcmmode.disabled)}"></sly>
+           
+      </div>
+   </sly>
+</div>

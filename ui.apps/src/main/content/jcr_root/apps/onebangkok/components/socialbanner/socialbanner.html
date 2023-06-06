@@ -1,0 +1,22 @@
+<!-- SOCIAL MEDIA CURATED IMAGES -->
+<sly data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}">
+
+		<sly data-sly-call="${clientLib.js @ categories='onebangkok.socialbanner'}"/>
+
+</sly>
+<sly data-sly-use.edit_socialbanner="com.fraserproperty.onebangkok.core.models.SocialBannerItemModel"/>
+<input type="hidden" id="node_name" value="${edit_socialbanner.node_name}"/>
+        <div data-dark-nav class="ob-container container--full-screen">
+            <div class="image-layout-title">
+                <div class="ob-container container--left">
+                    <h3 data-sticky-area="masonary" class="image-layout-title__text">${edit_socialbanner.heading @ context = 'html'}</h3>
+                </div>
+            </div>
+        <div class="image-layout-overlay--black"></div>
+			<div class="container--masonry-scroll container--full-screen">
+            	<div class="image-layout--masonry" id="social-media-images">
+
+
+            	</div>
+            </div>
+        </div>

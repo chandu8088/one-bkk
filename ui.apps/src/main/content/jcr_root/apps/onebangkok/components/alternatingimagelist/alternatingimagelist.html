@@ -1,0 +1,60 @@
+<div data-sly-test="${wcmmode.edit}" class="cq-placeholder" data-emptytext="Alternating Image List"></div>
+<sly data-sly-use.imagelist="com.fraserproperty.onebangkok.core.models.AlternatingImageListModel"/>
+<div data-sly-attribute.data-dark-nav="${properties.isBackgroundDark ? 'true':'false'}" class="container--background-fullwidth container--background-fullwidth--overlay-text ${properties.space ? 'container--background-fullwidth--overlap' : ''}">
+    <img class="background--content-fullwidth" src="${imagelist.desktopMainImage}" alt="${imagelist.altText}"/>
+    <img class="background--content-fullwidth--mobile" src="${imagelist.mobileMainImage}" alt="${imagelist.altText}"/>
+    <div class="container--absolute-fullwidth">
+        <div class="ob-container container--left">
+            <div class="content--right">
+                <div class="content__wrapper content__wrapper--xlarge content--middle">
+                    <h2 data-scroll-animate-position="top" class="header--black-left">${imagelist.heading
+                        @context='html'}</h2>
+                    <p data-scroll-animate-position="middle" class="body-2--black-left">
+                        ${imagelist.description @context='html'}
+                    </p>
+                    <sly data-sly-test="${imagelist.ctaLabel}">
+                        <a href="${imagelist.ctaUrl @ extension = 'html'}" data-scroll-animate-position="bottom"
+                           class="button button--icon ${properties.buttonlayout}" target="${imagelist.newTab}">
+                            ${imagelist.ctaLabel @context='html'}
+                            <svg width="26" height="16" viewBox="0 0 26 16" xmlns="http://www.w3.org/2000/svg">
+                                <sly data-sly-test="${properties.buttonlayout=='button--solid--black'}">
+<path
+                                            d="M8.125 0C3.547 0 0 3.582 0 7.795 0 12.418 3.547 16 8.125 16c3.988 0 7.405-3.273 7.698-7.6h5.844v2L26 8l-4.333-2.4v2l-5.827.001v-.048C15.707 3.445 12.217 0 8.125 0zm-.203 15.2C3.984 15.2.792 11.976.792 8S3.984.8 7.922.8c3.805 0 6.913 3.01 7.119 6.8H8.273v.8h6.768c-.206 3.79-3.314 6.8-7.12 6.8z"
+                                            fill="#fff"
+                                            fill-rule="evenodd"
+                                    /></sly>
+<sly data-sly-test="${properties.buttonlayout=='button--solid--white'}">
+<path
+                                            d="M8.125 0C3.547 0 0 3.582 0 7.795 0 12.418 3.547 16 8.125 16c3.988 0 7.405-3.273 7.698-7.6h5.844v2L26 8l-4.333-2.4v2l-5.827.001v-.048C15.707 3.445 12.217 0 8.125 0zm-.203 15.2C3.984 15.2.792 11.976.792 8S3.984.8 7.922.8c3.805 0 6.913 3.01 7.119 6.8H8.273v.8h6.768c-.206 3.79-3.314 6.8-7.12 6.8z"
+                                            fill="#000"
+                                            fill-rule="evenodd"
+                                    /></sly>
+                            </svg>
+                        </a>
+                    </sly>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div data-sly-attribute.data-dark-nav="${properties.isBackgroundDark ? 'true':'false'}" class="ob-container container--left container--content-side-image-circle">
+    <sly data-sly-list="${imagelist.altImageList}">
+        <div class="content-side-image-circle">
+            <sly data-sly-test="${item.imagePath}">
+                <img
+                        data-animate-masking="${wcmmode.disabled || wcmmode.preview ? 'circle-center' : ''}"
+                        data-scroll-animate-transform="${wcmmode.disabled || wcmmode.preview ? 'scale' : ''}"
+                        class="content-side-image-circle__image"
+                        src="${item.imagePath}" alt="${item.imageAltText}"
+                />
+            </sly>
+            <div class="content-side-image-circle__content">
+                <div data-aos="fade-up" data-aos-offset="0" class="callout-3--black-left">${item.itemHeading @context='html'}</div>
+                <p data-aos="fade-up" data-aos-offset="0" data-aos-delay="200" class="body-2--black-left">
+                    ${item.itemDescription @context='html'}
+                </p>
+            </div>
+        </div>
+    </sly>
+
+</div>

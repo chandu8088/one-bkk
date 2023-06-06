@@ -1,0 +1,112 @@
+<div data-sly-test="${wcmmode.edit}" class="cq-placeholder" data-emptytext="News List"></div>
+<sly data-sly-use.newslist="com.fraserproperty.onebangkok.core.models.NewsListModel"/>
+<div class="${wcmmode.disabled || wcmmode.preview ? 'page-content-wrapper' : ''}" data-content-render="page">
+    <input id="defaultFilterLabel" type="hidden" value="${properties.filterDefaultText}"/>
+    <sly data-sly-test="${newslist.rootpath}">
+
+    <div class="container--article-news-list">
+        <div class="content content--divider-top article__wrapper">
+            <div class="ob-container container--left container--article-content-section">
+                <h2 class="header--black-left special-mb header--mb-center small-margin text">${newslist.heading @ context='html'}</h2>
+            </div>
+        </div>
+    </div>
+    <div class="ob-container container--left container--article">
+        <div class="article-menus">
+            <div>
+                <div class="nav--black-left text--bold article-menus__label">${newslist.filterHeading}</div>
+                <div class="custom-dropdown" data-content-filter="page">
+                    <div class="custom-dropdown__active-item">
+                                <span class="custom-dropdown__active-option-value">${properties.filterDefaultText}</span
+                                >
+                        <svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                    d="M55.864 49.595a4.745 4.745 0 0 0 6.74 0 4.818 4.818 0 0 0 0-6.783L35.37 15.405a4.745 4.745 0 0 0-6.74 0L1.396 42.812a4.818 4.818 0 0 0 0 6.783 4.745 4.745 0 0 0 6.74 0l23.877-24.029 23.851 24.03z"
+                                    fill="#000"
+                                    fill-rule="evenodd"
+                            />
+                        </svg>
+                    </div>
+                    <div class="custom-dropdown__options">
+                            <div class="custom-dropdown__item active" data-option-value="all" data-option-name="All news & updates">
+                                All news & updates<img src="/etc.clientlibs/onebangkok/clientlibs/clientlib-base/resources/images/icons/icons-checked.svg" />
+                            </div>
+                        <!--  <div class="custom-dropdown__item" data-option-value="2021" data-option-name="2021">
+                             2021<img src="./assets/icons/icons-checked.svg" />
+                         </div>
+                         <div class="custom-dropdown__item" data-option-value="2020" data-option-name="2020">
+                             2020<img src="./assets/icons/icons-checked.svg" />
+                         </div> -->
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="nav--black-left text--bold text--uppercase" data-content-showing-counter="page"></div>
+            </div>
+        </div>
+        <div class="article-thumbnail--list" data-content-listing="page">
+            <!-- <div class="article-thumbnail-item" data-aos="fade-up" data-aos-offset="0">
+                <a class="article-thumbnail-item__image" href="/stories/components/__PageNewsDetail.html">
+                    <img src="./assets/hero-article-image.jpg" />
+                </a>
+                <div class="article-thumbnail-item__date">APRIL 30, 2020</div>
+
+                <p class="body-2--black-left article-thumbnail-item__content">
+                    Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit, Sed Do Eiusmod Tempor Incididunt Ut Labore Et Dolore Magna Aliqua
+                    Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit, Sed Do Eiusmod Tempor Incididunt Ut Labore Et Dolore Magna Aliqua
+                </p>
+                <a class="button button--text" href="#">
+                    Find out more
+                    <svg width="26" height="16" viewBox="0 0 26 16" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M8.125 0C3.547 0 0 3.582 0 7.795 0 12.418 3.547 16 8.125 16c3.988 0 7.405-3.273 7.698-7.6h5.844v2L26 8l-4.333-2.4v2l-5.827.001v-.048C15.707 3.445 12.217 0 8.125 0zm-.203 15.2C3.984 15.2.792 11.976.792 8S3.984.8 7.922.8c3.805 0 6.913 3.01 7.119 6.8H8.273v.8h6.768c-.206 3.79-3.314 6.8-7.12 6.8z"
+                            fill="#000"
+                            fill-rule="evenodd"
+                        />
+                    </svg>
+                </a>
+            </div> -->
+        </div>
+            <div class="ob-container empty-result hidden">
+                <div class="body-2--black-center">${newslist.noresultsMessage @ context = 'html'}</div>
+            </div>
+        <sly data-sly-test="${newslist.newsList}">
+            <div class="pagination pagination--desktop pagination--desktop-only">
+                <svg class="pagination__back-btn disabled" width="26" height="16" viewBox="0 0 26 16"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <!-- add `disabled` class to disable on page = 1 -->
+                    <path
+                            d="M8.125 0C3.547 0 0 3.582 0 7.795 0 12.418 3.547 16 8.125 16c3.988 0 7.405-3.273 7.698-7.6h5.844v2L26 8l-4.333-2.4v2l-5.827.001v-.048C15.707 3.445 12.217 0 8.125 0zm-.203 15.2C3.984 15.2.792 11.976.792 8S3.984.8 7.922.8c3.805 0 6.913 3.01 7.119 6.8H8.273v.8h6.768c-.206 3.79-3.314 6.8-7.12 6.8z"
+                            fill="#000"
+                            fill-rule="evenodd"
+                    />
+                </svg>
+                <div class="pagination--dots">
+                    <!-- below is sample of how javascript append the dots -->
+                    <!-- <div class="active"></div>
+                    <div></div>
+                    <div></div> -->
+                </div>
+                <svg class="pagination__next-btn" width="26" height="16" viewBox="0 0 26 16"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path
+                            d="M8.125 0C3.547 0 0 3.582 0 7.795 0 12.418 3.547 16 8.125 16c3.988 0 7.405-3.273 7.698-7.6h5.844v2L26 8l-4.333-2.4v2l-5.827.001v-.048C15.707 3.445 12.217 0 8.125 0zm-.203 15.2C3.984 15.2.792 11.976.792 8S3.984.8 7.922.8c3.805 0 6.913 3.01 7.119 6.8H8.273v.8h6.768c-.206 3.79-3.314 6.8-7.12 6.8z"
+                            fill="#000"
+                            fill-rule="evenodd"
+                    />
+                </svg>
+            </div>
+            <button
+                    class="button--solid--black button--center loadmore-btn"
+                    type="button"
+                    data-aos="fade-up"
+                    href="#"
+                    data-aos-offset="0"
+                    data-content-loadmore="page"
+            >
+                Load more
+            </button>
+        </sly>
+    </div>
+    </sly>
+</div>

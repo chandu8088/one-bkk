@@ -1,0 +1,141 @@
+<div data-sly-test="${wcmmode.edit}" class="cq-placeholder" data-emptytext="Event List"></div>
+<sly data-sly-use.eventlist="com.fraserproperty.onebangkok.core.models.EventListModel"/>
+<div class="ob-container container--left">
+    <sly data-sly-test="${eventlist.eventRootpath}">
+    <h2 class="header--black-left tab-header--left">${eventlist.heading @ context = 'html'}</h2>
+    <div class="tab tab--default">
+        <div class="tab__wrapper tab--fit">
+            <div class="tab__item active" data-tab-group="events" data-tab-target="upcoming">${eventlist.upcomingEventLabel}</div>
+            <div class="tab__item inactive" data-tab-group="events" data-tab-target="past">${eventlist.pastEvenstLabel}</div>
+        </div>
+    </div>
+    </sly>
+    <sly data-sly-test="${eventlist.upCommingEvents}">
+    <div class="article-list-with-pagination tab-content tab-content--active" data-tab-group="events"
+         data-tab-content="upcoming">
+        <div
+                class="article-thumbnail article-thumbnail-list-wrapper"
+                data-aos="fade-up"
+                data-aos-offset="0"
+                data-pagination="pagination-type-1"
+                data-pagination-config=""
+        >
+            <sly data-sly-list.events="${eventlist.upCommingEvents}">
+            <div class="article-thumbnail--list pagination-group">
+				<sly data-sly-list.key="${eventlist.upCommingEvents[events]}">
+                <div class="article-thumbnail-item">
+                    <a class="article-thumbnail-item__image" >
+                        <img src="${key.thumbnailImage}"/>
+                    </a>
+                    <div class="article-thumbnail-item__date">
+					<sly data-sly-test="${key.isYearSame == 'true'}">${ 'dd MMM' @ format=key.startdate, timezone='GMT+7'}</sly>
+                        <sly data-sly-test="${key.isYearSame == 'false'}">${ 'dd MMM yyyy' @ format=key.startdate, timezone='GMT+7'}</sly>
+                        <sly data-sly-test="${key.eventtype == 'multiday' && key.enddate}"> - ${ 'dd MMM yyyy' @ format= key.enddate, timezone='GMT+7'}</sly>
+                    </div>
+                    <div class="article-thumbnail-item__time">${ 'hh.mm aa' @ format= key.startTime, timezone='GMT+7'}<sly data-sly-test="${key.endTime}"> – ${ 'hh.mm aa' @ format= key.endTime, timezone='GMT+7'}</sly></div>
+                    <div class="callout-3--black-left">${key.eventHeading}</div>
+                    <div class="body-2--black-left article-thumbnail-item__content">
+                        ${key.eventDescription @ context = 'html'}
+                    </div>
+                    <a class="button button--text" href="${key.ctaUrl @ extension = 'html'}">
+                        ${eventlist.cardCtaLabel}
+                        <svg width="26" height="16" viewBox="0 0 26 16" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                    d="M8.125 0C3.547 0 0 3.582 0 7.795 0 12.418 3.547 16 8.125 16c3.988 0 7.405-3.273 7.698-7.6h5.844v2L26 8l-4.333-2.4v2l-5.827.001v-.048C15.707 3.445 12.217 0 8.125 0zm-.203 15.2C3.984 15.2.792 11.976.792 8S3.984.8 7.922.8c3.805 0 6.913 3.01 7.119 6.8H8.273v.8h6.768c-.206 3.79-3.314 6.8-7.12 6.8z"
+                                    fill="#000"
+                                    fill-rule="evenodd"
+                            />
+                        </svg>
+                    </a>
+                </div>
+                </sly>
+            </div>
+            </sly>
+        </div>
+        <!-- Provide element with button icon for going forward and backward -->
+        <div class="pagination">
+            <svg class="pagination__back-btn" width="26" height="16" viewBox="0 0 26 16"
+                 xmlns="http://www.w3.org/2000/svg">
+                <path
+                        d="M8.125 0C3.547 0 0 3.582 0 7.795 0 12.418 3.547 16 8.125 16c3.988 0 7.405-3.273 7.698-7.6h5.844v2L26 8l-4.333-2.4v2l-5.827.001v-.048C15.707 3.445 12.217 0 8.125 0zm-.203 15.2C3.984 15.2.792 11.976.792 8S3.984.8 7.922.8c3.805 0 6.913 3.01 7.119 6.8H8.273v.8h6.768c-.206 3.79-3.314 6.8-7.12 6.8z"
+                        fill="#000"
+                        fill-rule="evenodd"
+                />
+            </svg>
+            <div class="pagination--dots"></div>
+            <svg class="pagination__next-btn" width="26" height="16" viewBox="0 0 26 16"
+                 xmlns="http://www.w3.org/2000/svg">
+                <path
+                        d="M8.125 0C3.547 0 0 3.582 0 7.795 0 12.418 3.547 16 8.125 16c3.988 0 7.405-3.273 7.698-7.6h5.844v2L26 8l-4.333-2.4v2l-5.827.001v-.048C15.707 3.445 12.217 0 8.125 0zm-.203 15.2C3.984 15.2.792 11.976.792 8S3.984.8 7.922.8c3.805 0 6.913 3.01 7.119 6.8H8.273v.8h6.768c-.206 3.79-3.314 6.8-7.12 6.8z"
+                        fill="#000"
+                        fill-rule="evenodd"
+                />
+            </svg>
+        </div>
+    </div>
+    </sly>
+    <sly data-sly-test="${eventlist.pastEvents}">
+    <div class="article-list-with-pagination tab-content tab-content--inactive" data-tab-group="events"
+         data-tab-content="past">
+        <div
+                class="article-thumbnail article-thumbnail-list-wrapper"
+                data-aos="fade-up"
+                data-aos-offset="0"
+                data-pagination="pagination-type-1"
+                data-pagination-config=""
+        >
+            <sly data-sly-list.events="${eventlist.pastEvents}">
+            <div class="article-thumbnail--list pagination-group">
+            	<sly data-sly-list.key="${eventlist.pastEvents[events]}">
+                <div class="article-thumbnail-item">
+                    <a class="article-thumbnail-item__image">
+                        <img src="${key.thumbnailImage}"/>
+                    </a>
+                    <div class="article-thumbnail-item__date">
+                        <sly data-sly-test="${key.isYearSame == 'true'}">${ 'dd MMM' @ format=key.startdate, timezone='GMT+7'}</sly>
+                        <sly data-sly-test="${key.isYearSame == 'false'}">${ 'dd MMM yyyy' @ format=key.startdate, timezone='GMT+7'}</sly>
+                        <sly data-sly-test="${key.eventtype == 'multiday' && key.enddate}"> - ${ 'dd MMM yyyy' @ format= key.enddate, timezone='GMT+7'}</sly>
+                    </div>
+                    <div class="article-thumbnail-item__time">${ 'hh.mm aa' @ format= key.startTime, timezone='GMT+7'} <sly data-sly-test="${key.endTime}"> – ${ 'hh.mm aa' @ format= key.endTime, timezone='GMT+7'}</sly></div>
+                    <div class="callout-3--black-left">${key.eventHeading}</div>
+                    <div class="body-2--black-left article-thumbnail-item__content">
+                        ${key.eventDescription @ context = 'html'}
+                    </div>
+                    <a class="button button--text" href="${key.ctaUrl @ extension = 'html'}">
+                        ${eventlist.cardCtaLabel}
+                        <svg width="26" height="16" viewBox="0 0 26 16" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                    d="M8.125 0C3.547 0 0 3.582 0 7.795 0 12.418 3.547 16 8.125 16c3.988 0 7.405-3.273 7.698-7.6h5.844v2L26 8l-4.333-2.4v2l-5.827.001v-.048C15.707 3.445 12.217 0 8.125 0zm-.203 15.2C3.984 15.2.792 11.976.792 8S3.984.8 7.922.8c3.805 0 6.913 3.01 7.119 6.8H8.273v.8h6.768c-.206 3.79-3.314 6.8-7.12 6.8z"
+                                    fill="#000"
+                                    fill-rule="evenodd"
+                            />
+                        </svg>
+                    </a>
+                </div>
+                </sly>
+            </div>
+            </sly>
+        </div>
+        <!-- Provide element with button icon for going forward and backward -->
+        <div class="pagination">
+            <svg class="pagination__back-btn" width="26" height="16" viewBox="0 0 26 16"
+                 xmlns="http://www.w3.org/2000/svg">
+                <path
+                        d="M8.125 0C3.547 0 0 3.582 0 7.795 0 12.418 3.547 16 8.125 16c3.988 0 7.405-3.273 7.698-7.6h5.844v2L26 8l-4.333-2.4v2l-5.827.001v-.048C15.707 3.445 12.217 0 8.125 0zm-.203 15.2C3.984 15.2.792 11.976.792 8S3.984.8 7.922.8c3.805 0 6.913 3.01 7.119 6.8H8.273v.8h6.768c-.206 3.79-3.314 6.8-7.12 6.8z"
+                        fill="#000"
+                        fill-rule="evenodd"
+                />
+            </svg>
+            <div class="pagination--dots"></div>
+            <svg class="pagination__next-btn" width="26" height="16" viewBox="0 0 26 16"
+                 xmlns="http://www.w3.org/2000/svg">
+                <path
+                        d="M8.125 0C3.547 0 0 3.582 0 7.795 0 12.418 3.547 16 8.125 16c3.988 0 7.405-3.273 7.698-7.6h5.844v2L26 8l-4.333-2.4v2l-5.827.001v-.048C15.707 3.445 12.217 0 8.125 0zm-.203 15.2C3.984 15.2.792 11.976.792 8S3.984.8 7.922.8c3.805 0 6.913 3.01 7.119 6.8H8.273v.8h6.768c-.206 3.79-3.314 6.8-7.12 6.8z"
+                        fill="#000"
+                        fill-rule="evenodd"
+                />
+            </svg>
+        </div>
+    </div>
+    </sly>
+</div>

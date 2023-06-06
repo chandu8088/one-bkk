@@ -1,0 +1,56 @@
+<div data-sly-test="${wcmmode.edit}" class="cq-placeholder" data-emptytext="Feature Event Component"></div>
+<sly data-sly-use.featureEvent="com.fraserproperty.onebangkok.core.models.FeatureEventModel"/>
+
+<!-- DISTRICT BANNER -->
+<div class="ob-container container--left-large container--offset-divider">
+    <div class="container--middle">
+        <div class="content content--left">
+            <div class="content__wrapper--large content__wrapper--middle">
+                <h2 data-sticky-target="masonary" class="header--black-left">${featureEvent.heading @context='html'}</h2>
+                <p class="body-2--black-left" data-aos="fade">
+                    ${featureEvent.description @context='html'}
+                </p>
+                <a class="button button--icon button--solid--black" href="${featureEvent.ctaUrl @extension='html'}" target="${featureEvent.openNewTab}" data-aos="fade">
+                    ${featureEvent.ctaLabel}
+                    <svg width="26" height="16" viewBox="0 0 26 16" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                                d="M8.125 0C3.547 0 0 3.582 0 7.795 0 12.418 3.547 16 8.125 16c3.988 0 7.405-3.273 7.698-7.6h5.844v2L26 8l-4.333-2.4v2l-5.827.001v-.048C15.707 3.445 12.217 0 8.125 0zm-.203 15.2C3.984 15.2.792 11.976.792 8S3.984.8 7.922.8c3.805 0 6.913 3.01 7.119 6.8H8.273v.8h6.768c-.206 3.79-3.314 6.8-7.12 6.8z"
+                                fill="#fff"
+                                fill-rule="evenodd"
+                        />
+                    </svg>
+                </a>
+            </div>
+            <div class="content__media content__wrapper--middle">
+                <div data-scroll-animate="5" class="image-circular-content">
+                    <img
+                            data-aos="zoom-in"
+                            class="image-circular-content__background"
+                            src="${featureEvent.featureImage}"
+                    />
+                    <a href="${featureEvent.eventPage @extension='html'}" class="image-circular-content__content-wrapper" data-aos="zoom-in">
+                        <div>
+                            <div class="caption-1--white-center">${featureEvent.featuredEventLabel}</div>
+                            <p class="body-1--white-center">
+                                <span class="text--bold"> ${featureEvent.eventHeading} </span><br />${featureEvent.eventStartDate} <sly data-sly-test="${featureEvent.eventType == 'multiday' && featureEvent.eventEndDate}">— ${featureEvent.eventEndDate}</sly>
+                            </p>
+                            <svg
+                                    class="image-circular-content__button"
+                                    width="26"
+                                    height="16"
+                                    viewBox="0 0 26 16"
+                                    xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                        d="M8.125 0C3.547 0 0 3.582 0 7.795 0 12.418 3.547 16 8.125 16c3.988 0 7.405-3.273 7.698-7.6h5.844v2L26 8l-4.333-2.4v2l-5.827.001v-.048C15.707 3.445 12.217 0 8.125 0zm-.203 15.2C3.984 15.2.792 11.976.792 8S3.984.8 7.922.8c3.805 0 6.913 3.01 7.119 6.8H8.273v.8h6.768c-.206 3.79-3.314 6.8-7.12 6.8z"
+                                        fill="#fff"
+                                        fill-rule="evenodd"
+                                />
+                            </svg>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

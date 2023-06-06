@@ -1,0 +1,11 @@
+<div data-sly-test="${wcmmode.edit}" class="cq-placeholder" data-emptytext="Separators"></div>
+<sly data-sly-use.separator="com.fraserproperty.onebangkok.core.models.SeparatorModel"/>
+<div class="ob-container container--left container--divider container--divider-top-page">
+<sly data-sly-test.class="${properties.dstyle == 'long'? 'divider divider--02-h' : 'divider divider--01-h'}"/>
+            <div class="${class}">
+                <div class="divider__bar"></div>
+                <sly data-sly-test=${separator.sLabel}>
+                <div class="divider__text">${separator.sLabel}</div>
+                </sly>
+            </div>
+        </div>

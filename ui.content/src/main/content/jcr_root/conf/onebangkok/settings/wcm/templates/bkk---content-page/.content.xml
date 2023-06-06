@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Template">
+    <jcr:content
+        cq:lastModified="{Date}2021-12-20T12:24:50.308+05:30"
+        cq:lastModifiedBy="admin"
+        cq:templateType="/conf/onebangkok/settings/wcm/template-types/page"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Content Page"
+        status="enabled"/>
+</jcr:root>

@@ -1,0 +1,96 @@
+<div data-sly-test="${wcmmode.edit}" class="cq-placeholder" data-emptytext="Asset Carousel Component"></div>
+<sly data-sly-use.assetCarousel="com.fraserproperty.onebangkok.core.models.AssetCarouselModel"/>
+<!-- CAROUSEL -->
+<sly data-sly-test.carouselId="${assetCarousel.carouselId}">
+<div data-sly-attribute.data-dark-nav="${properties.isBackgroundDark ? 'true':'false'}" class="carousel-wrapper carousel-rich carousel-rich--exp">
+    <div
+            class="carousel"
+            data-carousel="carousel-id-${carouselId}"
+            data-pagination="pagination-type-1"
+            data-pagination-config="loop ${assetCarousel.enableAutoCarousel ? 'auto-scroll' : ''}"
+    >
+
+        <sly data-sly-list.assetItem="${assetCarousel.assetItems}">
+            <sly data-sly-test="${assetItem.itemType == 'image'}">
+                <img src="${assetItem.image}" alt="${assetItem.imageAltText}" />
+            </sly>
+            <sly data-sly-test="${assetItem.itemType == 'video'}">
+                <sly data-sly-test="${assetItem.videoType == 'damVideo'}">
+                    <sly data-sly-test="${assetItem.damPosterImage}">
+                        <img src="${assetItem.damPosterImage}" data-carousel-object='<video controls> <source src="${assetItem.damVideo}#t=0.001" /> </video>'/>
+                    </sly>
+                    <sly data-sly-test="${!assetItem.damPosterImage}">
+                        <video controls> <source src="${assetItem.damVideo}#t=0.001" /> </video>
+                    </sly>
+
+                </sly>
+                <sly data-sly-test="${assetItem.videoType == 'youtubeVideo'}">
+                    <sly data-sly-test="${assetItem.posterImage}">
+                        <img src="${assetItem.posterImage}"
+                             data-carousel-object='<iframe src="https://www.youtube.com/embed/${assetItem.youtubeVideoId}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'/>
+                    </sly>
+                    <sly data-sly-test="${!assetItem.posterImage}">
+                        <iframe src="https://www.youtube.com/embed/${assetItem.youtubeVideoId}" title="YouTube video player" frameborder="0" ></iframe>
+                    </sly>
+                </sly>
+
+            </sly>
+
+        </sly>
+
+    </div>
+    <div class="ob-container container--left container--article pagination">
+        <svg class="pagination__back-btn" width="26" height="16" viewBox="0 0 26 16" xmlns="http://www.w3.org/2000/svg">
+            <path
+                    d="M8.125 0C3.547 0 0 3.582 0 7.795 0 12.418 3.547 16 8.125 16c3.988 0 7.405-3.273 7.698-7.6h5.844v2L26 8l-4.333-2.4v2l-5.827.001v-.048C15.707 3.445 12.217 0 8.125 0zm-.203 15.2C3.984 15.2.792 11.976.792 8S3.984.8 7.922.8c3.805 0 6.913 3.01 7.119 6.8H8.273v.8h6.768c-.206 3.79-3.314 6.8-7.12 6.8z"
+                    fill="#000"
+                    fill-rule="evenodd"
+            />
+        </svg>
+        <div class="pagination--dots"></div>
+        <svg class="pagination__next-btn" width="26" height="16" viewBox="0 0 26 16" xmlns="http://www.w3.org/2000/svg">
+            <path
+                    d="M8.125 0C3.547 0 0 3.582 0 7.795 0 12.418 3.547 16 8.125 16c3.988 0 7.405-3.273 7.698-7.6h5.844v2L26 8l-4.333-2.4v2l-5.827.001v-.048C15.707 3.445 12.217 0 8.125 0zm-.203 15.2C3.984 15.2.792 11.976.792 8S3.984.8 7.922.8c3.805 0 6.913 3.01 7.119 6.8H8.273v.8h6.768c-.206 3.79-3.314 6.8-7.12 6.8z"
+                    fill="#000"
+                    fill-rule="evenodd"
+            />
+        </svg>
+    </div>
+</div>
+<!-- ON CLICK CAROUSEL ITEM -->
+<div class="carousel-gallery" data-carousel-id="carousel-id-${carouselId}">
+    <div class="carousel-gallery__wrapper-backdrop"></div>
+    <div class="carousel-gallery__wrapper">
+        <div data-carousel-close-btn class="carousel-gallery__close-btn"><img src="/etc.clientlibs/onebangkok/clientlibs/clientlib-base/resources/fonts/buttons-close-circle.svg" /></div>
+        <div
+                class="carousel-content-wrapper"
+                data-pagination="pagination-type-1-carousel"
+                data-pagination-config="loop loop-mobile hide-control"
+        >
+            <div class="carousel-content-control-prev">
+                <img src="/etc.clientlibs/onebangkok/clientlibs/clientlib-base/resources/fonts/arrow-right.svg" />
+            </div>
+            <div class="carousel-content"></div>
+            <div class="carousel-content-control-next">
+                <img src="/etc.clientlibs/onebangkok/clientlibs/clientlib-base/resources/fonts/arrow-right.svg" />
+            </div>
+        </div>
+        <div class="pagination">
+            <svg class="pagination__back-btn" width="26" height="16" viewBox="0 0 26 16" xmlns="http://www.w3.org/2000/svg">
+                <path
+                        d="M8.125 0C3.547 0 0 3.582 0 7.795 0 12.418 3.547 16 8.125 16c3.988 0 7.405-3.273 7.698-7.6h5.844v2L26 8l-4.333-2.4v2l-5.827.001v-.048C15.707 3.445 12.217 0 8.125 0zm-.203 15.2C3.984 15.2.792 11.976.792 8S3.984.8 7.922.8c3.805 0 6.913 3.01 7.119 6.8H8.273v.8h6.768c-.206 3.79-3.314 6.8-7.12 6.8z"
+                        fill="#000"
+                        fill-rule="evenodd"
+                />
+            </svg>
+            <div class="pagination--dots"></div>
+            <svg class="pagination__next-btn" width="26" height="16" viewBox="0 0 26 16" xmlns="http://www.w3.org/2000/svg">
+                <path
+                        d="M8.125 0C3.547 0 0 3.582 0 7.795 0 12.418 3.547 16 8.125 16c3.988 0 7.405-3.273 7.698-7.6h5.844v2L26 8l-4.333-2.4v2l-5.827.001v-.048C15.707 3.445 12.217 0 8.125 0zm-.203 15.2C3.984 15.2.792 11.976.792 8S3.984.8 7.922.8c3.805 0 6.913 3.01 7.119 6.8H8.273v.8h6.768c-.206 3.79-3.314 6.8-7.12 6.8z"
+                        fill="#000"
+                        fill-rule="evenodd"
+                />
+            </svg>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+<div data-sly-test="${wcmmode.edit}" class="cq-placeholder" data-emptytext="Image Grid"></div>
+<sly data-sly-use.imagegrid="com.fraserproperty.onebangkok.core.models.ImageGridModel"/>
+<div class="ob-container container--left ${properties.contentSize ? 'container--article' : ''}">
+    <div class="content${properties.contentSize ? '--divider-top team' : ''}">
+<sly data-sly-test=${properties.contentSize}>
+                    <h2 class="header--black-${properties.alignment} special-mb" data-aos="fade" data-scroll-animate="4">
+					${imagegrid.heading @ context='html' }</h2>
+                    </sly>
+<sly data-sly-test=${!properties.contentSize}>
+                    <h2 class="header--black-${properties.alignment}">
+					${imagegrid.heading @ context='html' }</h2>
+                    </sly>
+                    
+
+                   <sly data-sly-test=${!properties.contentSize}>
+                    <p class="body-2--black-${properties.alignment}">
+                        ${imagegrid.description @ context='html'}
+                    </p>
+                    </sly>
+                     <sly data-sly-test=${properties.contentSize}>
+                    <div class="callout-1--black-left-mb" style="text-align:${properties.alignment @ context='styleToken'};" data-scroll-animate="5">
+                       ${imagegrid.description @ context='html'}
+                    </div>
+                    </sly>
+<sly data-sly-test=${properties.contentSize}>
+                    <div class="team-wrapper team-wrapper--small" data-scroll-animate="4">
+					 <sly data-sly-list="${imagegrid.imagegridList}">
+                        <img src="${item.imagePath}" alt="${item.imageAltText}" />
+                     </sly>
+                    </div>
+</sly>
+<sly data-sly-test=${!properties.contentSize}>
+                    <div class="team-wrapper">
+					 <sly data-sly-list="${imagegrid.imagegridList}">
+                        <img src="${item.imagePath}" alt="${item.imageAltText}" />
+                     </sly>
+                    </div>
+</sly>
+
+                   
+                </div>
+            </div>

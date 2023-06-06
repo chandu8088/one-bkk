@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Text Image"
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    extraClientlibs="[onebangkok.authoring.dialog]">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <general
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="PROPERTIES"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <well
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/well">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <Layout
+                                                granite:class="cq-dialog-dropdown-showhide"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                fieldDescription="Please Select Layout"
+                                                fieldLabel="Layout"
+                                                name="./layout">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <constrainedwidth
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="50-50 constrained width"
+                                                        value="constrainedwidth"/>
+                                                    <fullwidth
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="50-50 full width"
+                                                        value="fullwidth"/>
+                                                    <textimageinfographics
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Text image with infographics"
+                                                        value="textimageinfographics"/>
+                                                </items>
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    cq-dialog-dropdown-showhide-target=".mobile-alignment-hide-show"/>
+                                            </Layout>
+                                            <animation
+                                                granite:class="hide mobile-alignment-hide-show"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                showhidetargetvalue="fullwidth">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <enableAnimation
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="/libs/granite/ui/components/coral/foundation/form/checkbox"
+                                                        name="./enableAnimation"
+                                                        text="Enable Circular Animation"
+                                                        uncheckedValue="false"
+                                                        value="{Boolean}true"/>
+                                                </items>
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    showhidetargetvalue="fullwidth"/>
+                                            </animation>
+                                            <thinHeading
+                                                granite:class="hide mobile-alignment-hide-show"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                showhidetargetvalue="constrainedwidth">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <thinHeading
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="/libs/granite/ui/components/coral/foundation/form/checkbox"
+                                                        name="./thinHeading"
+                                                        text="Use Thin Heading Font"
+                                                        uncheckedValue="false"
+                                                        value="{Boolean}true"/>
+                                                </items>
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    showhidetargetvalue="constrainedwidth"/>
+                                            </thinHeading>
+                                            <image
+                                                jcr:primaryType="nt:unstructured"
+                                                fieldDescription="Full width aspect ratio 694∶705, Other variations use 1:1"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                fieldLabel="Image"
+                                                name="./image"
+                                                required="{Boolean}true"
+                                                rootPath="/content/dam/onebangkok"/>
+                                            <imagealttext
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Image Alt Text"
+                                                name="./imgAltText"/>
+                                            <desktopimagealignment
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                fieldDescription="Please Select Desktop Image Alignment"
+                                                fieldLabel="Desktop Image Alignment"
+                                                name="./desktopImageAlignment">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <left
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Left"
+                                                        value="left"/>
+                                                    <right
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Right"
+                                                        value="right"/>
+                                                </items>
+                                            </desktopimagealignment>
+                                            <mobilealign
+                                                granite:class="hide mobile-alignment-hide-show"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                showhidetargetvalue="constrainedwidth">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <mobileimagealignment
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                        fieldDescription="Please Select Mobile Image Alignment"
+                                                        fieldLabel="Mobile Image Alignment"
+                                                        name="./mobileImageAlignment">
+                                                        <items jcr:primaryType="nt:unstructured">
+                                                            <top
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="Top"
+                                                                value="top"/>
+                                                            <bottom
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="Bottom"
+                                                                value="bottom"/>
+                                                        </items>
+                                                    </mobileimagealignment>
+                                                </items>
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    showhidetargetvalue="constrainedwidth"/>
+                                            </mobilealign>
+                                            <heading
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                                fieldLabel="Heading"
+                                                name="./headingRTE"
+                                                required="{Boolean}true"
+                                                useFixedInlineToolbar="{Boolean}true">
+                                                <rtePlugins
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceSuperType="/apps/onebangkok/components/authoring/richtext/rtePlugins"/>
+                                                <uiSettings
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceSuperType="/apps/onebangkok/components/authoring/richtext/uiSettings"/>
+                                            </heading>
+                                            <description
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                                fieldLabel="Description"
+                                                name="./descriptionRTE"
+                                                required="{Boolean}true"
+                                                useFixedInlineToolbar="{Boolean}true">
+                                                <rtePlugins
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceSuperType="/apps/onebangkok/components/authoring/richtext/rtePlugins"/>
+                                                <uiSettings
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceSuperType="/apps/onebangkok/components/authoring/richtext/uiSettings"/>
+                                            </description>
+                                            <buttontype
+                                                granite:class="cq-dialog-dropdown-showhide"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                fieldLabel="Button type"
+                                                name="./buttontype">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <link
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Link"
+                                                        value="link"/>
+                                                    <download
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Download"
+                                                        value="download"/>
+                                                </items>
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    cq-dialog-dropdown-showhide-target=".showhidetargets"/>
+                                            </buttontype>
+                                            <ctalabel
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                                                fieldLabel="CTA Label"
+                                                name="./ctalabel"
+                                                useFixedInlineToolbar="{Boolean}true"/>
+                                            <linktype
+                                                granite:class="showhidetargets"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <ctaURL
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                        fieldLabel="CTA URL"
+                                                        name="./ctaurl"
+                                                        rootPath="/content/onebangkok"/>
+                                                    <openinnewtab
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                        name="./openinnewtab"
+                                                        text="Open in new tab"
+                                                        value="_blank"/>
+                                                </items>
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    cq-dialog-dropdown-showhide-target=".showhidetargets"
+                                                    showhidetargetvalue="link"/>
+                                            </linktype>
+                                            <downloadtype
+                                                granite:class="showhidetargets"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <assetpath
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                        fieldDescription="Select a PDF, Image or Word document from DAM"
+                                                        fieldLabel="Asset path"
+                                                        name="./assetpath"
+                                                        rootPath="/content/dam/onebangkok"/>
+                                                    <enableform
+                                                        granite:class="cq-dialog-checkbox-showhide"
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                        fieldLabel="Enable Form"
+                                                        name="./enableForm"
+                                                        text="Enable Form"
+                                                        value="true">
+                                                        <granite:data
+                                                            jcr:primaryType="nt:unstructured"
+                                                            cq-dialog-checkbox-showhide-target=".togglefield"/>
+                                                    </enableform>
+                                                    <formcontainer
+                                                        granite:class="togglefield"
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                        <items jcr:primaryType="nt:unstructured">
+                                                            <formid
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                fieldLabel="Form id"
+                                                                name="./formid"
+                                                                validation="onebkk-formid-validation"/>
+                                                        </items>
+                                                    </formcontainer>
+                                                </items>
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    cq-dialog-dropdown-showhide-target=".showhidetargets"
+                                                    showhidetargetvalue="download"/>
+                                            </downloadtype>
+                                            <infographics
+                                                granite:class="hide mobile-alignment-hide-show"
+                                                jcr:primaryType="nt:unstructured"
+                                                jcr:title="Add Information Blocks"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/fieldset"
+                                                showhidetargetvalue="textimageinfographics">
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    showhidetargetvalue="textimageinfographics"/>
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <multifield
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                        composite="{Boolean}true">
+                                                        <field
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                            name="./infographicItems">
+                                                            <items jcr:primaryType="nt:unstructured">
+                                                                <well
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/well">
+                                                                    <items jcr:primaryType="nt:unstructured">
+                                                                        <iconposition
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
+                                                                            defaultValue="0"
+                                                                            fieldLabel="Icon Position"
+                                                                            max="{Long}360"
+                                                                            min="{Long}0"
+                                                                            name="./iconPosition"
+                                                                            required="{Boolean}true"
+                                                                            value="{Long}0"/>
+                                                                        <icon
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            fieldDescription="Only svg icons allowed"
+                                                                            sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                                            fieldLabel="Icon (only svg images)"
+                                                                            name="./icon"
+                                                                            required="{Boolean}true"
+                                                                            rootPath="/content/dam/onebangkok"/>
+                                                                        <iconlabel
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                            fieldLabel="Icon Label"
+                                                                            name="./iconLabel"
+                                                                            required="{Boolean}true"/>
+                                                                        <description
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                                                            fieldLabel="Description"
+                                                                            name="./iconDescription"
+                                                                            required="{Boolean}true"
+                                                                            useFixedInlineToolbar="{Boolean}true">
+                                                                            <rtePlugins
+                                                                                jcr:primaryType="nt:unstructured"
+                                                                                sling:resourceSuperType="/apps/onebangkok/components/authoring/rtev2/rtePlugins"/>
+                                                                            <uiSettings
+                                                                                jcr:primaryType="nt:unstructured"
+                                                                                sling:resourceSuperType="/apps/onebangkok/components/authoring/rtev2/uiSettings"/>
+                                                                        </description>
+                                                                    </items>
+                                                                </well>
+                                                            </items>
+                                                        </field>
+                                                    </multifield>
+                                                </items>
+                                            </infographics>
+                                        </items>
+                                    </well>
+                                </items>
+                            </columns>
+                        </items>
+                    </general>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

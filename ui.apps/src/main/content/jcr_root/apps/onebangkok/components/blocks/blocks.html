@@ -1,0 +1,22 @@
+<div data-sly-test="${wcmmode.edit}" class="cq-placeholder" data-emptytext="Blocks Component"></div>
+<sly data-sly-use.child="com.fraserproperty.onebangkok.core.models.BlocksModel"/>
+<div class="ob-container container--left container-standard">
+ <sly data-sly-test="${child.heading}">
+                <h2 class="header--black-left aos-init aos-animate" data-aos="fade-up" data-aos-offset="0">${child.heading @context='html'}</h2>
+</sly>
+               <div class="standard-list">
+				<sly data-sly-list=${child.blocksList}>
+                <sly data-sly-test="${item.imagePath || item.imageAltText || item.blockContent}">
+                    <div class="standard-item">
+                        <img src="${item.imagePath}" alt="${item.imageAltText}">
+                        <div class="body-2--black-left">
+                           ${item.blockContent @context='html'}
+                        </div>  
+                       
+                    </div>
+                   
+                   </sly>
+                   </sly>
+                </div>
+            </div>
+			

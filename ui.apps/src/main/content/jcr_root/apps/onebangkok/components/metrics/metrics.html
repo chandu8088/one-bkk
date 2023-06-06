@@ -1,0 +1,30 @@
+<div data-sly-test="${wcmmode.edit}" class="cq-placeholder" data-emptytext="Metrics Component"></div>
+
+<sly data-sly-use.edit_metrics="com.fraserproperty.onebangkok.core.models.MetricsModel"/>
+
+
+<div class="ob-container container--left container--relative">
+        <div class="stat-numbers">
+        <sly data-sly-test=${edit_metrics.heading}>
+            <h3 class="header--black-${properties.alignment}" data-aos="fade-up" data-aos-offset="0">${edit_metrics.heading @ context = 'html'}</h3>
+				</sly>
+                 <sly data-sly-test=${edit_metrics.description}>
+              <div class="body-2--black-${properties.alignment} body--mb-${properties.alignment}">
+				${edit_metrics.description @ context = 'html'}
+				</div>
+</sly>
+                <div class="stat-numbers__number-wrapper">
+					<sly data-sly-list='${edit_metrics.items}'>
+
+						<div class="stat-item" data-aos="fade-up" data-aos-offset="0" >
+							<img class="stat-item__icon" src="${item.itemimage}" />
+							<div class="stat-item__content">
+								<div class="stat-item__title">${item.itemheading @ context = 'html'}</div>
+								<div class="stat-item__value">${item.itemvalue @ context = 'html'}<span>${item.itemmetric @ context = 'html'}</span></div>
+							</div>
+                        </div>
+
+                    </sly>
+                </div>
+        </div>
+</div>

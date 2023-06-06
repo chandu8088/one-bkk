@@ -1,0 +1,57 @@
+<!--/*
+    Copyright 2017 Adobe Systems Incorporated
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+*/-->
+
+<sly data-sly-use.page="com.adobe.cq.wcm.core.components.models.Page"/>
+<div data-sly-test="${wcmmode.edit}" class="check-edit-mode" style="display:none"></div>
+<div data-sly-test="${page.language == 'en'}">
+    <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
+        <sly data-sly-call="${clientlib.css @ categories='onebangkok.font-en'}"/>
+    </sly>
+</div>
+<div data-sly-test="${page.language == 'th'}">
+    <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
+        <sly data-sly-call="${clientlib.css @ categories='onebangkok.font-th'}"/>
+    </sly>
+</div>
+<div data-sly-test="${page.language == 'zh'}">
+    <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
+        <sly data-sly-call="${clientlib.css @ categories='onebangkok.font-cn'}"/>
+    </sly>
+</div>
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
+    <sly data-sly-call="${clientlib.css @ categories='onebangkok.base'}"/>
+</sly>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T2MS5ZC');</script>
+<!-- End Google Tag Manager -->
+
+<!-- OneTrust Cookies Consent Notice start for uat.onebangkok.com -->
+<script type="text/javascript" src="https://cdn-apac.onetrust.com/consent/67f8bc64-d298-450b-a3d5-581cbfb9905f-test/OtAutoBlock.js" ></script>
+<script src="https://cdn-apac.onetrust.com/scripttemplates/otSDKStub.js" data-document-language="true" type="text/javascript" charset="UTF-8" data-domain-script="67f8bc64-d298-450b-a3d5-581cbfb9905f-test" ></script>
+<script type="text/javascript">
+function OptanonWrapper() {
+    // when banner interaction happens or consent has changed
+    OneTrust.OnConsentChanged(function () {
+        location.reload();
+    })
+}
+</script>
+<!-- OneTrust Cookies Consent Notice end for uat.onebangkok.com -->
